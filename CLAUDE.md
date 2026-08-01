@@ -37,11 +37,16 @@ now being retired).
 Edit → commit → `git push` to `origin/main`. GitHub Pages auto-builds; live in a minute or two.
 Hard-refresh (Ctrl/Cmd+F5) to beat browser cache.
 
+## Lessons (rebuilt from the Joomla backup)
+`lessons.html` + `lessons/<alias>.html` are **generated** from the old site's database, not hand-written.
+- 58 lessons across 4 tracks: Unreal Engine (49, in 5 series), Project Planning & Design (3), 3D/Blender (4), 2D (2).
+- Each old article was `description + {youtube}` tag(s); rebuilt as a page that embeds the video(s) + keeps the text.
+- Example PDFs (pitch decks / design docs) live under `assets/lessons/Lessons/PitchPlan/` (~90 MB; some are
+  third-party industry docs, kept at the maintainer's decision).
+- Source of truth for regeneration: the `.JPA` backup → extract `installation/sql/site.*` → concat → parse.
+  (The one-off extractor/generator scripts were in a scratchpad and may not persist.)
+
 ## To do / next
-- Replace placeholder cards with real curated lessons; fill in About and Pitchdeck.
-- **Original article text** can be recovered if wanted: best source is an **Akeeba `.JPA` backup** of the
-  old Joomla site; fallback is the **Wayback Machine** (most recent capture 2026-05-13 — note
-  `web.archive.org` may be blocked to automated fetchers, so a proxy or manual browser is needed).
-  The live `trollbyte.io` is gone.
+- Fill in About and Pitchdeck (the old `PitchDeck` category, id 13, has ~14 articles not yet imported).
 - A graphics-focused colleague may later provide a **2D image** to build a real visual template around
   (swap the emoji placeholders for art, derive the palette from the image).
