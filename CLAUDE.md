@@ -46,7 +46,13 @@ Hard-refresh (Ctrl/Cmd+F5) to beat browser cache.
 - Source of truth for regeneration: the `.JPA` backup → extract `installation/sql/site.*` → concat → parse.
   (The one-off extractor/generator scripts were in a scratchpad and may not persist.)
 
+## Pitchdeck (rebuilt from backup)
+`pitchdeck.html` + `pitchdeck/<alias>.html` are generated from the old `PitchDeck` category (id 13):
+14 student "VR Arcade" game pitches (~2 yrs old), each with write-up + concept art under `assets/pitchdeck/`.
+Kept as example starting points for new students.
+
 ## To do / next
-- Fill in About and Pitchdeck (the old `PitchDeck` category, id 13, has ~14 articles not yet imported).
+- Fill in the About page (still placeholder).
+- Repo is ~175 MB (lesson PDFs + pitch art). Fine for GitHub, but keep an eye on it if adding lots more media.
 - A graphics-focused colleague may later provide a **2D image** to build a real visual template around
   (swap the emoji placeholders for art, derive the palette from the image).
