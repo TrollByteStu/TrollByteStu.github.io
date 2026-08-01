@@ -4,11 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lessons — TrollByte</title>
-  <meta name="description" content="Curated game-dev lessons: Unreal Engine and Project Planning.">
+  <meta name="description" content="Curated game-dev lessons: Unreal Engine, project planning, 3D and 2D.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
@@ -22,97 +23,521 @@
       <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
     </div>
   </header>
-
   <main>
     <section class="wrap hero" style="padding-block:48px 8px">
       <span class="kicker">Curated by your teacher</span>
       <h1>Lessons</h1>
-      <p>The best game-dev videos from around the web, picked and ordered so they actually build on each other — plus a few written tutorials of our own.</p>
+      <p>Hand-picked game-dev lessons — mostly short videos, grouped into courses. Click any lesson to watch it with its notes.</p>
+      <div class="jumpnav"><a href="#unreal">🎮 Unreal Engine</a><a href="#planning">🗂️ Project Planning &amp; Design</a><a href="#threed">🧊 3D</a><a href="#twod">🎨 2D</a></div>
     </section>
 
-    <!-- ============ UNREAL ENGINE ============ -->
-    <section class="wrap section" id="unreal-engine">
-      <div class="cat-head">
-        <span class="ico">🎮</span>
-        <div><h2>Unreal Engine</h2><p class="muted">Materials, destruction, and hands-on Unreal skills.</p></div>
-      </div>
-      <div class="grid">
-
-        <!-- CURATED YOUTUBE LESSON — copy this card for each video.
-             To use a real YouTube thumbnail, replace the emoji <div> with:
-             <a class="thumb video" href="https://youtu.be/VIDEO_ID"><img src="https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg" alt=""></a>
-             and point the <h3> link at the same URL. -->
-        <article class="card">
-          <div class="thumb video">✨</div>
-          <div class="body">
-            <span class="tag badge-yt">▶ YouTube</span>
-            <h3><a href="#">5-Minute Materials 10 — Shadow Pass Switch</a></h3>
-            <p class="note">Why I picked it: the clearest explanation of the shadow pass switch I've found.</p>
-            <div class="meta">Prismatica Dev · Material Masterclass</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb video">🌀</div>
-          <div class="body">
-            <span class="tag badge-yt">▶ YouTube</span>
-            <h3><a href="#">5-Minute Materials 11 — Dither Temporal AA</a></h3>
-            <p class="note">Why I picked it: a quick trick for cleaner masked materials in motion.</p>
-            <div class="meta">Prismatica Dev · Material Masterclass</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="thumb video">🧱</div>
-          <div class="body">
-            <span class="tag badge-yt">▶ YouTube</span>
-            <h3><a href="#">Chaos Destruction 06 — Disable Fields for Performance</a></h3>
-            <p class="note">Why I picked it: keep the physics chaos smooth without melting the frame rate.</p>
-            <div class="meta">Chaos Destruction Series</div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ============ PROJECT PLANNING ============ -->
-    <section class="wrap section" id="project-planning">
-      <div class="cat-head">
-        <span class="ico">🗂️</span>
-        <div><h2>Project Planning</h2><p class="muted">From idea to a finished, shippable game.</p></div>
-      </div>
+    <section class="wrap section" id="unreal">
+      <div class="cat-head"><span class="ico">🎮</span><div><h2>Unreal Engine</h2></div></div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">Star Wars Hangar Scene <span class="muted" style="font-weight:400">· 13</span></h3>
       <div class="grid">
         <article class="card">
-          <div class="thumb video">🎯</div>
+          <a class="thumb video" href="lessons/lesson-01-hangar.html"><img loading="lazy" src="https://img.youtube.com/vi/L9qixi858Ag/hqdefault.jpg" alt=""><span class="parts">▶ 2</span></a>
           <div class="body">
             <span class="tag badge-yt">▶ YouTube</span>
-            <h3><a href="#">Scoping your first game</a></h3>
-            <p class="note">Why I picked it: the honest talk about cutting scope that every student needs.</p>
-            <div class="meta">Placeholder — add real link</div>
+            <h3><a href="lessons/lesson-01-hangar.html">Hangar Lesson 01 : Intro, Install &amp; Templates</a></h3>
+            <p class="note">There is a VERY large gap in quality for Unreal Engine Tutorials. The very best beginner tutorial we have seen so far has been mad…</p>
           </div>
         </article>
-
         <article class="card">
-          <div class="thumb video">📅</div>
+          <a class="thumb video" href="lessons/hangar-lesson-02-navigating-and-using-unreal.html"><img loading="lazy" src="https://img.youtube.com/vi/5VTtsEU6Dsw/hqdefault.jpg" alt=""></a>
           <div class="body">
             <span class="tag badge-yt">▶ YouTube</span>
-            <h3><a href="#">Milestones &amp; deadlines</a></h3>
-            <p class="note">Why I picked it: turning a big idea into weekly, doable steps.</p>
-            <div class="meta">Placeholder — add real link</div>
+            <h3><a href="lessons/hangar-lesson-02-navigating-and-using-unreal.html">Hangar Lesson 02 : Navigating and Using Unreal</a></h3>
+            <p class="note">This lesson will teach you the basic of how to use the engine.</p>
           </div>
         </article>
-
         <article class="card">
-          <div class="thumb">🕹️</div>
+          <a class="thumb video" href="lessons/hangar-lesson-03-modelling.html"><img loading="lazy" src="https://img.youtube.com/vi/nXOwczODahY/hqdefault.jpg" alt=""><span class="parts">▶ 2</span></a>
           <div class="body">
-            <span class="tag">Coming soon</span>
-            <h3><a href="#">Your lesson here</a></h3>
-            <p>Copy any card above, drop in the title, note, and link.</p>
-            <div class="meta">Placeholder</div>
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-03-modelling.html">Hangar Lesson 03: Modelling</a></h3>
+            <p class="note">This lesson will teach you some modelling in Unreal.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-04-lighting.html"><img loading="lazy" src="https://img.youtube.com/vi/19p7M8fvluo/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-04-lighting.html">Hangar Lesson 04: Lighting</a></h3>
+            <p class="note">This lesson will teach you what kind if Lights are used in Unreal.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-05-materials-textures.html"><img loading="lazy" src="https://img.youtube.com/vi/Sic_goW0bPQ/hqdefault.jpg" alt=""><span class="parts">▶ 3</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-05-materials-textures.html">Hangar Lesson 05: Materials/Textures</a></h3>
+            <p class="note">This lesson will teach you the basic of textures and how materials work in Unreal. Make things look pretty!</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-06-scene-decoration.html"><img loading="lazy" src="https://img.youtube.com/vi/8Hm4JirJmk8/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-06-scene-decoration.html">Hangar Lesson 06: Scene Decoration</a></h3>
+            <p class="note">This lesson will teach you how to populate your levels with decor in clever ways that let you do a lot of work for very little eff…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-07-post-process.html"><img loading="lazy" src="https://img.youtube.com/vi/P5z6vRGGl8g/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-07-post-process.html">Hangar Lesson 07: Post Process</a></h3>
+            <p class="note">This lesson will teach you how to setup Post Process Volumes and effects correctly.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-08-hdri.html"><img loading="lazy" src="https://img.youtube.com/vi/8Q1tupS8npY/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-08-hdri.html">Hangar Lesson 08: HDRI</a></h3>
+            <p class="note">This lesson will teach you what HDR Images are and how to use them for background and realistic lighting in Unreal.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-09-import-assets.html"><img loading="lazy" src="https://img.youtube.com/vi/rTNkIrQ0xHM/hqdefault.jpg" alt=""><span class="parts">▶ 3</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-09-import-assets.html">Hangar Lesson 09: Import assets</a></h3>
+            <p class="note">This lesson will teach you how to import Static Meshes &amp; Skeletal Meshes.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-10-decals.html"><img loading="lazy" src="https://img.youtube.com/vi/UodxiWRtEwE/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-10-decals.html">Hangar Lesson 10: Decals</a></h3>
+            <p class="note">This lesson will teach you how to use Decals!!!</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-11-cameras.html"><img loading="lazy" src="https://img.youtube.com/vi/htS5XBFm2w0/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-11-cameras.html">Hangar Lesson 11: Cameras</a></h3>
+            <p class="note">This lesson will teach you how Unreal simulates real world cameras and how to set up dolly rails and cranes.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-12-animation-sequencer.html"><img loading="lazy" src="https://img.youtube.com/vi/-EfwF0WgKbs/hqdefault.jpg" alt=""><span class="parts">▶ 2</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-12-animation-sequencer.html">Hangar Lesson 12: Animation &amp; Sequencer</a></h3>
+            <p class="note">Animation and sequencer. Animations are used for everything all the time, and sequencer is for intros and cutscenes. Good skills t…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/hangar-lesson-13-rendering.html"><img loading="lazy" src="https://img.youtube.com/vi/lhGweZQIQ6s/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/hangar-lesson-13-rendering.html">Hangar Lesson 13: Rendering</a></h3>
+            <p class="note">How to render a little movie from the scene and animation you made.. Half the movie industry is becoming unreal, good to know.</p>
+          </div>
+        </article>
+      </div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">5-Minute Materials <span class="muted" style="font-weight:400">· 11</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/materials-masterclass-01-color-and-blend-grass.html"><img loading="lazy" src="https://img.youtube.com/vi/sGuJxr4Bfxw/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/materials-masterclass-01-color-and-blend-grass.html">5-Minute Materials 01 : Vertex Normal</a></h3>
+            <p class="note">Prismaticadev starts off gentle on his epic journey through all the functions and methods used in Unreal Engine Materials. Some of…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-metrials-02-shader-math.html"><img loading="lazy" src="https://img.youtube.com/vi/IUZ1exyk6hw/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-metrials-02-shader-math.html">5-Minute Materials 02 : Shader Math</a></h3>
+            <p class="note">All computer graphics is math, and the shader does it super fast. Learn how to use the basic stuff. These are the skills you will …</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-metrials-03-the-time-node.html"><img loading="lazy" src="https://img.youtube.com/vi/2vkdiTTppPw/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-metrials-03-the-time-node.html">5-Minute Materials 03 : The time node</a></h3>
+            <p class="note">Static shaders are no fun if you need some movement you need to add time, so learn how that works.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-04-fresnel.html"><img loading="lazy" src="https://img.youtube.com/vi/YCHelilKhzg/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-04-fresnel.html">5-Minute Materials 04 : Fresnel</a></h3>
+            <p class="note">Fresnel is a calculation of a surfaces angle from your point of view. Looking at the lake from the shore? Angle 5 degrees. Climbin…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-05-sine-cosine.html"><img loading="lazy" src="https://img.youtube.com/vi/Js8_4ThK1l0/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-05-sine-cosine.html">5-Minute Materials 05 : Sine &amp; Cosine</a></h3>
+            <p class="note">Make things happen in waves. Lots of things are seen in waves or moves in waves.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-06-oneminus.html"><img loading="lazy" src="https://img.youtube.com/vi/pZLC-nYi1ss/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-06-oneminus.html">5-Minute Materials 06 : OneMinus</a></h3>
+            <p class="note">A clever little node that flips positive to negative, negative to positive and several clever ways to use it.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-07-world-position.html"><img loading="lazy" src="https://img.youtube.com/vi/87sRQ8fD1dY/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-07-world-position.html">5-Minute Materials 07 : World Position</a></h3>
+            <p class="note">Get textures from several objects to merge seamlessly by aligning them to their world position.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-08-linear-interpolation.html"><img loading="lazy" src="https://img.youtube.com/vi/rFIvxvvkYRw/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-08-linear-interpolation.html">5-Minute Materials 08 : Linear Interpolation</a></h3>
+            <p class="note">A fancy way of saying how to blend gently from one thing to another.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-09-pixel-normal-ws.html"><img loading="lazy" src="https://img.youtube.com/vi/jOGfr6JXWcI/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-09-pixel-normal-ws.html">5-Minute Materials 09 : Pixel Normal WS</a></h3>
+            <p class="note">A normal, not just from the mesh but with the bumps and divots from a normalmap added.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-10-shadow-pass-switch.html"><img loading="lazy" src="https://img.youtube.com/vi/LqwTLdqEUMo/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-10-shadow-pass-switch.html">5-Minute Materials 10 : Shadow Pass Switch</a></h3>
+            <p class="note">Control the shadows your object cast. Pretty damn easy.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/5-minute-materials-11-dither-temporal-aa.html"><img loading="lazy" src="https://img.youtube.com/vi/kvHh0Jd-D3Q/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/5-minute-materials-11-dither-temporal-aa.html">5-Minute Materials 11 : Dither temporal AA</a></h3>
+            <p class="note">True transparency is expensive. Sometimes you cant afford to much, sometimes you really want the grainy effect.</p>
+          </div>
+        </article>
+      </div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">Chaos Destruction Series <span class="muted" style="font-weight:400">· 6</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/chaos-destruction-01-basic-fracture.html"><img loading="lazy" src="https://img.youtube.com/vi/ThZPXbEtNsE/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/chaos-destruction-01-basic-fracture.html">Chaos Destruction 01 : Basic Fracture</a></h3>
+            <p class="note">Fracture a cube and set first person bullet so you can destroy it.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/chaos-destruction-02-explosions-using-physics-fields.html"><img loading="lazy" src="https://img.youtube.com/vi/i5f1DevgDUs/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/chaos-destruction-02-explosions-using-physics-fields.html">Chaos Destruction 02 : Explosions using Physics Fields</a></h3>
+            <p class="note">Build a bomb. Set explosion size, a field to break meshes and a field to move to fragments away from the explosion.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/chaos-destruction-03-control-destruction-with-anchor-fields.html"><img loading="lazy" src="https://img.youtube.com/vi/DbwCDz0zFBQ/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/chaos-destruction-03-control-destruction-with-anchor-fields.html">Chaos Destruction 03 : Control destruction with Anchor Fields</a></h3>
+            <p class="note">Some parts of a wall or floor should not easily be blow apart, control that with anchor fields.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/chaos-destruction-04-add-niagara-effects-to-chaos-for-more-chaos.html"><img loading="lazy" src="https://img.youtube.com/vi/nB5YGxKERb4/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/chaos-destruction-04-add-niagara-effects-to-chaos-for-more-chaos.html">Chaos Destruction 04 : Add Niagara effects to Chaos for more chaos!!</a></h3>
+            <p class="note">When things blow apart there should be particle effects on those flying bits, right!</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/chaos-destruction-05-damage-over-time.html"><img loading="lazy" src="https://img.youtube.com/vi/tkM9JY-My4U/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/chaos-destruction-05-damage-over-time.html">Chaos Destruction 05 : Damage over time</a></h3>
+            <p class="note">Give a destructable mesh damage over time, like burning or acid or carrying something heavy..</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/chaos-destruction-06-disable-fields-for-performance.html"><img loading="lazy" src="https://img.youtube.com/vi/0bIx4vThZcQ/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/chaos-destruction-06-disable-fields-for-performance.html">Chaos Destruction 06 : Disable fields for performance</a></h3>
+            <p class="note">Too much physics can break your CPU. Set up strategic fields that limit physics in ways users dont notice, we hope.</p>
+          </div>
+        </article>
+      </div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">StateTree Course <span class="muted" style="font-weight:400">· 13</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-01-introduction.html"><img loading="lazy" src="https://img.youtube.com/vi/2X1xw_mjfA4/hqdefault.jpg" alt=""><span class="parts">▶ 2</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-01-introduction.html">StateTree Course 01 : Introduction</a></h3>
+            <p class="note">The new way of running NPCs in Unreal is the new StateTree System. It reminds you a lot of the old behavior tree system. If you ar…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-02-tasks.html"><img loading="lazy" src="https://img.youtube.com/vi/aaksyBPy8T8/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-02-tasks.html">StateTree Course 02 : Tasks</a></h3>
+            <p class="note">Tasks are when the NPCs actually do something. Some examples, and how to get data into the tasks and get data out of the tasks.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-02-transitions-conditions.html"><img loading="lazy" src="https://img.youtube.com/vi/qToFYZQKxXA/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-02-transitions-conditions.html">StateTree Course 03 : Transitions &amp; Conditions</a></h3>
+            <p class="note">Setting up transitions to go from one state to another. Code one yourself. And a brief explanation of Enter Conditions.(Basicly th…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-04-global-tasks-evaluators.html"><img loading="lazy" src="https://img.youtube.com/vi/RhM7K2efEGM/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-04-global-tasks-evaluators.html">StateTree Course 04 : Global Tasks &amp; Evaluators</a></h3>
+            <p class="note">Some tasks can run on the StateTree No matter what State you are in, and if you need some code constantly calculate something like…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-05-state-cooldowns.html"><img loading="lazy" src="https://img.youtube.com/vi/MEOtIhUzCQk/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-05-state-cooldowns.html">StateTree Course 05 : State Cooldowns</a></h3>
+            <p class="note">The old BehaviorTree system had cooldown, the new StateTree system does not. Here is a simple way to add one yourself.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-06-pick-state-based-on-utility.html"><img loading="lazy" src="https://img.youtube.com/vi/FR-_OHvn8iU/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-06-pick-state-based-on-utility.html">StateTree Course 06 : Pick State Based on Utility</a></h3>
+            <p class="note">Setting up a way to let the NPC choose a state based on Some internal variables, like HP or agression. Automatically turned into r…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-07-subtree-and-linked-assets.html"><img loading="lazy" src="https://img.youtube.com/vi/kRukLJJgi_c/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-07-subtree-and-linked-assets.html">StateTree Course 07 : SubTree and Linked Assets</a></h3>
+            <p class="note">When you build a complex NPC, and you will because thats the fun bit, it will get BIIIIIIIIG. SubTrees and Linked Assets helps you…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-course-08-subtree-and-linked-assets.html"><img loading="lazy" src="https://img.youtube.com/vi/Bu3eejZasTc/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-course-08-subtree-and-linked-assets.html">StateTree Course 08 :  State Transition Events</a></h3>
+            <p class="note">You can call events from any code outside your statestree that can cause an event to switch right away, like making them react to …</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-dialogue-09-basic-setup-and-widget-display.html"><img loading="lazy" src="https://img.youtube.com/vi/OgS4-Ez79n4/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-dialogue-09-basic-setup-and-widget-display.html">StateTree Dialogue 09 :  Basic Setup and Widget Display</a></h3>
+            <p class="note">Switching from a system that handles the logic on an NPC, using State Trees we now build a simple elegant system for complex dialo…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-dialogue-10-multiline-dialogue-with-datatables.html"><img loading="lazy" src="https://img.youtube.com/vi/ivqrEQ8GBaU/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-dialogue-10-multiline-dialogue-with-datatables.html">StateTree Dialogue 10 :  Multiline Dialogue with DataTables</a></h3>
+            <p class="note">You want a system that can run through multiple lines of dialogue. In general a simple way to show very complex dialogues. This al…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-dialogue-11-dialogue-choises.html"><img loading="lazy" src="https://img.youtube.com/vi/2EmJDVbxswg/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-dialogue-11-dialogue-choises.html">StateTree Dialogue 11 :  Dialogue Choises</a></h3>
+            <p class="note">A simple elegant way to create dialogue choises and make them switch state and behavoir?</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-dialogue-12-pick-different-dialogue-trees.html"><img loading="lazy" src="https://img.youtube.com/vi/PO4k7LWgJLQ/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-dialogue-12-pick-different-dialogue-trees.html">StateTree Dialogue 12 :  Pick Different Dialogue Trees</a></h3>
+            <p class="note">Make an entire dialogue tree with only the NPC complaining and a seperate one where they help, and switch the entire tree. Or one …</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/statetree-dialogue-13-dynamic-dialogue-choices.html"><img loading="lazy" src="https://img.youtube.com/vi/U0wXOzmrtaU/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/statetree-dialogue-13-dynamic-dialogue-choices.html">StateTree Dialogue 13 :  Dynamic Dialogue Choices</a></h3>
+            <p class="note">Choose branch or tree based on NPC Mood or Player Quest Progression dynamicly(on the fly).</p>
+          </div>
+        </article>
+      </div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">Bonus Lessons <span class="muted" style="font-weight:400">· 6</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/unreal-bonus-attenuating-metasounds.html"><img loading="lazy" src="https://img.youtube.com/vi/9aJWPKZ5I78/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/unreal-bonus-attenuating-metasounds.html">Unreal Bonus: Attenuating MetaSounds</a></h3>
+            <p class="note">Attenuation is when something stops a sound in various ways. The sound source is blocked or partially blocked from where you are. …</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/unreal-bonus-audio-bus-writer.html"><img loading="lazy" src="https://img.youtube.com/vi/ur_RLVP6tHE/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/unreal-bonus-audio-bus-writer.html">Unreal Bonus: Audio Bus Writer</a></h3>
+            <p class="note">A bus is a way to pass signals from one place to another. If you set up your sounds in unreal to be sent through a bus, you can ap…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/unreal-bonus-dev-folder.html"><img loading="lazy" src="https://img.youtube.com/vi/BTCbYsXh-rY/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/unreal-bonus-dev-folder.html">Unreal Bonus: Dev Folder</a></h3>
+            <p class="note">What is the developer folder? How do you see it? How do you use it? How do you set up your project to use it properly.</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/unreal-bonus-level-design-with-actor-palette-plugin.html"><img loading="lazy" src="https://img.youtube.com/vi/mlg1WEsPbLo/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/unreal-bonus-level-design-with-actor-palette-plugin.html">Unreal Bonus: Level Design with Actor Palette Plugin</a></h3>
+            <p class="note">Level design is pretty fast and easy in unreal, but there is still a way to speed it up by a factor of 4. People who give you asse…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/unreal-bonus-optimization.html"><img loading="lazy" src="https://img.youtube.com/vi/KjhAEkIyMhc/hqdefault.jpg" alt=""><span class="parts">▶ 3</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/unreal-bonus-optimization.html">Unreal Bonus: Optimization</a></h3>
+            <p class="note">Severely needed tips on how to simply optimize. Stat Profiling lets you track the thing in your blueprints that is eating your FPS…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/soundscapes-plugin.html"><img loading="lazy" src="https://img.youtube.com/vi/nS3leRwZbNk/hqdefault.jpg" alt=""><span class="parts">▶ 2</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/soundscapes-plugin.html">Unreal Bonus: Soundscapes Plugin</a></h3>
+            <p class="note">This is a lot more than just an ambience track running in a location. Learn how to set it up and use it, how to mix with several o…</p>
           </div>
         </article>
       </div>
     </section>
+
+    <section class="wrap section" id="planning">
+      <div class="cat-head"><span class="ico">🗂️</span><div><h2>Project Planning &amp; Design</h2></div></div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">Brainstorm, Pitch &amp; Plan <span class="muted" style="font-weight:400">· 3</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/step-1-brainstorm.html"><img loading="lazy" src="https://img.youtube.com/vi/nvKeu46jgwo/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/step-1-brainstorm.html">Step 1: Brainstorm</a></h3>
+            <p class="note">Brainstorming is typically the first step of getting a loose idea to becoming a firm structure that might end up being a plan one …</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb" href="lessons/pitchdeck-examples.html" style="text-decoration:none">📄</a>
+          <div class="body">
+            <span class="tag">Reading</span>
+            <h3><a href="lessons/pitchdeck-examples.html">Step 2: Pitchdeck</a></h3>
+            <p class="note">Pitchdecks are often given to employers or investors before a game is made. They convey both what the game is, the style of it and…</p>
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb" href="lessons/step-3-gameplan-designdocument.html" style="text-decoration:none">📄</a>
+          <div class="body">
+            <span class="tag">Reading</span>
+            <h3><a href="lessons/step-3-gameplan-designdocument.html">Step 3: Gameplan/DesignDocument</a></h3>
+            <p class="note">Lastly you create the plan that the game will be built after. Ideally these are so well documented that you can give it to any dev…</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="threed">
+      <div class="cat-head"><span class="ico">🧊</span><div><h2>3D</h2></div></div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">Blender <span class="muted" style="font-weight:400">· 4</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/blender-donut-part-1.html"><img loading="lazy" src="https://img.youtube.com/vi/B0J27sf9N1Y/hqdefault.jpg" alt=""><span class="parts">▶ 5</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/blender-donut-part-1.html">Blender Donut Part 1-5</a></h3>
+            
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/blender-low-poly-animals.html"><img loading="lazy" src="https://img.youtube.com/vi/6mT4XFJYq-4/hqdefault.jpg" alt=""><span class="parts">▶ 2</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/blender-low-poly-animals.html">Blender Low Poly Animals</a></h3>
+            
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/blender-low-poly-house.html"><img loading="lazy" src="https://img.youtube.com/vi/izjz2Hya2QM/hqdefault.jpg" alt=""><span class="parts">▶ 4</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/blender-low-poly-house.html">Blender Low Poly House</a></h3>
+            
+          </div>
+        </article>
+        <article class="card">
+          <a class="thumb video" href="lessons/uv-unwrap.html"><img loading="lazy" src="https://img.youtube.com/vi/AM2QJJ10FGg/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/uv-unwrap.html">UV UNWRAP</a></h3>
+            
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="twod">
+      <div class="cat-head"><span class="ico">🎨</span><div><h2>2D</h2></div></div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">2D <span class="muted" style="font-weight:400">· 1</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/arcane-style-painting.html"><img loading="lazy" src="https://img.youtube.com/vi/VUybuyz9HBk/hqdefault.jpg" alt=""><span class="parts">▶ 2</span></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/arcane-style-painting.html">Arcane Style Painting</a></h3>
+            
+          </div>
+        </article>
+      </div>
+      <h3 style="margin:22px 0 14px;font-size:1.1rem">Bonus Lessons <span class="muted" style="font-weight:400">· 1</span></h3>
+      <div class="grid">
+        <article class="card">
+          <a class="thumb video" href="lessons/2d-bonus-how-to-not-draw-assets.html"><img loading="lazy" src="https://img.youtube.com/vi/mv7VlbdHJws/hqdefault.jpg" alt=""></a>
+          <div class="body">
+            <span class="tag badge-yt">▶ YouTube</span>
+            <h3><a href="lessons/2d-bonus-how-to-not-draw-assets.html">2D Bonus: How to not draw Assets</a></h3>
+            <p class="note">Why you draw bad assets. Traps most people fall for when designing 2D assets.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -121,7 +546,6 @@
       <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
     </div>
   </footer>
-
   <script src="assets/js/main.js"></script>
 </body>
 </html>

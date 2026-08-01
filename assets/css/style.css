@@ -178,6 +178,18 @@ a:hover { text-decoration: underline; }
   border-left: 3px solid var(--byte); padding: 4px 0 4px 12px; margin: 4px 0 0;
 }
 
+/* ---------- responsive video embed ---------- */
+.video-embed { position: relative; aspect-ratio: 16/9; margin: 20px 0; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); background: #000; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------- lessons index extras ---------- */
+.jumpnav { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 4px; }
+.jumpnav a { font-size: .9rem; font-weight: 600; color: var(--text-soft); padding: 7px 13px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+.jumpnav a:hover { color: var(--text); background: var(--surface-2); text-decoration: none; }
+.card .thumb .parts { position: absolute; right: 8px; bottom: 8px; z-index: 1; background: rgba(0,0,0,.72); color: #fff; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+.pdf-todo { display: inline-block; color: var(--text-soft); }
+.pdf-todo em { font-size: .85em; }
+
 /* ---------- category header ---------- */
 .cat-head { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px; }
 .cat-head .ico {
