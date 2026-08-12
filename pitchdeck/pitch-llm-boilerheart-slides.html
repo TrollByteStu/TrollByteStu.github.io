@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BOILERHEART — pitch deck</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <!-- reveal.js 5.1.0, vendored locally under assets/vendor/reveal/ — no CDN, works offline -->
+  <link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+  <link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+  <style>
+    :root{
+      --bg:#08090d; --surface:#12151c; --surface-2:#1a1f28; --border:#2a323d;
+      --text:#e7ecf2; --soft:#9aa6b4; --brass:#d69a4c; --brass-soft:#b07d33;
+      --byte:#35c98f; --troll:#9a8bff; --ember:#e0603a;
+      --font: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --mono:"Cascadia Code","SFMono-Regular",Consolas,Menlo,monospace;
+    }
+    html, body{ background:var(--bg); }
+    .reveal-viewport{ background:var(--bg); }
+    .reveal{ font-family:var(--font); color:var(--text); font-size:34px; background:var(--bg); }
+    .reveal .slides{ text-align:left; }
+    .reveal section{ }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--text); font-weight:800; letter-spacing:-.01em; line-height:1.04; margin:0 0 .35em; text-transform:none; }
+    .reveal h1{ font-size:2.0em; letter-spacing:.03em; }
+    .reveal em{ color:var(--brass); font-style:normal; }
+    .reveal strong{ color:var(--brass); }
+    .reveal p{ line-height:1.4; }
+    .reveal a{ color:var(--byte); }
+    .reveal .controls{ color:var(--brass); }
+    .reveal .progress{ color:var(--brass); height:4px; }
+    .reveal ::selection{ background:var(--brass); color:#160f04; }
+
+    .kick{ display:inline-block; font-size:.5em; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--brass); margin-bottom:.4em; }
+    .soft{ color:var(--soft); }
+    .logo-badge{ position:fixed; top:20px; left:24px; font-size:20px; font-weight:700; letter-spacing:.02em; color:var(--text); opacity:.85; z-index:30; }
+    .logo-badge b{ color:var(--brass); }
+    .foot{ position:fixed; bottom:16px; left:24px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); opacity:.55; z-index:30; }
+
+    /* scrim over background-image slides */
+    .scrim::after{ content:""; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(90deg, rgba(8,9,13,.94) 0%, rgba(8,9,13,.72) 45%, rgba(8,9,13,.35) 100%); }
+
+    .big{ font-size:1.5em; line-height:1.06; font-weight:800; }
+    .lead{ font-size:1.05em; max-width:20ch; }
+    .maxw{ max-width:24ch; }
+
+    .cols{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:.3em; }
+    .card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:22px; }
+    .card::before{ content:""; display:block; height:4px; width:46px; border-radius:4px; background:var(--ac,var(--brass)); margin-bottom:14px; }
+    .card.m{ --ac:var(--brass);} .card.c{ --ac:var(--byte);} .card.g{ --ac:var(--troll);}
+    .card .ic{ font-size:1.5em; } .card h3{ font-size:.86em; margin:.2em 0 .15em; color:var(--ac,var(--brass)); }
+    .card p{ font-size:.56em; color:var(--soft); line-height:1.35; margin:0; }
+    .card .who{ font-size:.42em; letter-spacing:.08em; text-transform:uppercase; color:var(--soft); }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:12px; margin:.2em 0; }
+    .chip{ font-size:.5em; padding:10px 16px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); }
+    .chip b{ color:var(--troll); font-size:.72em; letter-spacing:.06em; margin-right:6px; }
+    .weave{ background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--troll); border-radius:12px; padding:22px 26px; font-size:.62em; line-height:1.5; }
+    .weave u{ text-decoration-color:rgba(154,139,255,.7); text-underline-offset:3px; text-decoration-thickness:2px; }
+
+    .loop{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:.3em; }
+    .loop .s{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+    .loop .s .n{ font-family:var(--mono); font-size:.5em; color:var(--brass); }
+    .loop .s h3{ font-size:.62em; margin:.15em 0 .1em; } .loop .s p{ font-size:.46em; color:var(--soft); margin:0; line-height:1.3; }
+
+    .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:.3em; }
+    .stat{ background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:16px 10px; text-align:center; }
+    .stat .e{ font-size:1.5em; } .stat .n{ font-size:.44em; font-weight:700; margin-top:6px; } .stat p{ font-size:.36em; color:var(--soft); margin:.3em 0 0; line-height:1.3; }
+
+    .two{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+    .reveal ul{ margin:0; } .reveal li{ margin:.28em 0; line-height:1.35; }
+    .lessons li b{ color:var(--brass); }
+    .ask .big{ max-width:18ch; }
+    .pill{ display:inline-block; margin-top:.5em; font-size:.5em; padding:8px 16px; border:1px solid var(--brass-soft); border-radius:999px; color:var(--brass); letter-spacing:.04em; }
+  </style>
+</head>
+<body>
+  <div class="logo-badge">Troll<b>Byte</b></div>
+  <div class="foot">BOILERHEART · LLM-driven pitch</div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 · TITLE -->
+      <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/boilerheart-town.webp" data-background-size="cover" data-background-position="center">
+        <span class="kick">LLM-driven pitch · steampunk survival RPG</span>
+        <h1>BOILERHEART</h1>
+        <p class="lead">The thing you fight to keep alive isn't <em>you</em>. It's the two-storey thinking war-machine you live inside.</p>
+      </section>
+
+      <!-- 2 · TWIST -->
+      <section>
+        <span class="kick">The one-line twist</span>
+        <p class="big maxw">Move the health bar <em>off the hero</em> and onto the machine.</p>
+        <p class="soft" style="max-width:26ch; margin-top:.4em;">Hull, boiler pressure, coolant, fuel, oil, crew nerves — those are the stats you bleed and defend. You're just the crew keeping the beast running to the next town.</p>
+      </section>
+
+      <!-- 3 · WORLD -->
+      <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/boilerheart-march.webp" data-background-size="cover" data-background-position="center right">
+        <span class="kick">The world</span>
+        <h2 class="maxw">An empire at war — and machines that learned to think.</h2>
+        <p class="soft maxw" style="font-size:.7em;">You crew a hulking land-dreadnought: part tank, part home, part cranky old soul. Cross the frontier, barter in towns, take missions, survive battles, keep it alive.</p>
+      </section>
+
+      <!-- 4 · THREE LLMs -->
+      <section>
+        <span class="kick">Where the AI actually lives</span>
+        <h2>Three LLMs, three different jobs</h2>
+        <div class="cols">
+          <div class="card m">
+            <div class="ic">🛞</div><div class="who">Character voice</div>
+            <h3>The Machine</h3>
+            <p>A rustbucket prima donna with moods and vices — gets hooked on premium oils. Spoil it and it soars; ration it and it sulks.</p>
+          </div>
+          <div class="card c">
+            <div class="ic">🧑‍🔧</div><div class="who">Living NPCs</div>
+            <h3>The Crew</h3>
+            <p>Named people you can talk to. Loyalties, secrets — and on some runs, a traitor aboard.</p>
+          </div>
+          <div class="card g">
+            <div class="ic">🎲</div><div class="who">Procedural GM</div>
+            <h3>The Game Master</h3>
+            <p>Fed loose story fragments; weaves them into one coherent mission on the fly. No two runs alike.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 · GM DEMO (fragments) -->
+      <section>
+        <span class="kick">The killer demo — fragments in</span>
+        <h2>Hand the GM a fistful of fragments…</h2>
+        <div class="chips">
+          <span class="chip fragment"><b>ORDER</b> exfiltrate a spy</span>
+          <span class="chip fragment"><b>TWIST</b> a traitor is aboard</span>
+          <span class="chip fragment"><b>SNAG</b> the spy won't come willingly</span>
+          <span class="chip fragment"><b>AMBUSH</b> raiders on the way home</span>
+          <span class="chip fragment"><b>PLACE</b> return to the FOB</span>
+        </div>
+        <p class="soft fragment" style="font-size:.6em; margin-top:.6em;">…and it welds them into a story ▶</p>
+      </section>
+
+      <!-- 6 · GM DEMO (weave) -->
+      <section>
+        <span class="kick">…mission out</span>
+        <div class="weave">
+          Command signals the <u>Dowager</u>: pull an imperial <u>spy</u> out of an occupied town by dawn. But she <u>won't board</u> — her brother's in the work-camp and she won't leave without him. Meanwhile a <u>traitor</u> on your deck has leaked the route, setting a <u>raider ambush</u> in the canyon back to the <u>FOB</u>. Get everyone home… and you still might not know who sold you out.
+        </div>
+        <p class="soft" style="font-size:.5em; margin-top:.5em;">Underlined = the fragments. Swap any one, and the mission re-weaves.</p>
+      </section>
+
+      <!-- 7 · CORE LOOP -->
+      <section>
+        <span class="kick">Minute to minute</span>
+        <h2>The core loop</h2>
+        <div class="loop">
+          <div class="s"><div class="n">01</div><h3>Travel</h3><p>Route choices trade speed for fuel, cover, danger.</p></div>
+          <div class="s"><div class="n">02</div><h3>Barter</h3><p>Trade in town for coal, oils, parts, rumors.</p></div>
+          <div class="s"><div class="n">03</div><h3>Take a mission</h3><p>GM weaves the next job. Crew weigh in.</p></div>
+          <div class="s"><div class="n">04</div><h3>Fight / resolve</h3><p>Battles chew through the machine's stats.</p></div>
+          <div class="s"><div class="n">05</div><h3>Maintain</h3><p>Patch, cool, re-pressure, upgrade — puzzles.</p></div>
+          <div class="s"><div class="n">06</div><h3>Push on</h3><p>Limp or thunder to the next town.</p></div>
+        </div>
+      </section>
+
+      <!-- 8 · MAINTENANCE = SURVIVAL -->
+      <section>
+        <span class="kick">Survival, relocated</span>
+        <h2>Maintenance <em>is</em> the survival system</h2>
+        <p class="soft" style="font-size:.62em; max-width:30ch;">Staying alive means engineering. Repair &amp; upgrade are the puzzles; town supplies keep the needles out of the red.</p>
+        <div class="stats">
+          <div class="stat"><div class="e">🔩</div><div class="n">Hull</div><p>Cracks → leaks → failures.</p></div>
+          <div class="stat"><div class="e">🌡️</div><div class="n">Pressure</div><p>Stall low, burst high.</p></div>
+          <div class="stat"><div class="e">💧</div><div class="n">Coolant</div><p>Buys sustained fights.</p></div>
+          <div class="stat"><div class="e">🛢️</div><div class="n">Fuel &amp; oil</div><p>Range — and the addiction.</p></div>
+          <div class="stat"><div class="e">🫂</div><div class="n">Crew nerves</div><p>Frayed crews slip up.</p></div>
+          <div class="stat"><div class="e">🧠</div><div class="n">Sanity</div><p>Combat grinds it down → manic, panicky, unreliable.</p></div>
+        </div>
+        <p class="soft" style="font-size:.5em; margin-top:.5em;">War frays the machine's nerve too — between fights you <em>counsel</em> it: <em>"There there. The bad people can't hurt you now. Have some jasmine oil."</em></p>
+      </section>
+
+      <!-- 9 · WHY TEACH -->
+      <section>
+        <span class="kick">For the staff room</span>
+        <h2>Why teach <em>this</em> one?</h2>
+        <div class="two">
+          <ul class="lessons" style="font-size:.62em;">
+            <li><b>Character voice</b> — personality + state</li>
+            <li><b>Conversational NPCs</b> — memory + a hidden role</li>
+            <li><b>Procedural GM</b> — structured output from fragments</li>
+          </ul>
+          <ul style="font-size:.62em;" class="soft">
+            <li>Each role demos on its own</li>
+            <li>Students can own one module</li>
+            <li>"The tank talks" sells the tech instantly</li>
+            <li>Starts as text — no engine needed to prove it</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 10 · MVP -->
+      <section>
+        <span class="kick">If we greenlight it</span>
+        <h2>First slice — one term, honest scope</h2>
+        <ul style="font-size:.6em;">
+          <li>One town · one talking machine · 6 live stats (incl. Sanity) · a barter screen</li>
+          <li>GM assembles one mission from ~6–8 fragments (and re-weaves on swap)</li>
+          <li>Three crew to talk to; one is the traitor this run</li>
+          <li>One maintenance puzzle standing in for the survival layer</li>
+          <li>Text-first — art &amp; 3D come after the loop is fun</li>
+        </ul>
+      </section>
+
+      <!-- 11 · THE ASK -->
+      <section class="ask" data-background-color="#0d0f14">
+        <span class="kick">The ask</span>
+        <p class="big">Is <em>this</em> the one we build — and teach — next?</p>
+        <span class="pill">A game like this doesn't exist yet. It could.</span>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../assets/vendor/reveal/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      transitionSpeed: 'default',
+      width: 1280, height: 720,
+      margin: 0.06,
+    });
+  </script>
+</body>
+</html>

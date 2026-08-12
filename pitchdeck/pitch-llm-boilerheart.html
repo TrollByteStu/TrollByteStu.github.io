@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch: BOILERHEART — TrollByte</title>
+  <meta name="description" content="A survival RPG where the thing you keep alive isn't the player — it's the thinking steampunk war-machine you crew. Three LLM roles: the machine's voice, the crew, and a Game Master that weaves missions from fragments.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ---- BOILERHEART pitch — page-local styling, built on the site's CSS vars ---- */
+    :root{ --brass:#d69a4c; --brass-soft:#b07d33; --ember:#e0603a; }
+    .ph-hero{ position:relative; margin-block:0 8px; border-bottom:1px solid var(--border); }
+    .ph-hero .art{ position:relative; aspect-ratio:16/7; min-height:320px; overflow:hidden; }
+    .ph-hero .art img{ width:100%; height:100%; object-fit:cover; object-position:50% 42%; }
+    .ph-hero .scrim{ position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(8,9,13,.15) 0%, rgba(8,9,13,.55) 55%, rgba(8,9,13,.96) 100%),
+                 linear-gradient(90deg, rgba(8,9,13,.75) 0%, rgba(8,9,13,0) 60%); }
+    .ph-hero .hwrap{ position:absolute; inset:auto 0 0 0; }
+    .ph-hero .htext{ max-width:var(--maxw); margin-inline:auto; padding:0 20px 28px; }
+    .ph-kicker{ display:inline-flex; gap:10px; align-items:center; font-size:.82rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase; color:var(--brass); }
+    .ph-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass); }
+    .ph-hero h1{ margin:.28em 0 .18em; font-size:clamp(2.4rem,6vw,4.2rem); line-height:.98;
+      letter-spacing:.04em; font-weight:800; }
+    .ph-hero .logline{ max-width:60ch; font-size:clamp(1.02rem,2.1vw,1.28rem); color:var(--text);
+      margin:0 0 18px; }
+    .ph-hero .logline b{ color:var(--brass); font-weight:700; }
+    .ph-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-present{ background:linear-gradient(180deg,var(--brass),var(--brass-soft)); color:#1a1206;
+      font-weight:700; border:none; padding:12px 20px; border-radius:var(--radius-sm);
+      display:inline-flex; gap:9px; align-items:center; box-shadow:var(--shadow); }
+    .btn-present:hover{ text-decoration:none; filter:brightness(1.06); }
+
+    .ph-body{ max-width:var(--maxw); margin-inline:auto; padding:8px 20px 40px; }
+    .ph-body section{ padding-block:34px; border-top:1px solid var(--border); }
+    .ph-body section:first-of-type{ border-top:none; }
+    .ph-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+      color:var(--text-soft); margin:0 0 10px; }
+    .ph-body h2{ font-size:clamp(1.5rem,3vw,2rem); margin:.1em 0 .5em; letter-spacing:-.01em; }
+    .ph-body h3{ font-size:1.12rem; margin:0 0 6px; }
+    .ph-body p{ max-width:68ch; }
+    .lede{ font-size:1.14rem; color:var(--text); }
+
+    .twist{ border:1px solid var(--brass-soft); background:
+      linear-gradient(180deg, rgba(214,154,76,.10), rgba(214,154,76,.03));
+      border-radius:var(--radius); padding:22px 24px; display:flex; gap:18px; align-items:flex-start; }
+    .twist .mark{ font-size:2rem; line-height:1; filter:saturate(1.1); }
+    .twist p{ margin:0; font-size:1.16rem; }
+    .twist b{ color:var(--brass); }
+
+    .split{ display:grid; grid-template-columns:1.3fr .9fr; gap:26px; align-items:center; }
+    .split img{ border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); }
+    @media (max-width:760px){ .split{ grid-template-columns:1fr; } }
+
+    .roles{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media (max-width:820px){ .roles{ grid-template-columns:1fr; } }
+    .role{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+      padding:20px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .role::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--accent,var(--brass)); }
+    .role.machine{ --accent:var(--brass); } .role.crew{ --accent:var(--byte); } .role.gm{ --accent:var(--troll); }
+    .role .ic{ font-size:1.7rem; }
+    .role .who{ font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); margin-top:8px; }
+    .role h3{ color:var(--accent,var(--brass)); margin-top:2px; }
+    .role p{ font-size:.96rem; color:var(--text-soft); margin:.4em 0 0; }
+    .role .q{ margin-top:12px; font-family:var(--mono); font-size:.84rem; color:var(--text);
+      border-left:2px solid var(--accent,var(--brass)); padding:6px 0 6px 12px; background:var(--surface-2); border-radius:0 6px 6px 0; }
+
+    /* GM demo */
+    .demo{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .demo .frags{ padding:18px 20px; border-bottom:1px solid var(--border); }
+    .demo .frags .lbl{ font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); margin:0 0 12px; }
+    .chips{ display:flex; flex-wrap:wrap; gap:9px; }
+    .chip{ font-size:.86rem; padding:7px 12px; border-radius:999px; border:1px solid var(--border);
+      background:var(--surface-2); color:var(--text); display:inline-flex; gap:7px; align-items:center; }
+    .chip b{ color:var(--troll); font-weight:700; font-size:.72rem; letter-spacing:.04em; }
+    .demo .weave{ padding:20px; }
+    .demo .weave .lbl{ font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; color:var(--troll); margin:0 0 12px;
+      display:flex; align-items:center; gap:9px; }
+    .demo .weave .lbl::before{ content:"⚙"; }
+    .story{ font-size:1.04rem; line-height:1.7; }
+    .story .f{ text-decoration:underline; text-decoration-color:rgba(109,90,230,.6); text-underline-offset:3px; text-decoration-thickness:2px; }
+
+    .loop{ display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; }
+    .loop .step{ flex:1 1 150px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm);
+      padding:14px; position:relative; }
+    .loop .step .n{ font-family:var(--mono); font-size:.74rem; color:var(--brass); }
+    .loop .step h3{ font-size:.98rem; margin:.2em 0 .2em; }
+    .loop .step p{ font-size:.86rem; color:var(--text-soft); margin:0; }
+
+    .stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:6px; }
+    .stat{ background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; }
+    .stat .name{ font-weight:700; } .stat .name .em{ font-size:1.05rem; margin-right:6px; }
+    .stat p{ font-size:.84rem; color:var(--text-soft); margin:.25em 0 0; }
+
+    .cols2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    @media (max-width:760px){ .cols2{ grid-template-columns:1fr; } }
+    ul.clean{ list-style:none; padding:0; margin:0; }
+    ul.clean li{ padding:7px 0 7px 26px; position:relative; color:var(--text-soft); }
+    ul.clean li::before{ content:"▸"; position:absolute; left:4px; color:var(--brass); }
+    ul.risk li::before{ content:"⚠"; color:var(--ember); left:2px; }
+
+    .teacher-note{ border:1px dashed var(--troll); border-radius:var(--radius); background:rgba(109,90,230,.06);
+      padding:20px 22px; }
+    .teacher-note h2{ margin-top:0; } .teacher-note .from-notes{ color:var(--byte); } .teacher-note .liberties{ color:var(--troll); }
+    .kv{ margin:0; } .kv dt{ font-weight:700; margin-top:12px; } .kv dd{ margin:2px 0 0; color:var(--text-soft); }
+
+    .endbar{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html" aria-current="page">Pitchdeck</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <div class="ph-hero">
+      <div class="art">
+        <img src="../assets/pitchdeck/LLMDriven/boilerheart-town.webp" alt="A towering steampunk land-machine looms over a rain-soaked town square at night, lantern-lit, crew and townsfolk gathered at its feet.">
+        <div class="scrim"></div>
+      </div>
+      <div class="hwrap"><div class="htext">
+        <span class="ph-kicker"><span class="dot"></span> LLM-Driven pitch · Sci-fi / Steampunk survival RPG</span>
+        <h1>BOILERHEART</h1>
+        <p class="logline">A survival RPG where the thing you fight to keep alive isn't <em>you</em> — it's the <b>two-storey thinking war-machine you live inside</b>. It talks. It sulks. It's the whole party's home, engine, and biggest problem.</p>
+        <div class="ph-actions">
+          <a class="btn-present" href="pitch-llm-boilerheart-slides.html">▶ Present the pitch</a>
+          <a class="btn btn-ghost" href="#read">↓ Read it</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="ph-body" id="read">
+
+      <!-- LOGLINE / TWIST -->
+      <section>
+        <p class="eyebrow ph-eyebrow">The one-line twist</p>
+        <div class="twist">
+          <span class="mark">🫀</span>
+          <p>Every survival game puts the health bar on the hero. <b>BOILERHEART moves it onto the machine.</b> Hull, boiler pressure, coolant, fuel, oil, crew nerves — those are the stats you're bleeding and defending. The player is just the crew keeping the beast alive long enough to reach the next town.</p>
+        </div>
+      </section>
+
+      <!-- WORLD -->
+      <section>
+        <p class="eyebrow ph-eyebrow">The world</p>
+        <div class="split">
+          <div>
+            <h2>An empire at war, and machines that learned to think</h2>
+            <p class="lede">Steampunk sci-fi: somewhere along the line, steam-driven machines were built well enough that they actually <em>think</em> — and talk. The empire is at war, and you run a crew aboard a hulking land-dreadnought: part tank, part home, part cranky old soul.</p>
+            <p>You'll cross a war-torn frontier, roll into small towns to barter for supplies and parts, take missions from Command (and from anyone else with coin), and get dragged into battles you may or may not have wanted. Between all of it, you keep the machine running — because if it dies, the run is over.</p>
+          </div>
+          <img src="../assets/pitchdeck/LLMDriven/boilerheart-march.webp" alt="The same class of machine on the march across an open desert under daylight, tracks grinding, distant domed cities on the horizon.">
+        </div>
+      </section>
+
+      <!-- THREE LLM ROLES -->
+      <section>
+        <p class="eyebrow ph-eyebrow">Where the AI actually lives</p>
+        <h2>Three LLMs, three completely different jobs</h2>
+        <p>This is the reason the pitch exists — and why it's a clean thing to <em>teach</em>. Each role is a different, self-contained way to wire a language model into a game, and each could be built and demoed on its own.</p>
+        <div class="roles">
+          <article class="role machine">
+            <div class="ic">🛞</div>
+            <div class="who">Role 1 · Character voice</div>
+            <h3>The Machine</h3>
+            <p>The dreadnought speaks for itself — a big rustbucket prima donna with opinions, moods, and vices. It can get <em>hooked</em> on the good stuff: premium oils, top-grade coal, luxuries it does not strictly need. Indulge it and morale/performance soar; ration it and it sulks, stalls, or "forgets" to do things well.</p>
+            <p class="q">"I'll go faster when I've had the good oil. Not the swill you bought in the last town. I have a <em>reputation.</em>"</p>
+          </article>
+          <article class="role crew">
+            <div class="ic">🧑‍🔧</div>
+            <div class="who">Role 2 · Living NPCs</div>
+            <h3>The Crew</h3>
+            <p>Named people live aboard — gunners, a mechanic, a quartermaster, passengers you're ferrying. You can actually talk to them. They have loyalties and secrets, and on some runs one of them is a <em>traitor</em>. Relationships shift based on how you run the ship and who you feed the good oil to.</p>
+            <p class="q">"You gave the boiler the last of the coal again. The crew notices things like that."</p>
+          </article>
+          <article class="role gm">
+            <div class="ic">🎲</div>
+            <div class="who">Role 3 · Procedural GM</div>
+            <h3>The Game Master</h3>
+            <p>A director LLM is fed loose, modular fragments — an order, a complication, a betrayal, an ambush — and must <em>weave them into one coherent mission</em> on the fly, with cause and effect that hangs together. No two runs assemble the same story.</p>
+            <p class="q">Input: <em>"exfil a spy · traitor aboard · spy refuses to leave · raider ambush on the way home"</em> → a mission.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- GM DEMO -->
+      <section>
+        <p class="eyebrow ph-eyebrow">The killer demo</p>
+        <h2>Watch the Game Master build a mission</h2>
+        <p>Hand the director a fistful of fragments. It returns a mission with motives, order, and stakes — the kind of thing a human GM improvises at the table. Here's your exact example, assembled:</p>
+        <div class="demo">
+          <div class="frags">
+            <p class="lbl">Fragments in</p>
+            <div class="chips">
+              <span class="chip"><b>ORDER</b> Command: exfiltrate a spy</span>
+              <span class="chip"><b>TWIST</b> a traitor is aboard</span>
+              <span class="chip"><b>SNAG</b> the spy won't come willingly</span>
+              <span class="chip"><b>AMBUSH</b> raiders on the route home</span>
+              <span class="chip"><b>PLACE</b> return to Forward Operating Base</span>
+            </div>
+          </div>
+          <div class="weave">
+            <p class="lbl">Mission out</p>
+            <p class="story">
+              Command signals the <span class="f">Dowager</span>: pull an imperial <span class="f">spy</span> out of an occupied border town before dawn. Simple exfil — except when you reach her, she <span class="f">refuses to board</span>: her brother is still inside the town's work-camp and she won't leave without him, so the crew has to solve <em>that</em> before she'll climb aboard. Meanwhile someone on your own deck has been feeding your route to the enemy — a <span class="f">traitor</span> whose tip sets up a <span class="f">raider ambush</span> in the canyon on the way back to the <span class="f">Forward Operating Base</span>. Get everyone home and you might still not know which of your crew sold you out.
+            </p>
+          </div>
+        </div>
+        <p style="margin-top:14px; color:var(--text-soft); font-size:.92rem;">Underlined beats are the fragments, welded into one story by the GM. Swap any chip and the mission re-weaves.</p>
+      </section>
+
+      <!-- CORE LOOP -->
+      <section>
+        <p class="eyebrow ph-eyebrow">Minute to minute</p>
+        <h2>The core loop</h2>
+        <div class="loop">
+          <div class="step"><div class="n">01</div><h3>Travel</h3><p>Cross the frontier. Route choices trade speed for fuel, cover, and danger.</p></div>
+          <div class="step"><div class="n">02</div><h3>Arrive &amp; barter</h3><p>Roll into a town. Trade for coal, oils, parts, and rumors. The machine wants luxuries.</p></div>
+          <div class="step"><div class="n">03</div><h3>Take a mission</h3><p>The GM weaves the next job from fresh fragments. Crew weigh in.</p></div>
+          <div class="step"><div class="n">04</div><h3>Fight / resolve</h3><p>Battles and dilemmas chew through the machine's stats — and the crew's nerves.</p></div>
+          <div class="step"><div class="n">05</div><h3>Maintain</h3><p>Patch, cool, re-pressure, upgrade. The repair puzzles <em>are</em> the survival layer.</p></div>
+          <div class="step"><div class="n">06</div><h3>Push on</h3><p>Limp or thunder to the next town. Loop tightens as the war closes in.</p></div>
+        </div>
+      </section>
+
+      <!-- MAINTENANCE = SURVIVAL -->
+      <section>
+        <p class="eyebrow ph-eyebrow">Survival, relocated</p>
+        <h2>Maintenance is the survival system</h2>
+        <p>Because the stats live on the machine, "staying alive" means <em>engineering</em>. Repair and upgrade are puzzles — reroute steam, balance pressure, swap a cracked plate under fire — and the resources you barter for in town are what keep the needles out of the red.</p>
+        <div class="stats">
+          <div class="stat"><div class="name"><span class="em">🔩</span>Hull integrity</div><p>Soaks damage. Cracks become leaks become failures.</p></div>
+          <div class="stat"><div class="name"><span class="em">🌡️</span>Boiler pressure</div><p>Your "stamina." Too low you stall, too high you burst.</p></div>
+          <div class="stat"><div class="name"><span class="em">💧</span>Coolant</div><p>Buys you sustained fights before the core overheats.</p></div>
+          <div class="stat"><div class="name"><span class="em">🛢️</span>Fuel &amp; oil</div><p>Range and smoothness — and the machine's little addiction.</p></div>
+          <div class="stat"><div class="name"><span class="em">🫂</span>Crew nerves</div><p>Morale under strain. Fed, rested crews perform; frayed ones make mistakes.</p></div>
+          <div class="stat"><div class="name"><span class="em">🧠</span>Sanity</div><p>The machine's own nerve. Every battle grinds it down — let it drop too low and it turns manic, panicky, and unreliable.</p></div>
+        </div>
+        <div class="twist" style="margin-top:22px; border-color:var(--troll); background:linear-gradient(180deg, rgba(109,90,230,.10), rgba(109,90,230,.03));">
+          <span class="mark">🛋️</span>
+          <p style="font-size:1.04rem;">It's a war, and the machine <em>feels</em> it. So between fights you don't just patch the hull — you sit the old girl down and <b style="color:var(--troll)">give her therapy</b>: soothing words, a quiet berth, a treat of aromatic jasmine oil. <em>"There there. The bad people can't hurt you now."</em> Neglect her sanity and the finest engine in the empire will freeze up mid-battle out of sheer panic.</p>
+        </div>
+      </section>
+
+      <!-- WHY TEACH -->
+      <section>
+        <p class="eyebrow ph-eyebrow">For the staff room</p>
+        <h2>Why this is the one worth teaching</h2>
+        <div class="cols2">
+          <div>
+            <h3>It's three lessons in a trenchcoat</h3>
+            <ul class="clean">
+              <li><b>Character voice</b> — persistent personality + state (the machine). One prompt-design lesson.</li>
+              <li><b>Conversational NPCs</b> — memory, loyalty, a hidden-role twist (the crew). One dialogue-systems lesson.</li>
+              <li><b>Procedural GM</b> — constrained generation from fragments (the director). One structured-output lesson.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>It scales down cleanly</h3>
+            <ul class="clean">
+              <li>Each role runs and demos on its own — students can own one module.</li>
+              <li>The fantasy sells the tech: "the tank talks" is instantly legible to a class.</li>
+              <li>Fragments-into-missions is a tidy, gradeable structured-output exercise.</li>
+              <li>Nothing here needs a real game engine to <em>prove</em> — it can start as text.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MVP -->
+      <section>
+        <p class="eyebrow ph-eyebrow">If we greenlight it</p>
+        <h2>What we'd build first — a teachable vertical slice</h2>
+        <p>Small enough for a term, honest about scope:</p>
+        <ul class="clean">
+          <li>One town, one machine (the talking prima donna) with 6 live stats — including Sanity — and a working barter screen.</li>
+          <li>The GM assembles <em>one</em> mission from a bank of ~6–8 fragments, and re-weaves it if you swap a fragment.</li>
+          <li>Three crew members you can talk to; one is secretly the traitor for that run.</li>
+          <li>A single maintenance puzzle (re-pressure the boiler) standing in for the whole survival layer.</li>
+          <li>Text-first is fine — art and 3D come after the loop is proven fun.</li>
+        </ul>
+      </section>
+
+      <!-- RISKS -->
+      <section>
+        <p class="eyebrow ph-eyebrow">Being honest</p>
+        <h2>Unproven bits &amp; open questions</h2>
+        <ul class="clean risk">
+          <li>Keeping the GM <em>coherent</em> across a whole mission — fragments can weld into nonsense without good constraints.</li>
+          <li>LLM cost &amp; latency if the machine, crew, and GM are all "thinking" during play.</li>
+          <li>Guardrails — an improvising GM and free-text crew need boundaries, especially with students.</li>
+          <li>The prima-donna "addiction" mechanic is fun on paper; needs tuning so it's characterful, not just annoying.</li>
+          <li>Nobody's shipped quite this — which is the exciting part and the risky part.</li>
+        </ul>
+      </section>
+
+      <!-- TEACHER NOTE / LIBERTIES -->
+      <section>
+        <div class="teacher-note">
+          <p class="eyebrow ph-eyebrow">Erik — read before you approve</p>
+          <h2>What came from the notes vs. what I invented</h2>
+          <p>So you can catch anything that steps on the students' intent:</p>
+          <dl class="kv">
+            <dt class="from-notes">Straight from your notes</dt>
+            <dd>Steampunk sci-fi RPG; crew a thinking/talking steam-tank; empire at war; missions, trading, arriving in towns to barter; survival stats live on the machine, not the player; maintenance/repair as puzzles + upgrades; the machine as a "big rustbucket prima donna" that gets hooked on too-expensive oils; a GM LLM fed modular mission/story fragments to weave (your exfil-spy / traitor-aboard / spy-won't-go / ambush-on-return example is used verbatim); people aboard to talk to; a possible traitor; the <b>Sanity stat</b> — combat wears the machine down until it turns manic/panicky, calmed by pampering/"therapy" between fights (your addition today); "a game like this doesn't exist but could."</dd>
+            <dt class="liberties">Liberties I took (easy to change/cut)</dt>
+            <dd><b>The title "BOILERHEART"</b> — a working name only. <b>Calling the machine "the Dowager"</b> in the demo — placeholder for its in-world name. The <b>specific stat names</b> (hull, boiler pressure, coolant, fuel/oil, crew nerves — you added Sanity). The <b>MVP scope</b> and the <b>"three lessons in a trenchcoat"</b> teaching framing. The <b>brass/lantern visual accent</b> pulled from your concept art. None of these are load-bearing — tell me what to rename or drop.</dd>
+          </dl>
+        </div>
+      </section>
+
+      <div class="endbar">
+        <a class="btn btn-ghost" href="../pitchdeck.html">← Back to all pitches</a>
+        <a class="btn-present" href="pitch-llm-boilerheart-slides.html">▶ Present the pitch</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
