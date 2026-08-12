@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch: SILLY EMPIRES — TrollByte</title>
+  <meta name="description" content="A toony turn-based sandbox strategy where history's myths are literally true — Egyptians are mummies, Norse are dwarves and elves. An LLM builds the world, gods run on follower-mana, and the whole god-vs-lord question is settled by a real playtest.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ---- SILLY EMPIRES pitch — page-local styling on the site's CSS vars ---- */
+    :root{ --gold:#d9a441; --gold-soft:#b9852c; --royal:#8a76ee; --divine:#3fb6a6; --scroll:#e6d6a8; }
+    .se-hero{ position:relative; border-bottom:1px solid var(--border); }
+    .se-hero .art{ position:relative; aspect-ratio:16/8; min-height:340px; overflow:hidden; }
+    .se-hero .art img{ width:100%; height:100%; object-fit:cover; object-position:50% 46%; }
+    .se-hero .scrim{ position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(8,9,13,.2) 0%, rgba(8,9,13,.5) 50%, rgba(8,9,13,.97) 100%),
+                 linear-gradient(90deg, rgba(8,9,13,.82) 0%, rgba(8,9,13,0) 62%); }
+    .se-hero .hwrap{ position:absolute; inset:auto 0 0 0; }
+    .se-hero .htext{ max-width:var(--maxw); margin-inline:auto; padding:0 20px 30px; }
+    .se-kicker{ display:inline-flex; gap:10px; align-items:center; font-size:.82rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase; color:var(--gold); }
+    .se-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--gold); }
+    .se-hero h1{ margin:.26em 0 .16em; font-size:clamp(2.3rem,6vw,4.1rem); line-height:.98; letter-spacing:.03em; font-weight:800; }
+    .se-hero .logline{ max-width:64ch; font-size:clamp(1.02rem,2.1vw,1.28rem); margin:0 0 18px; }
+    .se-hero .logline b{ color:var(--gold); font-weight:700; }
+    .se-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-present{ background:linear-gradient(180deg,var(--gold),var(--gold-soft)); color:#1a1305;
+      font-weight:700; border:none; padding:12px 20px; border-radius:var(--radius-sm);
+      display:inline-flex; gap:9px; align-items:center; box-shadow:var(--shadow); }
+    .btn-present:hover{ text-decoration:none; filter:brightness(1.06); }
+
+    .se-body{ max-width:var(--maxw); margin-inline:auto; padding:8px 20px 40px; }
+    .se-body section{ padding-block:34px; border-top:1px solid var(--border); }
+    .se-body section:first-of-type{ border-top:none; }
+    .se-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-soft); margin:0 0 10px; }
+    .se-body h2{ font-size:clamp(1.5rem,3vw,2rem); margin:.1em 0 .5em; letter-spacing:-.01em; }
+    .se-body h3{ font-size:1.12rem; margin:0 0 6px; }
+    .se-body p{ max-width:72ch; }
+    .lede{ font-size:1.14rem; }
+
+    .flip{ border:1px solid var(--gold-soft); background:linear-gradient(180deg, rgba(217,164,65,.10), rgba(217,164,65,.03));
+      border-radius:var(--radius); padding:22px 24px; display:flex; gap:18px; align-items:flex-start; }
+    .flip .mark{ font-size:2rem; line-height:1; } .flip p{ margin:0; font-size:1.16rem; } .flip b{ color:var(--gold); }
+
+    /* race mappings */
+    .races{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    @media (max-width:800px){ .races{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:520px){ .races{ grid-template-columns:1fr; } }
+    .race{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px 16px; }
+    .race .from{ color:var(--text-soft); font-size:.9rem; }
+    .race .to{ font-weight:800; font-size:1.05rem; color:var(--gold); }
+    .race .to.mine{ color:var(--royal); }
+    .race p{ font-size:.85rem; color:var(--text-soft); margin:.35em 0 0; }
+    .race .arrow{ color:var(--text-soft); margin:0 6px; }
+
+    .split{ display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:center; }
+    @media (max-width:760px){ .split{ grid-template-columns:1fr; } }
+    .split img, .figure img{ border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); width:100%; }
+    .figure figcaption{ font-size:.86rem; color:var(--text-soft); margin-top:8px; }
+
+    /* two modes */
+    .modes{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    @media (max-width:800px){ .modes{ grid-template-columns:1fr; } }
+    .mode{ border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .mode .top{ padding:18px 20px 4px; } .mode .badge{ font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .mode .t{ font-size:1.3rem; font-weight:800; margin:.12em 0 .1em; } .mode .s{ color:var(--text-soft); font-size:.94rem; margin:0; }
+    .mode ul{ list-style:none; margin:0; padding:10px 20px 20px; } .mode li{ padding:6px 0 6px 24px; position:relative; font-size:.95rem; color:var(--text-soft); }
+    .mode.god{ background:linear-gradient(180deg, rgba(63,182,166,.10), rgba(63,182,166,.02)); }
+    .mode.god .badge, .mode.god .t{ color:var(--divine); } .mode.god li::before{ content:"✦"; position:absolute; left:5px; color:var(--divine); }
+    .mode.lord{ background:linear-gradient(180deg, rgba(138,118,238,.10), rgba(138,118,238,.02)); }
+    .mode.lord .badge, .mode.lord .t{ color:var(--royal); } .mode.lord li::before{ content:"♜"; position:absolute; left:4px; color:var(--royal); }
+
+    .roles{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    @media (max-width:720px){ .roles{ grid-template-columns:1fr; } }
+    .role{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .role::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--accent,var(--gold)); }
+    .role.gm{ --accent:var(--gold); } .role.gods{ --accent:var(--divine); } .role.lords{ --accent:var(--royal); } .role.folk{ --accent:var(--byte); }
+    .role .ic{ font-size:1.6rem; } .role .who{ font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); margin-top:6px; }
+    .role h3{ color:var(--accent,var(--gold)); margin-top:2px; } .role p{ font-size:.95rem; color:var(--text-soft); margin:.4em 0 0; }
+
+    /* prayer demo */
+    .demo{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .demo .head{ padding:14px 20px; border-bottom:1px solid var(--border); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); }
+    .chat{ padding:16px 20px; display:flex; flex-direction:column; gap:12px; }
+    .line{ display:flex; gap:12px; align-items:flex-start; }
+    .line .tag{ flex:0 0 auto; font-size:.66rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:4px 8px; border-radius:6px; margin-top:2px; }
+    .line.lord .tag{ background:rgba(138,118,238,.16); color:var(--royal); }
+    .line.god .tag{ background:rgba(63,182,166,.16); color:var(--divine); }
+    .line p{ margin:0; font-size:1rem; } .line .em{ color:var(--text-soft); font-style:italic; }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; padding:0 20px 18px; }
+    .chip{ font-size:.8rem; padding:6px 11px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); color:var(--text); }
+    .chip.up{ color:var(--byte); } .chip.down{ color:var(--gold); } .chip.warn{ color:var(--royal); }
+
+    /* production path */
+    .phases{ display:flex; flex-direction:column; gap:0; }
+    .phase{ display:flex; gap:16px; padding:16px 0; border-top:1px dashed var(--border); }
+    .phase:first-child{ border-top:none; }
+    .phase .num{ flex:0 0 auto; width:40px; height:40px; border-radius:10px; display:grid; place-items:center; font-weight:800;
+      background:var(--surface-2); border:1px solid var(--border); color:var(--gold); }
+    .phase h3{ margin:0 0 3px; } .phase p{ margin:0; color:var(--text-soft); font-size:.95rem; }
+    .rubric{ margin-top:16px; border:1px dashed var(--divine); border-radius:var(--radius); background:rgba(63,182,166,.06); padding:18px 20px; }
+    .rubric h3{ margin:0 0 10px; color:var(--divine); }
+    .rubric .row{ display:flex; gap:14px; align-items:baseline; padding:7px 0; border-top:1px solid var(--border); }
+    .rubric .row:first-of-type{ border-top:none; }
+    .rubric .k{ flex:0 0 128px; font-weight:800; } .rubric .k.keep{ color:var(--byte); } .rubric .k.iter{ color:var(--gold); } .rubric .k.kill{ color:var(--royal); }
+    .rubric .v{ color:var(--text-soft); font-size:.95rem; }
+
+    ul.clean{ list-style:none; padding:0; margin:0; } ul.clean li{ padding:7px 0 7px 26px; position:relative; color:var(--text-soft); }
+    ul.clean li::before{ content:"▸"; position:absolute; left:4px; color:var(--gold); }
+    ul.open li::before{ content:"?"; color:var(--royal); font-weight:700; left:5px; }
+    .cols2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; } @media (max-width:760px){ .cols2{ grid-template-columns:1fr; } }
+
+    .teacher-note{ border:1px dashed var(--royal); border-radius:var(--radius); background:rgba(138,118,238,.06); padding:20px 22px; }
+    .teacher-note h2{ margin-top:0; } .kv dt{ font-weight:700; margin-top:12px; } .kv dt.a{ color:var(--byte); } .kv dt.b{ color:var(--royal); } .kv dd{ margin:2px 0 0; color:var(--text-soft); }
+    .endbar{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html" aria-current="page">Pitchdeck</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="se-hero">
+      <div class="art">
+        <img src="../assets/pitchdeck/LLMDriven/sillyempires-map.webp" alt="A colourful isometric strategy map: a great stone fortress with orange-tiled roofs, watchtowers, forests, and little armies of troops massing across green hills.">
+        <div class="scrim"></div>
+      </div>
+      <div class="hwrap"><div class="htext">
+        <span class="se-kicker"><span class="dot"></span> LLM-Driven pitch · Turn-based sandbox strategy · satire</span>
+        <h1>SILLY EMPIRES</h1>
+        <p class="logline">A toony turn-based sandbox where <b>history's myths are simply true</b>: the Egyptians are mummies, the Norse are dwarves and elves, the Transylvanians are vampires. An LLM keeps rewriting the world, gods run on the mana of their followers, and lords squabble for divine favour. <b>Are you a god or a lord? We're going to let a playtest decide.</b></p>
+        <div class="se-actions">
+          <a class="btn-present" href="pitch-llm-silly-empires-slides.html">▶ Present the pitch</a>
+          <a class="btn btn-ghost" href="#read">↓ Read it</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="se-body" id="read">
+
+      <!-- HOOK -->
+      <section>
+        <p class="se-eyebrow">The one-line hook</p>
+        <div class="flip">
+          <span class="mark">🏺</span>
+          <p>The brief was "combine fantasy and history." Our answer: <b>don't blend them — believe them.</b> Take every culture's tallest tale at face value and crank it to eleven. The result is a grand-strategy sandbox that's secretly a comedy about what nations think they are.</p>
+        </div>
+      </section>
+
+      <!-- RACE MAPPINGS -->
+      <section>
+        <p class="se-eyebrow">The core joke, made into a faction roster</p>
+        <div class="split">
+          <div>
+            <h2>History, if the myths were the boring truth</h2>
+            <p class="lede">Every "empire" is a real culture's fantasy stereotype taken 100% literally and played for laughs — proud, petty, and gloriously on-brand.</p>
+            <p>It's a satire engine: the humour writes itself from the clash of stereotypes, and each faction plays differently because its myth <em>is</em> its mechanics. Mummies never truly die (they just file more paperwork); vampires are unstoppable at night and useless at brunch.</p>
+          </div>
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/sillyempires-lords.webp" alt="Six toony, exaggerated fantasy leaders — a bird-shouldered mystic, a fur-clad chieftain, an armoured old king, a long-nosed monarch with a skull-topped sceptre, a round armoured noble, and a wizard with a tiny penguin.">
+            <figcaption>Lords, gods, and commanders — the class's own character studies.</figcaption>
+          </figure>
+        </div>
+        <div class="races" style="margin-top:24px">
+          <div class="race"><div><span class="from">Egyptians</span><span class="arrow">→</span><span class="to">Mummies</span></div><p>Deathless undead bureaucracy; the afterlife runs on forms.</p></div>
+          <div class="race"><div><span class="from">Transylvanians</span><span class="arrow">→</span><span class="to">Vampires</span></div><p>Nocturnal aristocrats; terrifying by night, hopeless by day.</p></div>
+          <div class="race"><div><span class="from">Norse</span><span class="arrow">→</span><span class="to">Dwarves &amp; Elves</span></div><p>Two feuding cousins who each insist they're the real Norse.</p></div>
+          <div class="race"><div><span class="from">Romans</span><span class="arrow">→</span><span class="to mine">Marble Golems</span></div><p>Legions literally carved from stone. Very orderly. Very heavy. <em>(my addition)</em></p></div>
+          <div class="race"><div><span class="from">Greeks</span><span class="arrow">→</span><span class="to mine">Squabbling Demigods</span></div><p>Everyone's the child of a god and won't stop mentioning it. <em>(my addition)</em></p></div>
+          <div class="race"><div><span class="from">Mongols</span><span class="arrow">→</span><span class="to mine">Werewolf horse-lords</span></div><p>Faster than you, hairier than you, already behind you. <em>(my addition)</em></p></div>
+        </div>
+      </section>
+
+      <!-- TWO WAYS TO PLAY -->
+      <section>
+        <p class="se-eyebrow">The question two students disagreed on — kept on purpose</p>
+        <h2>Are you a god, or a lord?</h2>
+        <p class="lede">One student wanted to <em>be</em> a god. One wanted to rule an empire. Here's the good news: those are the same simulation seen from two heights — so we can build both and find out which is more fun.</p>
+        <div class="modes">
+          <div class="mode lord">
+            <div class="top">
+              <div class="badge">Play from below</div>
+              <div class="t">♜ The Lord</div>
+              <p class="s">Bottom-up. You run one empire and court the heavens.</p>
+            </div>
+            <ul>
+              <li>Grow cities, raise armies, expand, scheme, and wage very silly wars.</li>
+              <li>Pray, tithe, and build shrines to win the favour (and boons) of fickle gods.</li>
+              <li>Out-manoeuvre rival lords — some human, most LLM — for the same divine attention.</li>
+            </ul>
+          </div>
+          <div class="mode god">
+            <div class="top">
+              <div class="badge">Play from above</div>
+              <div class="t">✦ The God</div>
+              <p class="s">Top-down. You are a deity, and your power is belief.</p>
+            </div>
+            <ul>
+              <li>You don't command armies — you command <em>faith.</em> Grant boons, send omens, answer or ignore prayers.</li>
+              <li>Your mana is your follower count × devotion. Spread worship, starve rival gods of theirs.</li>
+              <li>Lords are your LLM-driven pieces: cultivate champions, punish heretics, nudge history.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:16px">Same map, same turns, same worship economy — only the <b>camera and the verbs</b> change. That's exactly why it's cheap to prototype both (more on that below).</p>
+      </section>
+
+      <!-- WORSHIP ECONOMY -->
+      <section>
+        <p class="se-eyebrow">The engine under both modes</p>
+        <h2>Gods run on followers; lords run on gods</h2>
+        <p class="lede">Every god has a mana pool that swells with worshippers and drains with miracles. Every lord needs those miracles to win. That single loop makes gods and lords need — and resent — each other.</p>
+        <div class="cols2" style="margin-top:8px">
+          <div>
+            <h3>Divine mana</h3>
+            <ul class="clean">
+              <li>Followers + devotion → mana per turn. A god with no believers is just a rumour.</li>
+              <li>Spend mana on boons, plagues, omens, and outright miracles — the bigger the show, the steeper the cost.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Mortal favour</h3>
+            <ul class="clean">
+              <li>Lords earn favour with tribute, shrines, holy wars, and converting their people.</li>
+              <li>Favour buys boons — but every boon deepens a debt the god will one day call in.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- LLM CAST -->
+      <section>
+        <p class="se-eyebrow">Where the AI actually lives</p>
+        <h2>A whole pantheon of LLMs</h2>
+        <p>This is a world that has to feel alive and improvised — which is exactly what language models are for. Four distinct jobs:</p>
+        <div class="roles">
+          <article class="role gm">
+            <div class="ic">📜</div><div class="who">Role 1 · World director</div>
+            <h3>The Chronicler</h3>
+            <p>The world-building GM. Seeds the map, then keeps <em>rewriting</em> it — ages, prophecies, disasters, migrations, "the year the sea caught fire." No two histories run the same.</p>
+          </article>
+          <article class="role gods">
+            <div class="ic">⚡</div><div class="who">Role 2 · Divine agents</div>
+            <h3>The Gods</h3>
+            <p>Each a distinct personality with an agenda and a grudge. They weigh prayers, grant twisted boons, and feud with each other. Your rivals (or your role) if you play a god.</p>
+          </article>
+          <article class="role lords">
+            <div class="ic">👑</div><div class="who">Role 3 · Rival rulers</div>
+            <h3>The Lords</h3>
+            <p>LLM-driven opponent empires with ambitions, alliances, and long memories. They negotiate, betray, and monologue in perfectly in-character, gloriously petty ways.</p>
+          </article>
+          <article class="role folk">
+            <div class="ic">🎭</div><div class="who">Role 4 · Notable subjects</div>
+            <h3>The Special People</h3>
+            <p>Named viziers, celebrity heroes, doomsayer prophets. They spawn quests, spread gossip, foment rebellions, and give each empire a cast rather than a spreadsheet.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PRAYER DEMO -->
+      <section>
+        <p class="se-eyebrow">The signature loop, live</p>
+        <h2>A prayer reaches a god</h2>
+        <p>Gods, lords, mana, and satire in one exchange — every line generated in character, every consequence a real number on the board.</p>
+        <div class="demo">
+          <div class="head">Turn 34 · Countess Ravenna (Vampires) petitions Nocturne, Lady of the Long Night</div>
+          <div class="chat">
+            <div class="line lord"><span class="tag">Lord</span><p>O Nocturne — hold back the dawn one hour, that my legions may take the Mummies' capital before sunrise.</p></div>
+            <div class="line god"><span class="tag">God</span><p>Darkness is <em>expensive</em>, child. I'll stay the sun… if every soldier who survives raises Me a shrine, and your general converts on the steps of the temple he's about to loot.</p></div>
+            <div class="line lord"><span class="tag">Lord</span><p><span class="em">(through gritted fangs)</span> …Done.</p></div>
+            <div class="line god"><span class="tag">God</span><p>Delightful. Dawn is postponed. Do try to look grateful — the Sun-god is <em>watching,</em> and He gossips.</p></div>
+          </div>
+          <div class="chips">
+            <span class="chip up">☾ +1 hour of night</span>
+            <span class="chip down">−40 divine mana (Nocturne)</span>
+            <span class="chip up">+12 pledged followers</span>
+            <span class="chip warn">⚠ Sun-god favour −2 · rivalry rising</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTION PATH / PLAYTEST -->
+      <section>
+        <p class="se-eyebrow">Your best idea — turned into a lesson</p>
+        <h2>How we'd build it — and let players settle god vs lord</h2>
+        <p class="lede">Instead of arguing which mode is better in the classroom, we build cheap versions of both and let a playtest decide with evidence. The build path <em>is</em> the curriculum.</p>
+        <div class="phases">
+          <div class="phase"><div class="num">0</div><div><h3>The shared world-sim</h3><p>Map, turns, empires, and the worship economy — the substrate both modes stand on. Built once.</p></div></div>
+          <div class="phase"><div class="num">1</div><div><h3>Two thin slices, with temporary controls</h3><p>Fork a rough "Lord" slice and a rough "God" slice on top. Debug buttons, placeholder art, zero polish — we're testing <em>feel</em>, not shipping UI. (Lesson: throwaway/temporary controls, and why you build them.)</p></div></div>
+          <div class="phase"><div class="num">2</div><div><h3>Run a real beta</h3><p>Same scenario, fixed length, a small group of testers, half starting in each mode. Instrument it: log where people lean in and where they check out. (Lesson: how to set up a beta test and what to measure.)</p></div></div>
+          <div class="phase"><div class="num">3</div><div><h3>Ask the right questions</h3><p>Short exit survey: what did you like? when were you bored? what did you want to do but couldn't? Would you play again — which mode? (Lesson: writing survey questions that aren't just "was it fun?")</p></div></div>
+          <div class="phase"><div class="num">4</div><div><h3>Decide with a threshold, not a vote</h3><p>Agree the bar <em>before</em> testing, then let the numbers rule. (Lesson: turning opinions into a decision rule.)</p></div></div>
+        </div>
+        <div class="rubric">
+          <h3>The decision rubric (agree it up front)</h3>
+          <div class="row"><span class="k keep">Must-have ✓</span><span class="v">≥ ~70% of testers rate a mode fun <em>and</em> it produced the session's best moments → build it out.</span></div>
+          <div class="row"><span class="k iter">Iterate ↻</span><span class="v">Mixed (roughly 40–70% positive) → change one thing, test again. No endless polishing of a maybe.</span></div>
+          <div class="row"><span class="k kill">Cut ✗</span><span class="v">≥ ~50% bored or negative, or almost nobody picks it a second time → drop it, guilt-free.</span></div>
+        </div>
+        <p style="margin-top:14px; color:var(--text-soft); font-size:.95rem;">The god-vs-lord verdict falls out of the same rubric: both clear the bar → ship both (they're two lenses on one sim); only one → focus there; neither → the fun's in the world itself, so rework the agency layer. Nobody has to "win" the argument.</p>
+      </section>
+
+      <!-- OPEN QUESTIONS -->
+      <section>
+        <p class="se-eyebrow">Still on the table</p>
+        <h2>What we haven't figured out</h2>
+        <ul class="clean open">
+          <li>If both modes ship, can they share a game — some players gods, some lords, same match? Tempting, and much harder.</li>
+          <li>How much can the Chronicler change mid-game before the world stops feeling fair? Chaos is funny; whiplash isn't.</li>
+          <li>Single-player vs multiplayer first — the LLM cast can fill empty seats, so how many humans do we actually need?</li>
+          <li>Win conditions: conquest, conversion, surviving the Chronicler's apocalypse, or "most worshipped at the end of days"?</li>
+        </ul>
+      </section>
+
+      <!-- WHY TEACH -->
+      <section>
+        <p class="se-eyebrow">For the staff room</p>
+        <h2>Why it earns its place</h2>
+        <div class="cols2">
+          <div>
+            <h3>It teaches LLMs at scale</h3>
+            <ul class="clean">
+              <li>A whole ensemble — director, gods, rival lords, named NPCs — not a single chatbot.</li>
+              <li>Keeping many LLM agents coherent in one world is a meaty, modern lesson.</li>
+              <li>The satire premise makes writing distinct AI voices genuinely fun for students.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>And it teaches how to <em>decide</em></h3>
+            <ul class="clean">
+              <li>The god-vs-lord fork becomes a real lesson in prototyping, beta testing, and evidence.</li>
+              <li>Temporary controls, survey design, and decision thresholds are transferable to every project.</li>
+              <li>Students learn to let players settle arguments — a habit worth more than any one feature.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEACHER NOTE -->
+      <section>
+        <div class="teacher-note">
+          <p class="se-eyebrow">Erik — read before you approve</p>
+          <h2>What came from the notes vs. what I invented</h2>
+          <p>Flag anything that drifts from what you and the students meant:</p>
+          <dl class="kv">
+            <dt class="a">Straight from your notes</dt>
+            <dd>Turn-based sandbox strategy combining fantasy + history by <b>making the historical into exaggerated fantasy</b>; the ridiculous, toony, satirical tone; Egyptians <b>are</b> mummies, Transylvanians <b>are</b> vampires, Norse <b>are</b> dwarves &amp; elves; an <b>LLM GM that builds and changes the world</b>; <b>gods with points/mana based on their followers</b>; <b>lords competing for the gods' favour</b> and running empires; <b>many LLMs</b> — other lords, other gods, and the subjects/special people in each empire; the undecided <b>god-vs-lord</b> question (one student each); and your idea to <b>build a production path that constructs both systems and playtests which is best</b>, as a vehicle to teach beta-testing — temporary controls, setting up a beta, asking testers what they liked, and like/hate thresholds for keeping or cutting a feature.</dd>
+            <dt class="b">My elaborations (all yours to change)</dt>
+            <dd>The three extra race mappings (<b>Romans → marble golems, Greeks → squabbling demigods, Mongols → werewolf horse-lords</b>) are mine — swap for the students' own picks. The <b>two-modes-are-one-sim</b> framing, the specific <b>divine-mana / mortal-favour</b> loop, the four named LLM roles (Chronicler / Gods / Lords / Special People), the concrete <b>0–4 build phases</b>, and the <b>70% / 40–70% / 50% decision rubric numbers</b> are my proposals — the exact thresholds are a starting point to argue about, not gospel. Title kept as your <b>SILLY EMPIRES</b>; gold/royal/divine palette is mine.</dd>
+          </dl>
+        </div>
+      </section>
+
+      <div class="endbar">
+        <a class="btn btn-ghost" href="../pitchdeck.html">← Back to all pitches</a>
+        <a class="btn-present" href="pitch-llm-silly-empires-slides.html">▶ Present the pitch</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

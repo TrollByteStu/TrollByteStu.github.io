@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SILLY EMPIRES — pitch deck</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <!-- reveal.js 5.1.0, vendored locally under assets/vendor/reveal/ — no CDN, works offline -->
+  <link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+  <link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+  <style>
+    :root{
+      --bg:#0b0c11; --surface:#14151c; --surface-2:#1b1d26; --border:#2c2f3a;
+      --text:#e9ecf2; --soft:#9aa6b4; --gold:#e4b455; --gold-soft:#b9852c;
+      --royal:#a495ff; --divine:#4fc9b8; --byte:#35c98f;
+      --font: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --mono:"Cascadia Code","SFMono-Regular",Consolas,Menlo,monospace;
+    }
+    html, body{ background:var(--bg); }
+    .reveal-viewport{ background:var(--bg); }
+    .reveal{ font-family:var(--font); color:var(--text); font-size:34px; background:var(--bg); }
+    .reveal .slides{ text-align:left; }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--text); font-weight:800; letter-spacing:-.01em; line-height:1.05; margin:0 0 .35em; text-transform:none; }
+    .reveal h1{ font-size:2.0em; letter-spacing:.03em; }
+    .reveal em{ color:var(--gold); font-style:normal; }
+    .reveal strong{ color:var(--gold); }
+    .reveal p{ line-height:1.4; }
+    .reveal .controls{ color:var(--gold); }
+    .reveal .progress{ color:var(--gold); height:4px; }
+    .reveal ::selection{ background:var(--gold); color:#160f04; }
+
+    .kick{ display:inline-block; font-size:.5em; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.4em; }
+    .soft{ color:var(--soft); }
+    .logo-badge{ position:fixed; top:20px; left:24px; font-size:20px; font-weight:700; color:var(--text); opacity:.85; z-index:30; }
+    .logo-badge b{ color:var(--gold); }
+    .foot{ position:fixed; bottom:16px; left:24px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); opacity:.55; z-index:30; }
+    .scrim::after{ content:""; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(90deg, rgba(8,9,13,.95) 0%, rgba(8,9,13,.72) 45%, rgba(8,9,13,.35) 100%); }
+
+    .big{ font-size:1.5em; line-height:1.06; font-weight:800; }
+    .lead{ font-size:1.05em; max-width:20ch; }
+    .maxw{ max-width:24ch; }
+
+    .races{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:.2em; font-size:.5em; }
+    .rc{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
+    .rc .from{ color:var(--soft); } .rc .to{ font-weight:800; color:var(--gold); } .rc .to.mine{ color:var(--royal); }
+    .rc p{ margin:.3em 0 0; color:var(--soft); font-size:.82em; line-height:1.3; }
+
+    .two{ display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:.2em; }
+    .panel{ border:1px solid var(--border); border-radius:14px; padding:18px 22px; }
+    .panel.lord{ background:linear-gradient(180deg, rgba(164,149,255,.12), rgba(11,12,17,.3)); }
+    .panel.god{ background:linear-gradient(180deg, rgba(79,201,184,.12), rgba(11,12,17,.3)); }
+    .panel .b{ font-size:.46em; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .panel .h{ font-size:.72em; font-weight:800; margin:.15em 0 .3em; } .panel.lord .h{ color:var(--royal);} .panel.god .h{ color:var(--divine);}
+    .panel ul{ margin:0; font-size:.48em; } .panel li{ margin:.3em 0; line-height:1.3; color:var(--soft); }
+
+    .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:.2em; }
+    .card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px; }
+    .card::before{ content:""; display:block; height:4px; width:44px; border-radius:4px; background:var(--ac,var(--gold)); margin-bottom:10px; }
+    .card.gm{ --ac:var(--gold);} .card.gods{ --ac:var(--divine);} .card.lords{ --ac:var(--royal);} .card.folk{ --ac:var(--byte);}
+    .card h3{ font-size:.66em; margin:.1em 0 .1em; color:var(--ac,var(--gold)); }
+    .card .who{ font-size:.4em; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .card p{ font-size:.44em; color:var(--soft); line-height:1.35; margin:.3em 0 0; }
+
+    .chat{ display:flex; flex-direction:column; gap:12px; font-size:.6em; }
+    .row{ display:flex; gap:12px; align-items:flex-start; }
+    .row .tag{ flex:0 0 auto; font-size:.62em; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border-radius:6px; margin-top:3px; }
+    .row.lord .tag{ background:rgba(164,149,255,.18); color:var(--royal); }
+    .row.god .tag{ background:rgba(79,201,184,.16); color:var(--divine); }
+    .row p{ margin:0; } .row .em{ color:var(--soft); font-style:italic; }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.3em; font-size:.44em; }
+    .chip{ padding:6px 11px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); }
+    .chip.up{ color:var(--byte);} .chip.down{ color:var(--gold);} .chip.warn{ color:var(--royal);}
+
+    .phases{ font-size:.5em; } .phases .p{ display:flex; gap:12px; padding:7px 0; }
+    .phases .n{ flex:0 0 auto; width:28px; height:28px; border-radius:8px; display:grid; place-items:center; font-weight:800; background:var(--surface-2); border:1px solid var(--border); color:var(--gold); font-size:.8em; }
+    .phases .p b{ color:var(--text); } .phases .p span{ color:var(--soft); }
+
+    .rubric{ font-size:.56em; } .rubric .r{ display:flex; gap:14px; padding:8px 0; border-top:1px solid var(--border); }
+    .rubric .r:first-child{ border-top:none; } .rubric .k{ flex:0 0 4.5em; font-weight:800; }
+    .rubric .keep{ color:var(--byte);} .rubric .iter{ color:var(--gold);} .rubric .kill{ color:var(--royal);} .rubric .v{ color:var(--soft); }
+
+    .reveal ul{ margin:0; } .reveal li{ margin:.26em 0; line-height:1.35; }
+    .pill{ display:inline-block; margin-top:.5em; font-size:.5em; padding:8px 16px; border:1px solid var(--gold-soft); border-radius:999px; color:var(--gold); letter-spacing:.04em; }
+  </style>
+</head>
+<body>
+  <div class="logo-badge">Troll<b>Byte</b></div>
+  <div class="foot">SILLY EMPIRES · LLM-driven pitch</div>
+
+  <div class="reveal"><div class="slides">
+
+    <!-- 1 TITLE -->
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/sillyempires-map.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">LLM-driven pitch · turn-based sandbox strategy · satire</span>
+      <h1>SILLY EMPIRES</h1>
+      <p class="lead">History, if every myth were simply true. An LLM runs the world; gods run on followers.</p>
+    </section>
+
+    <!-- 2 HOOK -->
+    <section>
+      <span class="kick">The hook</span>
+      <p class="big maxw">Don't blend fantasy and history — <em>believe</em> them.</p>
+      <p class="soft" style="max-width:28ch; margin-top:.4em;">Take every culture's tallest tale at face value and crank it to eleven. A grand-strategy sandbox that's secretly a comedy about what nations think they are.</p>
+    </section>
+
+    <!-- 3 RACES -->
+    <section>
+      <span class="kick">The core joke, as a faction roster</span>
+      <h2>History, if the myths were the boring truth</h2>
+      <div class="races">
+        <div class="rc"><span class="from">Egyptians →</span> <span class="to">Mummies</span><p>Deathless undead bureaucracy.</p></div>
+        <div class="rc"><span class="from">Transylvanians →</span> <span class="to">Vampires</span><p>Terrifying by night, hopeless by day.</p></div>
+        <div class="rc"><span class="from">Norse →</span> <span class="to">Dwarves &amp; Elves</span><p>Feuding cousins, both "the real Norse."</p></div>
+        <div class="rc"><span class="from">Romans →</span> <span class="to mine">Marble Golems</span><p>Legions carved from stone. <em>(mine)</em></p></div>
+        <div class="rc"><span class="from">Greeks →</span> <span class="to mine">Demigods</span><p>All children of gods; all insufferable. <em>(mine)</em></p></div>
+        <div class="rc"><span class="from">Mongols →</span> <span class="to mine">Werewolf horse-lords</span><p>Already behind you. <em>(mine)</em></p></div>
+      </div>
+    </section>
+
+    <!-- 4 TWO WAYS -->
+    <section>
+      <span class="kick">Two students disagreed — we kept it</span>
+      <h2>Are you a god, or a lord?</h2>
+      <div class="two">
+        <div class="panel lord"><div class="b">Play from below</div><div class="h">♜ The Lord</div>
+          <ul><li>Grow cities, raise armies, wage silly wars</li><li>Pray, tithe &amp; build shrines for divine boons</li><li>Out-scheme rival lords (mostly LLM)</li></ul>
+        </div>
+        <div class="panel god"><div class="b">Play from above</div><div class="h">✦ The God</div>
+          <ul><li>Command faith, not armies — boons, omens, plagues</li><li>Mana = followers × devotion; starve rival gods</li><li>Lords are your LLM pieces to cultivate</li></ul>
+        </div>
+      </div>
+      <p class="soft" style="font-size:.5em; margin-top:.5em;">Same map, same sim — only the camera and the verbs change. Which is why we can build both.</p>
+    </section>
+
+    <!-- 5 WORSHIP ECONOMY -->
+    <section>
+      <span class="kick">The engine under both modes</span>
+      <h2 class="maxw">Gods run on followers; lords run on gods.</h2>
+      <p class="soft maxw" style="font-size:.68em;">A god with no believers is just a rumour. A lord with no god loses the war. Followers → mana → miracles → favour → more followers. Everyone needs — and resents — everyone.</p>
+    </section>
+
+    <!-- 6 LLM CAST -->
+    <section>
+      <span class="kick">Where the AI lives</span>
+      <h2>A whole pantheon of LLMs</h2>
+      <div class="cards">
+        <div class="card gm"><div class="who">World director</div><h3>The Chronicler</h3><p>Seeds the world, then keeps rewriting it — ages, prophecies, disasters. No two histories alike.</p></div>
+        <div class="card gods"><div class="who">Divine agents</div><h3>The Gods</h3><p>Distinct personalities with agendas &amp; grudges. Weigh prayers, grant twisted boons, feud.</p></div>
+        <div class="card lords"><div class="who">Rival rulers</div><h3>The Lords</h3><p>LLM empires that negotiate, betray, and monologue in perfectly petty character.</p></div>
+        <div class="card folk"><div class="who">Notable subjects</div><h3>Special People</h3><p>Viziers, heroes, doomsayers — quests, gossip, rebellions. A cast, not a spreadsheet.</p></div>
+      </div>
+    </section>
+
+    <!-- 7 PRAYER DEMO -->
+    <section>
+      <span class="kick">The signature loop, live</span>
+      <h2>A prayer reaches a god</h2>
+      <div class="chat">
+        <div class="row lord fragment"><span class="tag">Lord</span><p>O Nocturne — hold back the dawn one hour, that my legions take the Mummies' capital before sunrise.</p></div>
+        <div class="row god fragment"><span class="tag">God</span><p>Darkness is <em>expensive</em>, child. I'll stay the sun… if every survivor raises Me a shrine and your general converts on the temple steps.</p></div>
+        <div class="row lord fragment"><span class="tag">Lord</span><p><span class="em">(through gritted fangs)</span> …Done.</p></div>
+        <div class="row god fragment"><span class="tag">God</span><p>Delightful. Do look grateful — the Sun-god is watching, and He gossips.</p></div>
+      </div>
+      <div class="chips fragment">
+        <span class="chip up">☾ +1 hour night</span><span class="chip down">−40 mana</span><span class="chip up">+12 followers</span><span class="chip warn">⚠ Sun-god rivalry ↑</span>
+      </div>
+    </section>
+
+    <!-- 8 PRODUCTION PATH -->
+    <section>
+      <span class="kick">Your best idea, turned into a lesson</span>
+      <h2>Build both — let players settle it</h2>
+      <div class="phases">
+        <div class="p"><div class="n">0</div><div><b>Shared world-sim</b> — <span>map, turns, empires, worship economy. Built once.</span></div></div>
+        <div class="p"><div class="n">1</div><div><b>Two thin slices, temporary controls</b> — <span>rough Lord + rough God on top. Test feel, not UI.</span></div></div>
+        <div class="p"><div class="n">2</div><div><b>Run a real beta</b> — <span>same scenario, half in each mode; log where players lean in / check out.</span></div></div>
+        <div class="p"><div class="n">3</div><div><b>Ask the right questions</b> — <span>liked? bored when? wanted-but-couldn't? play again — which mode?</span></div></div>
+        <div class="p"><div class="n">4</div><div><b>Decide by threshold, not vote</b> — <span>agree the bar before testing; let the numbers rule.</span></div></div>
+      </div>
+    </section>
+
+    <!-- 9 RUBRIC -->
+    <section>
+      <span class="kick">The teachable bit — agree it up front</span>
+      <h2>The decision rubric</h2>
+      <div class="rubric">
+        <div class="r"><span class="k keep">Must-have</span><span class="v">≥ ~70% rate it fun AND it drove the best moments → build it out.</span></div>
+        <div class="r"><span class="k iter">Iterate</span><span class="v">~40–70% positive → change one thing, test again.</span></div>
+        <div class="r"><span class="k kill">Cut</span><span class="v">≥ ~50% bored/negative, or nobody picks it twice → drop it, guilt-free.</span></div>
+      </div>
+      <p class="soft" style="font-size:.5em; margin-top:.5em;">God-vs-lord falls out of the same rule: both pass → ship both; one → focus; neither → the fun's in the world, rework agency. Nobody has to win the argument.</p>
+    </section>
+
+    <!-- 10 ASK -->
+    <section data-background-color="#0d0f14">
+      <span class="kick">The ask</span>
+      <p class="big maxw">A satire engine, a pantheon of LLMs — and a lesson in letting players decide.</p>
+      <span class="pill">Two students, two visions. Build both. Test. Ship what's fun.</span>
+    </section>
+
+  </div></div>
+
+  <script src="../assets/vendor/reveal/reveal.js"></script>
+  <script>
+    Reveal.initialize({ hash:true, controls:true, progress:true, slideNumber:'c/t',
+      transition:'slide', width:1280, height:720, margin:0.06 });
+  </script>
+</body>
+</html>
