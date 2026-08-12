@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MEAT MACHINES — pitch deck</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <!-- reveal.js 5.1.0, vendored locally under assets/vendor/reveal/ — no CDN, works offline -->
+  <link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+  <link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+  <style>
+    :root{
+      --bg:#0b0c11; --surface:#14151c; --surface-2:#1b1d26; --border:#2c2f3a;
+      --text:#e9ecf2; --soft:#9aa6b4; --rust:#e08a44; --rust-soft:#b46a2e;
+      --blood:#e0574a; --byte:#35c98f; --troll:#9a8bff; --tallow:#e8d6a8;
+      --font: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --mono:"Cascadia Code","SFMono-Regular",Consolas,Menlo,monospace;
+    }
+    html, body{ background:var(--bg); }
+    .reveal-viewport{ background:var(--bg); }
+    .reveal{ font-family:var(--font); color:var(--text); font-size:34px; background:var(--bg); }
+    .reveal .slides{ text-align:left; }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--text); font-weight:800; letter-spacing:-.01em; line-height:1.05; margin:0 0 .35em; text-transform:none; }
+    .reveal h1{ font-size:2.0em; letter-spacing:.03em; }
+    .reveal em{ color:var(--rust); font-style:normal; }
+    .reveal strong{ color:var(--rust); }
+    .reveal p{ line-height:1.4; }
+    .reveal .controls{ color:var(--rust); }
+    .reveal .progress{ color:var(--rust); height:4px; }
+    .reveal ::selection{ background:var(--rust); color:#160d04; }
+
+    .kick{ display:inline-block; font-size:.5em; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--rust); margin-bottom:.4em; }
+    .soft{ color:var(--soft); }
+    .logo-badge{ position:fixed; top:20px; left:24px; font-size:20px; font-weight:700; color:var(--text); opacity:.85; z-index:30; }
+    .logo-badge b{ color:var(--rust); }
+    .foot{ position:fixed; bottom:16px; left:24px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); opacity:.55; z-index:30; }
+    .scrim::after{ content:""; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(90deg, rgba(8,9,13,.95) 0%, rgba(8,9,13,.72) 45%, rgba(8,9,13,.35) 100%); }
+
+    .big{ font-size:1.5em; line-height:1.06; font-weight:800; }
+    .lead{ font-size:1.05em; max-width:20ch; }
+    .maxw{ max-width:24ch; }
+
+    .two{ display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:.2em; }
+    .panel{ border:1px solid var(--border); border-radius:14px; padding:18px 22px; }
+    .panel.day{ background:linear-gradient(180deg, rgba(232,214,168,.10), rgba(232,214,168,.02)); }
+    .panel.night{ background:linear-gradient(180deg, rgba(224,87,74,.14), rgba(11,12,17,.4)); }
+    .panel .g{ font-size:.46em; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .panel .h{ font-size:.72em; font-weight:800; margin:.15em 0 .3em; }
+    .panel.day .h{ color:var(--tallow);} .panel.night .h{ color:var(--blood);}
+    .panel ul{ margin:0; font-size:.48em; } .panel li{ margin:.3em 0; line-height:1.3; color:var(--soft); }
+
+    .rail{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-weight:800; font-size:.8em; margin-top:.2em; }
+    .rail .a{ color:var(--tallow);} .rail .b{ color:var(--blood);} .rail .arrow{ color:var(--soft);}
+
+    .heatbar{ height:16px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); overflow:hidden; margin:.5em 0 .3em; max-width:20ch; }
+    .heatbar i{ display:block; height:100%; width:100%; background:linear-gradient(90deg,#3a7d5a,var(--tallow) 45%,var(--rust) 72%,var(--blood)); }
+
+    .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:.2em; }
+    .card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px; }
+    .card::before{ content:""; display:block; height:4px; width:44px; border-radius:4px; background:var(--ac,var(--rust)); margin-bottom:10px; }
+    .card.i{ --ac:var(--rust);} .card.t{ --ac:var(--byte);} .card.o{ --ac:var(--troll);} .card.g{ --ac:var(--blood);}
+    .card h3{ font-size:.66em; margin:.1em 0 .1em; color:var(--ac,var(--rust)); }
+    .card .who{ font-size:.4em; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .card p{ font-size:.44em; color:var(--soft); line-height:1.35; margin:.3em 0 0; }
+
+    .chat{ display:flex; flex-direction:column; gap:12px; font-size:.6em; }
+    .row{ display:flex; gap:12px; align-items:flex-start; }
+    .row .tag{ flex:0 0 auto; font-size:.62em; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border-radius:6px; margin-top:3px; }
+    .row.insp .tag{ background:rgba(224,138,68,.16); color:var(--rust); }
+    .row.mach .tag{ background:rgba(53,201,143,.14); color:var(--byte); }
+    .row p{ margin:0; } .row .em{ color:var(--soft); font-style:italic; }
+
+    .chain{ display:flex; gap:10px; align-items:stretch; margin-top:.3em; }
+    .chain .node{ flex:1; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 12px; position:relative; }
+    .chain .node .who{ font-size:.36em; letter-spacing:.05em; text-transform:uppercase; color:var(--soft); }
+    .chain .node h3{ font-size:.54em; margin:.15em 0 .15em; } .chain .node p{ font-size:.36em; color:var(--soft); margin:0; line-height:1.3; }
+    .chain .node:not(:last-child)::after{ content:"→"; position:absolute; right:-12px; top:50%; transform:translateY(-50%); color:var(--rust); font-weight:800; z-index:2; }
+
+    .rule{ background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--rust); border-radius:12px; padding:20px 24px; font-size:.6em; line-height:1.5; }
+    .rule.blood{ border-left-color:var(--blood); }
+    .rule u{ text-decoration-color:rgba(224,138,68,.7); text-underline-offset:3px; text-decoration-thickness:2px; }
+
+    .reveal ul{ margin:0; } .reveal li{ margin:.26em 0; line-height:1.35; }
+    .pill{ display:inline-block; margin-top:.5em; font-size:.5em; padding:8px 16px; border:1px solid var(--rust-soft); border-radius:999px; color:var(--rust); letter-spacing:.04em; }
+  </style>
+</head>
+<body>
+  <div class="logo-badge">Troll<b>Byte</b></div>
+  <div class="foot">MEAT MACHINES · LLM-driven pitch</div>
+
+  <div class="reveal"><div class="slides">
+
+    <!-- 1 TITLE -->
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/meatmachines-hero.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">LLM-driven pitch · medieval co-op · two games in one</span>
+      <h1>MEAT MACHINES</h1>
+      <p class="lead">A silly Factorio by day. A silly Plants-vs-Zombies by night. Same monsters.</p>
+    </section>
+
+    <!-- 2 FLIP -->
+    <section>
+      <span class="kick">The hook</span>
+      <p class="big maxw">Everyone fears the AI. Here — <em>you're</em> the AI.</p>
+      <p class="soft" style="max-width:28ch; margin-top:.4em;">You run a medieval war-factory. Your workforce is monsters and captured soldiers bolted into machine costumes. They churn out materiel all day. At night, they remember what they are.</p>
+    </section>
+
+    <!-- 3 TWO GAMES -->
+    <section>
+      <span class="kick">The pitch, honestly</span>
+      <h2>Two games, bolted together at dusk</h2>
+      <div class="two">
+        <div class="panel day"><div class="g">Phase 1 · Day</div><div class="h">🏭 A silly Factorio</div>
+          <ul><li>Costume a monster, wire it onto a line</li><li>Optimise throughput &amp; supply chains</li><li>Keep disguises up; dodge the Inspector</li><li>Bank resources, build defences</li></ul>
+        </div>
+        <div class="panel night"><div class="g">Phase 2 · Night</div><div class="h">🧟 A silly Plants-vs-Zombies</div>
+          <ul><li>Your day-built traps are your "plants"</li><li>The waves are other players' machines</li><li>Your machines attack their lanes too</li><li>Everyone is gardener AND horde</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 DUALITY -->
+    <section>
+      <span class="kick">Why the halves are one system</span>
+      <h2 class="maxw">The better your day, the bigger your night.</h2>
+      <div class="rail"><span class="a">🏭 great day</span><span class="arrow">→</span><span class="b">🧟 hungry army</span><span class="arrow">→</span><span class="b">😬 aimed at friends</span></div>
+      <p class="soft" style="max-width:30ch; font-size:.66em; margin-top:.5em;">Both games share one body of monsters. Every ounce of daytime success is a fully-armed night threat. The best factory-master is, by dawn, the person nobody wants to sleep next to.</p>
+    </section>
+
+    <!-- 5 HEAT / DISGUISE -->
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/meatmachines-disguise.webp" data-background-size="cover" data-background-position="center right">
+      <span class="kick">The gag — and its cost</span>
+      <h2 class="maxw">Work them hard, and the disguise slips.</h2>
+      <div class="heatbar"><i></i></div>
+      <p class="soft maxw" style="font-size:.62em;">Cold &amp; idle = convincing, low output. Red-lining = obviously alive, high output. You <em>want</em> them hot for the quota — except when the tax-man is on the floor.</p>
+    </section>
+
+    <!-- 6 INSPECTOR LORE -->
+    <section>
+      <span class="kick">The metronome the day dances to</span>
+      <h2>The King's Inspector</h2>
+      <p class="soft" style="max-width:30ch; font-size:.72em;">The Overlord's auditor. Find a flaw and he <strong>taxes you to the bone</strong> or <strong>confiscates the machine</strong> — there goes your best night-hunter. He does rounds: throttle to a cold hum when he's near, crank back to red when he leaves. And he's an <strong>LLM you must talk past.</strong></p>
+    </section>
+
+    <!-- 7 INSPECTOR DEMO -->
+    <section>
+      <span class="kick">The signature moment — the bluff</span>
+      <h2>Talk your loom past the Inspector</h2>
+      <div class="chat">
+        <div class="row insp fragment"><span class="tag">Inspector</span><p>This loom is warm. Looms are not warm. Explain.</p></div>
+        <div class="row mach fragment"><span class="tag">"Loom"</span><p>Friction, your honour. I've been weaving. Vigorously. All night. For the quota.</p></div>
+        <div class="row insp fragment"><span class="tag">Inspector</span><p>It has no thread on it. …It just blinked. Forty crowns, or I take it.</p></div>
+        <div class="row mach fragment"><span class="tag">"Loom"</span><p>Report favourably and I'll show my <em>other</em> new features tonight. At your house.</p></div>
+      </div>
+    </section>
+
+    <!-- 8 REVEAL -->
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/meatmachines-trueforms.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">…and by night</span>
+      <h2 class="maxw">The costume comes off.</h2>
+      <p class="soft maxw" style="font-size:.7em;">The roster you optimised for output is now your tower-defence army — and your neighbour's wave. Tuned for production = clumsy hunter. Lean &amp; hungry = wrecks rivals, skimps quota.</p>
+    </section>
+
+    <!-- 9 WHAT ARE YOU MAKING -->
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/meatmachines-catalog.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">The dark joke underneath</span>
+      <h2 class="maxw">What are you even making?</h2>
+      <p class="soft maxw" style="font-size:.66em;">The Adventurers' Guild ships you defeated monsters &amp; prisoners. You costume them and work them to churn war-materiel for the King. The "AI efficiency revolution" is just monsters in cardboard — who only get up at night.</p>
+    </section>
+
+    <!-- 10 CO-OP -->
+    <section>
+      <span class="kick">Your sharpest question</span>
+      <h2>If one player's always better — how is it co-op?</h2>
+      <div class="chain">
+        <div class="node"><div class="who">Player A</div><h3>Smelt</h3><p>Scrap → ingots</p></div>
+        <div class="node"><div class="who">Player B</div><h3>Forge</h3><p>Ingots → parts</p></div>
+        <div class="node"><div class="who">Player C</div><h3>Assemble</h3><p>Parts → war-goods</p></div>
+        <div class="node"><div class="who">Player D</div><h3>Pack</h3><p>Crate the tribute</p></div>
+      </div>
+      <p class="soft" style="font-size:.5em; margin-top:.6em; max-width:44ch;">A shared supply chain, not a leaderboard. No one hits quota alone; overproducing just bottlenecks your neighbour; the weakest link is everyone's problem — so propping up the straggler is how the strong players win.</p>
+    </section>
+
+    <!-- 11 FOUR LLMs -->
+    <section>
+      <span class="kick">Where the AI lives</span>
+      <h2>Four LLMs, four jobs</h2>
+      <div class="cards">
+        <div class="card i"><div class="who">Bluff / dialogue</div><h3>King's Inspector</h3><p>Interrogates, taxes, confiscates. The reason you can't run hot forever.</p></div>
+        <div class="card t"><div class="who">Agent behaviour</div><h3>Temperament</h3><p>Each machine's disposition decides how it hunts at night.</p></div>
+        <div class="card o"><div class="who">Director</div><h3>The Overlord</h3><p>Sets quotas, events, taunts. Keeps runs from repeating.</p></div>
+        <div class="card g"><div class="who">Drop-in takeover</div><h3>Ghost in the Machine</h3><p>Runs an eaten player's factory and hunts the living.</p></div>
+      </div>
+    </section>
+
+    <!-- 12 RULES QUICKFIRE -->
+    <section>
+      <span class="kick">The bones (all invented, all yours)</span>
+      <h2>The rules that hold it together</h2>
+      <ul style="font-size:.56em;">
+        <li><strong>Leash &amp; dawn-seize</strong> — machines tether to your Furnace; stranded at dawn = scrap a rival can salvage.</li>
+        <li><strong>Sigil-scent spare-list</strong> — they never eat their master; pay upkeep to spare an ally.</li>
+        <li><strong>"The Quota"</strong> — hit the King's finished-goods target over ~5 nights. Variants: Last Foreman, Endless.</li>
+        <li><strong>Eaten → you become the AI</strong> — an LLM runs your factory as the Ghost; teammates can relight your Furnace to revive you.</li>
+      </ul>
+    </section>
+
+    <!-- 13 ASK -->
+    <section data-background-color="#0d0f14">
+      <span class="kick">The ask</span>
+      <p class="big maxw">Two games, one technique: put the student in the AI's chair.</p>
+      <span class="pill">Half of it is still yours to invent with the class.</span>
+    </section>
+
+  </div></div>
+
+  <script src="../assets/vendor/reveal/reveal.js"></script>
+  <script>
+    Reveal.initialize({ hash:true, controls:true, progress:true, slideNumber:'c/t',
+      transition:'slide', width:1280, height:720, margin:0.06 });
+  </script>
+</body>
+</html>

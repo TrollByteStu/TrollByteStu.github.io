@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch: MEAT MACHINES — TrollByte</title>
+  <meta name="description" content="Two games in one: a silly Factorio by day, a silly Plants-vs-Zombies by night. You're the factory AI; your 'machines' are monsters in costumes. Four LLM roles, including the King's Inspector you must bluff.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ---- MEAT MACHINES pitch — page-local styling on the site's CSS vars ---- */
+    :root{ --rust:#cf7b41; --rust-soft:#a85f2e; --blood:#d24638; --tallow:#e8d6a8; --night:#0b0c11; }
+    .mm-hero{ position:relative; border-bottom:1px solid var(--border); }
+    .mm-hero .art{ position:relative; aspect-ratio:16/8; min-height:340px; overflow:hidden; }
+    .mm-hero .art img{ width:100%; height:100%; object-fit:cover; object-position:50% 40%; }
+    .mm-hero .scrim{ position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(8,9,13,.25) 0%, rgba(8,9,13,.55) 50%, rgba(8,9,13,.97) 100%),
+                 linear-gradient(90deg, rgba(8,9,13,.8) 0%, rgba(8,9,13,0) 62%); }
+    .mm-hero .hwrap{ position:absolute; inset:auto 0 0 0; }
+    .mm-hero .htext{ max-width:var(--maxw); margin-inline:auto; padding:0 20px 30px; }
+    .mm-kicker{ display:inline-flex; gap:10px; align-items:center; font-size:.82rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase; color:var(--rust); }
+    .mm-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--rust); }
+    .mm-hero h1{ margin:.26em 0 .16em; font-size:clamp(2.3rem,6vw,4.1rem); line-height:.98;
+      letter-spacing:.03em; font-weight:800; }
+    .mm-hero .logline{ max-width:64ch; font-size:clamp(1.02rem,2.1vw,1.28rem); margin:0 0 18px; }
+    .mm-hero .logline b{ color:var(--rust); font-weight:700; }
+    .mm-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-present{ background:linear-gradient(180deg,var(--rust),var(--rust-soft)); color:#160d05;
+      font-weight:700; border:none; padding:12px 20px; border-radius:var(--radius-sm);
+      display:inline-flex; gap:9px; align-items:center; box-shadow:var(--shadow); }
+    .btn-present:hover{ text-decoration:none; filter:brightness(1.06); }
+
+    .mm-body{ max-width:var(--maxw); margin-inline:auto; padding:8px 20px 40px; }
+    .mm-body section{ padding-block:34px; border-top:1px solid var(--border); }
+    .mm-body section:first-of-type{ border-top:none; }
+    .mm-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+      color:var(--text-soft); margin:0 0 10px; }
+    .mm-body h2{ font-size:clamp(1.5rem,3vw,2rem); margin:.1em 0 .5em; letter-spacing:-.01em; }
+    .mm-body h3{ font-size:1.12rem; margin:0 0 6px; }
+    .mm-body p{ max-width:72ch; }
+    .lede{ font-size:1.14rem; }
+
+    .flip{ border:1px solid var(--rust-soft); background:linear-gradient(180deg, rgba(207,123,65,.10), rgba(207,123,65,.03));
+      border-radius:var(--radius); padding:22px 24px; display:flex; gap:18px; align-items:flex-start; }
+    .flip .mark{ font-size:2rem; line-height:1; }
+    .flip p{ margin:0; font-size:1.16rem; } .flip b{ color:var(--rust); }
+
+    /* TWO GAMES feature */
+    .twogames{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    @media (max-width:800px){ .twogames{ grid-template-columns:1fr; } }
+    .game{ border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; }
+    .game .top{ padding:18px 20px 4px; }
+    .game .genre{ font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .game .t{ font-size:1.35rem; font-weight:800; margin:.15em 0 .1em; }
+    .game .s{ color:var(--text-soft); font-size:.95rem; margin:0; }
+    .game ul{ list-style:none; margin:0; padding:10px 20px 20px; }
+    .game li{ padding:6px 0 6px 24px; position:relative; font-size:.95rem; color:var(--text-soft); }
+    .game.day{ background:linear-gradient(180deg, rgba(232,214,168,.09), rgba(232,214,168,.02)); }
+    .game.day .genre, .game.day .li::before{ color:var(--tallow); }
+    .game.day .t{ color:var(--tallow); } .game.day li::before{ content:"⚙"; position:absolute; left:4px; color:var(--rust); }
+    .game.night{ background:linear-gradient(180deg, rgba(210,70,56,.12), rgba(11,12,17,.5)); }
+    .game.night .genre{ color:var(--blood); } .game.night .t{ color:var(--blood); }
+    .game.night li::before{ content:"🌱"; position:absolute; left:2px; font-size:.8em; }
+
+    /* seesaw duality */
+    .seesaw{ border:1px solid var(--blood); border-radius:var(--radius);
+      background:linear-gradient(90deg, rgba(232,214,168,.07), rgba(210,70,56,.12)); padding:22px 24px; }
+    .seesaw .rail{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-weight:700; }
+    .seesaw .rail .a{ color:var(--tallow); } .seesaw .rail .b{ color:var(--blood); } .seesaw .rail .arrow{ color:var(--text-soft); }
+    .seesaw p{ margin:.7em 0 0; }
+
+    .split{ display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:center; }
+    @media (max-width:760px){ .split{ grid-template-columns:1fr; } }
+    .split.rev > *:first-child{ order:2; } @media (max-width:760px){ .split.rev > *:first-child{ order:0; } }
+    .split img, .figure img{ border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); width:100%; }
+    .figure figcaption{ font-size:.86rem; color:var(--text-soft); margin-top:8px; }
+
+    .heat{ margin-top:16px; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); padding:16px 20px; }
+    .heat .bar{ height:12px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); overflow:hidden; margin:10px 0 6px; }
+    .heat .bar i{ display:block; height:100%; width:100%; background:linear-gradient(90deg,#3a7d5a,var(--tallow) 45%,var(--rust) 72%,var(--blood)); }
+    .heat .ends{ display:flex; justify-content:space-between; font-size:.8rem; color:var(--text-soft); }
+    .heat .ends .cold{ color:#5fae86; } .heat .ends .hot{ color:var(--blood); }
+
+    .roles{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    @media (max-width:720px){ .roles{ grid-template-columns:1fr; } }
+    .role{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .role::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--accent,var(--rust)); }
+    .role.insp{ --accent:var(--rust); } .role.temp{ --accent:var(--byte); } .role.over{ --accent:var(--troll); } .role.ghost{ --accent:var(--blood); }
+    .role .ic{ font-size:1.6rem; } .role .who{ font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); margin-top:6px; }
+    .role h3{ color:var(--accent,var(--rust)); margin-top:2px; } .role p{ font-size:.95rem; color:var(--text-soft); margin:.4em 0 0; }
+
+    /* Inspector demo */
+    .demo{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .demo .head{ padding:14px 20px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+    .demo .head .lbl{ font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); }
+    .susp{ display:flex; align-items:center; gap:10px; font-size:.82rem; color:var(--text-soft); }
+    .susp .bar{ width:140px; height:8px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); overflow:hidden; }
+    .susp .bar i{ display:block; height:100%; width:62%; background:linear-gradient(90deg,var(--rust),var(--blood)); }
+    .chat{ padding:16px 20px; display:flex; flex-direction:column; gap:12px; }
+    .line{ display:flex; gap:12px; align-items:flex-start; }
+    .line .tag{ flex:0 0 auto; font-size:.66rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border-radius:6px; margin-top:2px; }
+    .line.insp .tag{ background:rgba(207,123,65,.16); color:var(--rust); }
+    .line.mach .tag{ background:rgba(53,201,143,.14); color:var(--byte); }
+    .line p{ margin:0; font-size:1rem; } .line.mach p{ color:var(--text); } .line .em{ color:var(--text-soft); font-style:italic; }
+
+    /* supply chain */
+    .chain{ display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; }
+    .chain .node{ flex:1 1 130px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px; position:relative; }
+    .chain .node .who{ font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:var(--text-soft); }
+    .chain .node h3{ font-size:.98rem; margin:.15em 0 .2em; } .chain .node p{ font-size:.82rem; color:var(--text-soft); margin:0; }
+    .chain .node:not(:last-child)::after{ content:"→"; position:absolute; right:-13px; top:50%; transform:translateY(-50%); color:var(--rust); font-weight:700; z-index:2; }
+    @media (max-width:760px){ .chain .node:not(:last-child)::after{ content:"↓"; right:50%; top:auto; bottom:-14px; transform:translateX(50%);} }
+
+    .loop{ display:flex; flex-wrap:wrap; gap:10px; }
+    .loop .step{ flex:1 1 150px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px; }
+    .loop .step .n{ font-family:var(--mono); font-size:.74rem; color:var(--rust); }
+    .loop .step h3{ font-size:.98rem; margin:.2em 0 .2em; } .loop .step p{ font-size:.86rem; color:var(--text-soft); margin:0; }
+
+    .rules{ border:1px dashed var(--rust); border-radius:var(--radius); background:rgba(207,123,65,.05); padding:6px 22px 20px; }
+    .rules .rulehead{ display:flex; align-items:center; gap:10px; margin:18px 0 0; flex-wrap:wrap; }
+    .rules h3{ margin:0; } .rules .badge{ font-size:.68rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--rust); border:1px solid var(--rust-soft); border-radius:99px; padding:3px 9px; }
+    .rules p{ margin:.4em 0 0; color:var(--text-soft); } .rules p b{ color:var(--text); }
+
+    ul.clean{ list-style:none; padding:0; margin:0; }
+    ul.clean li{ padding:7px 0 7px 26px; position:relative; color:var(--text-soft); }
+    ul.clean li::before{ content:"▸"; position:absolute; left:4px; color:var(--rust); }
+    ul.open li::before{ content:"?"; color:var(--troll); font-weight:700; left:5px; }
+    .cols2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; } @media (max-width:760px){ .cols2{ grid-template-columns:1fr; } }
+
+    .teacher-note{ border:1px dashed var(--troll); border-radius:var(--radius); background:rgba(109,90,230,.06); padding:20px 22px; }
+    .teacher-note h2{ margin-top:0; } .kv dt{ font-weight:700; margin-top:12px; } .kv dt.a{ color:var(--byte); } .kv dt.b{ color:var(--troll); } .kv dd{ margin:2px 0 0; color:var(--text-soft); }
+    .endbar{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html" aria-current="page">Pitchdeck</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="mm-hero">
+      <div class="art">
+        <img src="../assets/pitchdeck/LLMDriven/meatmachines-hero.webp" alt="A ragged figure shuffles through an old factory wearing a rusty box costume with gears bolted on and a hand-lettered cardboard sign reading GEARS AND LEVERS taped to the front.">
+        <div class="scrim"></div>
+      </div>
+      <div class="hwrap"><div class="htext">
+        <span class="mm-kicker"><span class="dot"></span> LLM-Driven pitch · Medieval co-op · two games in one</span>
+        <h1>MEAT MACHINES</h1>
+        <p class="logline">By day, a <b>silly Factorio</b>: build a factory of monsters in machine costumes and optimise the daylights out of it. By night, a <b>silly Plants-vs-Zombies</b>: those same monsters get up and go hunting — and the better your day went, the deadlier your night is <em>to your friends</em>. You're the AI running the whole thing.</p>
+        <div class="mm-actions">
+          <a class="btn-present" href="pitch-llm-meat-machines-slides.html">▶ Present the pitch</a>
+          <a class="btn btn-ghost" href="#read">↓ Read it</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="mm-body" id="read">
+
+      <!-- THE FLIP -->
+      <section>
+        <p class="mm-eyebrow">The one-line hook</p>
+        <div class="flip">
+          <span class="mark">🤖</span>
+          <p>Everyone makes the game where humans fear the AI. <b>MEAT MACHINES puts you in the AI's boots.</b> You run a medieval war-factory, and your "workforce" is monsters and captured soldiers bolted into machine costumes to whip some productivity out of the meatsacks. They churn out materiel all day. They are not machines. And at night, they remember that.</p>
+        </div>
+      </section>
+
+      <!-- TWO GAMES IN ONE -->
+      <section>
+        <p class="mm-eyebrow">The pitch, honestly</p>
+        <h2>It's two games bolted together at dusk and dawn</h2>
+        <p class="lede">Co-op, 3–5 players, one shared wasteland. The clever bit is that the daytime game and the nighttime game are different <em>genres</em> — and they run on the exact same monsters.</p>
+        <div class="twogames">
+          <div class="game day">
+            <div class="top">
+              <div class="genre">Phase 1 · Day</div>
+              <div class="t">🏭 A silly Factorio</div>
+              <p class="s">Cozy, comedic base-building. Belts, boilers, levers, supply chains.</p>
+            </div>
+            <ul>
+              <li>Costume a fresh monster, slot it onto a production line, wire up the belts.</li>
+              <li>Optimise throughput — faster cranks, tighter chains, calmer tempers.</li>
+              <li>Keep disguises convincing and dodge the King's Inspector.</li>
+              <li>Bank resources and lay defences for the night. Relaxing… until you remember what you're building.</li>
+            </ul>
+          </div>
+          <div class="game night">
+            <div class="top">
+              <div class="genre">Phase 2 · Night</div>
+              <div class="t">🧟 A silly Plants-vs-Zombies</div>
+              <p class="s">Reciprocal tower-defence. Everyone is the gardener <em>and</em> the horde.</p>
+            </div>
+            <ul>
+              <li>The traps &amp; defences you built by day are your "plants." Hold your lanes.</li>
+              <li>The waves clawing in are <b>other players' machines</b> (plus NPC horrors).</li>
+              <li>Meanwhile your machines are out attacking everyone else's lanes.</li>
+              <li>Survive to dawn — then it all flips back to the factory.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE DUALITY -->
+      <section>
+        <p class="mm-eyebrow">Why the two halves are really one system</p>
+        <h2>The better your day, the bigger your night</h2>
+        <div class="seesaw">
+          <div class="rail"><span class="a">🏭 Great factory day</span> <span class="arrow">→</span> <span class="b">🧟 Huge, hungry night army</span> <span class="arrow">→</span> <span class="b">😬 Aimed at your friends</span></div>
+          <p>Both games share one body of monsters, and that's the whole tension. Every ounce of daytime success is a fully-armed night threat. Push your lines hard and you hit quota, upgrade fast, pull ahead — and you also field the biggest, hungriest pack of horrors when the sun goes down. <b>The best factory-master in the group is, by dawn, the person nobody wants to sleep next to.</b> You cannot optimise the day without arming the night.</p>
+        </div>
+      </section>
+
+      <!-- DISGUISE + HEAT -->
+      <section>
+        <p class="mm-eyebrow">The gag that carries it — and its cost</p>
+        <div class="split">
+          <div>
+            <h2>Work them hard, and the disguise slips</h2>
+            <p class="lede">Machines run on <b>Exertion</b>. Drive a line hard and output soars — but the disguise frays. The boiler pants. The loom starts to glow. The "statue" sweats through its paint.</p>
+            <p>Idle and cool, a monster passes for equipment. Red-lining for the quota, it's obviously alive. Almost always you <em>want</em> it red-lining — more resource, faster upgrades, a bigger night army. The problem is the man in the tax-collector's coat who keeps walking the floor.</p>
+            <div class="heat">
+              <div class="bar"><i></i></div>
+              <div class="ends"><span class="cold">◄ cold &amp; idle · convincing · low output</span><span class="hot">red-lining · obviously alive · high output ►</span></div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/meatmachines-disguise.webp" alt="A person in chainmail and a medieval helmet standing inside a grey metal control-cabinet costume with an orange beacon light on top, posing as factory machinery.">
+            <figcaption>Cold, quiet, innocent. For now.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- THE KING'S INSPECTOR -->
+      <section>
+        <p class="mm-eyebrow">The metronome the day dances to</p>
+        <h2>The King's Inspector</h2>
+        <p class="lede">He's the Overlord's man — a royal auditor sent to sniff your Area for "irregularities." He is the reason you can't just leave everything red-lining.</p>
+        <p>Find a flaw and he doesn't merely raise suspicion — he <b>taxes you to the bone</b> or <b>confiscates the offending "machine"</b> outright (there goes your best night-hunter). He does rounds. When he's near, you throttle everything down to a cold, innocent hum and pray nothing blinks; when he moves on, you crank it back to red. And when he stops to ask questions, he's an <b>LLM you have to talk past.</b></p>
+        <div class="demo">
+          <div class="head">
+            <span class="lbl">Day 2 · Inspection · Line 3 "Loom"</span>
+            <span class="susp">Suspicion <span class="bar"><i></i></span> rising</span>
+          </div>
+          <div class="chat">
+            <div class="line insp"><span class="tag">Inspector</span><p>This loom is warm. Looms are not warm. Explain.</p></div>
+            <div class="line mach"><span class="tag">"Loom"</span><p>Friction, your honour. I have been… weaving. Vigorously. All night. For the quota.</p></div>
+            <div class="line insp"><span class="tag">Inspector</span><p>It has no thread on it.</p></div>
+            <div class="line mach"><span class="tag">"Loom"</span><p><span class="em">(long pause)</span> I finished. I am efficient. That is why I am warm.</p></div>
+            <div class="line insp"><span class="tag">Inspector</span><p>…It just blinked. Looms do not blink. That is a tax of forty crowns, or I take it with me.</p></div>
+            <div class="line mach"><span class="tag">"Loom"</span><p>Report favourably and I will demonstrate my <em>other</em> new features tonight. At your house.</p></div>
+          </div>
+        </div>
+        <p style="margin-top:14px; color:var(--text-soft); font-size:.92rem;">Every answer is generated live and scored. Pass, and the line keeps running hot. Fail, and you're taxed — or you lose the machine, which it will remember, come dark.</p>
+      </section>
+
+      <!-- THE REVEAL -->
+      <section>
+        <p class="mm-eyebrow">…and when the sun goes down</p>
+        <div class="split rev">
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/meatmachines-trueforms.webp" alt="Concept art of eight armoured boiler-bodied creatures with spindly legs, glowing eyes, spikes and rusted plating — the true forms of the machines.">
+          </figure>
+          <div>
+            <h2>The costume comes off</h2>
+            <p class="lede">What was a boiler is a spiked thing on chicken legs. What was a loom unfolds arms. The nicer the daytime disguise, the nastier the reveal.</p>
+            <p>The roster you optimised for output is now your tower-defence army — and your neighbours' wave. A build tuned for pure production makes a clumsy hunter; a lean, hungry build wrecks rivals but skimps the quota. The night is where your daytime choices come to collect.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT ARE YOU MAKING -->
+      <section>
+        <p class="mm-eyebrow">The dark joke underneath it all</p>
+        <div class="split">
+          <div>
+            <h2>What are you even making?</h2>
+            <p class="lede">The Adventurers' Guild does what it always does — clears dungeons, slays monsters, drags home prisoners. All that defeated menace has to go <em>somewhere.</em></p>
+            <p>So it's shipped to you. Your factory costumes captured monsters and enemy soldiers into obedient "machines" and works them to churn out materiel for the Overlord's endless war: blades, siege parts, powder, rations. The great efficiency revolution the King is so proud of is just monsters in cardboard, worked to exhaustion, by an AI — you — who happens to be very good at hitting targets. It only runs at night because nobody told the monsters they'd stopped being monsters.</p>
+          </div>
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/meatmachines-catalog.webp" alt="A catalogue sheet of machine disguises, each a person in a different rusty machine costume labelled with a job: boiler, bellows, cracker, crusher, hoist, loom, press, grinder, furnace, drill, sorter, riveter.">
+            <figcaption>The intake catalogue: pick a chassis, pick a job, stuff something angry inside. (The class's own costume studies.)</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- HOW IS THIS CO-OP -->
+      <section>
+        <p class="mm-eyebrow">Your sharpest question, answered</p>
+        <h2>If one player's always better, how is it co-op?</h2>
+        <p class="lede">Because the factory is a <b>shared supply chain, not a leaderboard.</b> Each player's Area owns a different link, and the Overlord's quota is for finished goods that need every link.</p>
+        <div class="chain">
+          <div class="node"><div class="who">Player A</div><h3>Smelt</h3><p>Turns raw scrap &amp; ore into ingots.</p></div>
+          <div class="node"><div class="who">Player B</div><h3>Forge</h3><p>Ingots into parts, plates, blades.</p></div>
+          <div class="node"><div class="who">Player C</div><h3>Assemble</h3><p>Parts into finished war-goods.</p></div>
+          <div class="node"><div class="who">Player D</div><h3>Pack &amp; ship</h3><p>Crates the tribute for the King.</p></div>
+        </div>
+        <div class="cols2" style="margin-top:22px">
+          <div>
+            <h3>Why "being the best" doesn't win alone</h3>
+            <ul class="clean">
+              <li>No one completes the quota solo — your brilliance is worthless if the assembler downstream is drowning.</li>
+              <li>Overproduce and you just <em>bottleneck</em> your neighbour; idle surplus machines get restless and hungry, making your own night worse. Running too far ahead hurts you.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Why you actually want a strong team</h3>
+            <ul class="clean">
+              <li>You're scored on what you contribute to <em>finished</em> goods, so keeping the chain flowing beats hoarding.</li>
+              <li>The weakest link is everyone's problem — so the strong players are selfishly motivated to prop them up: spare parts, lend a machine, guard their Keep at night.</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:8px">That's the co-op: not everyone equal, but everyone <b>necessary</b> — and a straggler is something you fix, not something you lap.</p>
+      </section>
+
+      <!-- FOUR LLM ROLES -->
+      <section>
+        <p class="mm-eyebrow">Where the AI actually lives</p>
+        <h2>Four LLMs, four jobs</h2>
+        <p>You play an AI, so it's fitting the game runs on several. Each is a different, teachable way to wire a language model into play.</p>
+        <div class="roles">
+          <article class="role insp">
+            <div class="ic">🔍</div><div class="who">Role 1 · Bluff / dialogue under pressure</div>
+            <h3>The King's Inspector</h3>
+            <p>Patrols your line, interrogates your "machines," and taxes or confiscates on a slip. The social-deduction heart of the day game — and the reason you can't run hot forever.</p>
+          </article>
+          <article class="role temp">
+            <div class="ic">🌡️</div><div class="who">Role 2 · Agent behaviour</div>
+            <h3>Machine Temperament</h3>
+            <p>Every machine has an LLM-driven disposition — obedient ↔ ravenous, loyal ↔ treacherous — that decides, at night, how far it strays and whom it bites.</p>
+          </article>
+          <article class="role over">
+            <div class="ic">👁️</div><div class="who">Role 3 · Procedural director</div>
+            <h3>The Overlord</h3>
+            <p>The distant King. Sets each night's quota and events, reads the Inspector's reports, and taunts. The GM-equivalent that keeps runs from repeating.</p>
+          </article>
+          <article class="role ghost">
+            <div class="ic">👻</div><div class="who">Role 4 · Drop-in takeover</div>
+            <h3>Ghost in the Machine</h3>
+            <p>When a player is eaten, an LLM takes over their orphaned factory and keeps hunting the living. The game never loses a side — the pressure just gets smarter.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- INVENTED RULES -->
+      <section>
+        <p class="mm-eyebrow">The other invented mechanics</p>
+        <h2>The rules that hold it together</h2>
+        <p><b>All invented and all yours to rewrite</b> — the bones that make the two games work as one.</p>
+        <div class="rules">
+          <div class="rulehead"><h3>The Leash &amp; the Dawn-Seize</h3><span class="badge">the wandering problem</span></div>
+          <p>Every machine is tethered to your yard's <b>Furnace-Totem</b>. At night the leash slackens so they roam far to hunt; at dawn they must be back in range or they <b>seize up into scrap</b> where they stand. Strand one in a rival's lane and they can <b>salvage it</b>, or you mount a risky morning expedition to drag it home. Reach far = big kills, big risk. The core dial for how aggressive your night is.</p>
+
+          <div class="rulehead"><h3>Friendly fire &amp; the spare-list</h3><span class="badge">not eating your team</span></div>
+          <p>Machines carry your <b>sigil-scent</b> and never turn on their master — but they'll eat everyone else, teammates included. Pay upkeep to add an ally to a machine's <b>spare-list</b> so it leaves them be… or decline, and let your neighbour sweat. Cheap alliances, expensive trust.</p>
+
+          <div class="rulehead"><h3>Win &amp; lose</h3><span class="badge">the point of it all</span></div>
+          <p>Default mode, <b>"The Quota"</b>: survive a fixed run (say 5 nights) and meet the King's cumulative quota of <em>finished</em> goods by the final dawn. Everyone still standing who helped hit quota is spared — a shared win, with an individual tribute-score on top. Miss it, or lose everyone, and the whole line gets scrapped. <b>Variants:</b> "Last Foreman Standing" (competitive), "Endless" (escalating quota).</p>
+
+          <div class="rulehead"><h3>When you're eaten → you become the AI</h3><span class="badge">death, and the LLM</span></div>
+          <p>Lose your vessel and you don't drop out — you <b>ascend into the machines.</b> An LLM runs your orphaned factory as the <b>Ghost in the Machine</b>, hunting the survivors, smarter each night. The living can fight to your dead Furnace and <b>relight it with a fresh vessel</b> to reincarnate you (reduced yard), or write you off and outlast what you became.</p>
+        </div>
+      </section>
+
+      <!-- OPEN QUESTIONS -->
+      <section>
+        <p class="mm-eyebrow">Still on the table</p>
+        <h2>What we still haven't nailed down</h2>
+        <ul class="clean open">
+          <li>Exact interdependence: strict linear chain (A→B→C→D) or a web where several parts feed several goods? A web is more forgiving, a chain is more tense.</li>
+          <li>How punishing should the night be? Full PvZ lane-defence, or a lighter "hold out and don't die" survival layer?</li>
+          <li>All the numbers — nights per run, quota curve, Inspection frequency, how fast Exertion breaks a disguise.</li>
+          <li>Do allies share one Quota, or does each player owe a personal cut of it? Changes how ruthless the team gets.</li>
+        </ul>
+      </section>
+
+      <!-- WHY TEACH -->
+      <section>
+        <p class="mm-eyebrow">For the staff room</p>
+        <h2>Why it earns its place next to BOILERHEART</h2>
+        <div class="cols2">
+          <div>
+            <h3>It teaches four LLM patterns</h3>
+            <ul class="clean">
+              <li><b>Bluff dialogue</b> — the Inspector: constrained, scored, adversarial conversation.</li>
+              <li><b>Agent behaviour</b> — machine temperament driving night decisions.</li>
+              <li><b>Procedural director</b> — the Overlord setting quotas and events.</li>
+              <li><b>Drop-in takeover</b> — the Ghost keeping a downed player's side alive.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>And it's two teachable games</h3>
+            <ul class="clean">
+              <li>The day builder and the night defence can be prototyped separately, by different students.</li>
+              <li>"You are the AI" and the disguise gag are instantly legible to a class.</li>
+              <li>The Inspector is a self-contained first slice you could ship text-only.</li>
+              <li>The supply-chain co-op does its social design heavy-lifting for free.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEACHER NOTE -->
+      <section>
+        <div class="teacher-note">
+          <p class="mm-eyebrow">Erik — read before you approve</p>
+          <h2>What came from the notes vs. what I invented</h2>
+          <p>This draft folds in your second round of directions — flag anything that drifts from what you and the students meant:</p>
+          <dl class="kv">
+            <dt class="a">From your notes (both rounds)</dt>
+            <dd>Medieval wasteland; co-op; build/optimise machines by day that "look suspicious"; machines are badly-disguised monsters/soldiers that hunt the other players at night; try not to get eaten by your friends' machines; build traps against nighttime raids; "afraid of AI, flipped — you ARE the AI"; the lore drift from "AI knows they're humans, whipping meatsacks" to "soldiers &amp; monsters hiding in machines." <b>Round two:</b> split into two loops — <b>Phase 1 day = silly Factorio, Phase 2 night = silly PvZ/tower-defence, presented as two games in one</b>; the <b>Inspector tied to the Overlord as the King's auditor who taxes/confiscates on flaws</b>; <b>harder work = worse disguise</b>; the <b>day-success = night-risk-to-allies duality</b>; the co-op interdependence idea (<b>players make parts each other need so you can "fall behind"</b>); and the production fiction (<b>costuming war-prisoners/monsters from the Adventurers' Guild, for the King/Overlord</b>).</dd>
+            <dt class="b">My elaborations (all yours to change)</dt>
+            <dd>The <b>Exertion/Heat meter</b> as the concrete "work-hard-breaks-disguise" mechanic; the <b>Smelt→Forge→Assemble→Pack supply chain</b> and its bottleneck/tribute-score/prop-up-the-weak-link logic; the <b>Furnace-Totem leash + dawn-seize</b>, <b>sigil-scent spare-list</b>, <b>"The Quota"</b> win + variants, and <b>death → Ghost-in-the-Machine + relight-to-revive</b> (carried from v1); the <b>four-LLM-roles</b> framing; the rust/blood visual treatment; and keeping your title <b>MEAT MACHINES</b>. None of it is load-bearing — tell me what to cut, swap, or push harder.</dd>
+          </dl>
+        </div>
+      </section>
+
+      <div class="endbar">
+        <a class="btn btn-ghost" href="../pitchdeck.html">← Back to all pitches</a>
+        <a class="btn-present" href="pitch-llm-meat-machines-slides.html">▶ Present the pitch</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
