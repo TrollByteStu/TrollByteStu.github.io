@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MUTATED HENCHMAN — pitch deck</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <!-- reveal.js 5.1.0, vendored locally under assets/vendor/reveal/ — no CDN, works offline -->
+  <link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+  <link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+  <style>
+    :root{
+      --bg:#07090b; --surface:#12151b; --surface-2:#191d25; --border:#2a2f39;
+      --text:#e9ecf2; --soft:#9aa6b4; --eld:#5ec1a6; --eld-soft:#3d8f79;
+      --void:#b487ee; --flesh:#d65a4d; --gold:#d9a441;
+      --font: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --mono:"Cascadia Code","SFMono-Regular",Consolas,Menlo,monospace;
+    }
+    html, body{ background:var(--bg); }
+    .reveal-viewport{ background:var(--bg); }
+    .reveal{ font-family:var(--font); color:var(--text); font-size:34px; background:var(--bg); }
+    .reveal .slides{ text-align:left; }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--text); font-weight:800; letter-spacing:-.01em; line-height:1.05; margin:0 0 .35em; text-transform:none; }
+    .reveal h1{ font-size:2.0em; letter-spacing:.03em; }
+    .reveal em{ color:var(--eld); font-style:normal; }
+    .reveal strong{ color:var(--eld); }
+    .reveal p{ line-height:1.4; }
+    .reveal .controls{ color:var(--eld); }
+    .reveal .progress{ color:var(--eld); height:4px; }
+    .reveal ::selection{ background:var(--eld); color:#04120e; }
+
+    .kick{ display:inline-block; font-size:.5em; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--eld); margin-bottom:.4em; }
+    .soft{ color:var(--soft); }
+    .logo-badge{ position:fixed; top:20px; left:24px; font-size:20px; font-weight:700; color:var(--text); opacity:.85; z-index:30; }
+    .logo-badge b{ color:var(--eld); }
+    .foot{ position:fixed; bottom:16px; left:24px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); opacity:.55; z-index:30; }
+    .scrim::after{ content:""; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(90deg, rgba(6,8,10,.95) 0%, rgba(6,8,10,.7) 45%, rgba(6,8,10,.32) 100%); }
+
+    .big{ font-size:1.5em; line-height:1.06; font-weight:800; }
+    .lead{ font-size:1.05em; max-width:20ch; }
+    .maxw{ max-width:24ch; }
+
+    .loop{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:.3em; }
+    .loop .s{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+    .loop .s .n{ font-family:var(--mono); font-size:.44em; color:var(--eld); }
+    .loop .s h3{ font-size:.6em; margin:.15em 0 .1em; } .loop .s p{ font-size:.42em; color:var(--soft); margin:0; line-height:1.3; }
+
+    /* dial */
+    .track{ position:relative; height:30px; border-radius:99px; overflow:hidden; border:1px solid var(--border);
+      background:linear-gradient(90deg, var(--eld) 0%, #6f9bbd 45%, var(--void) 100%); margin:.4em 0 .2em; }
+    .track .tick{ position:absolute; top:0; bottom:0; width:2px; background:rgba(6,8,10,.6); }
+    .scale{ display:flex; justify-content:space-between; font-size:.42em; }
+    .scale .you{ color:var(--eld);} .scale .it{ color:var(--void);}
+    .stops{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:.5em; font-size:.46em; }
+    .stopc{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
+    .stopc .pct{ font-family:var(--mono); font-weight:800; } .stopc.a .pct{color:var(--eld);} .stopc.b .pct{color:#8f9bbf;} .stopc.c .pct{color:var(--void);}
+    .stopc p{ color:var(--soft); margin:.3em 0 0; line-height:1.3; }
+
+    .voice{ border:1px solid var(--void); border-radius:14px; background:rgba(180,135,238,.08); padding:22px 26px; }
+    .voice .said{ font-size:.72em; line-height:1.5; color:var(--void); font-style:italic; margin:0; }
+    .voice .after{ margin-top:.5em; font-size:.56em; } .voice .after .q{ color:var(--flesh); }
+
+    .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:.2em; }
+    .card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px; }
+    .card::before{ content:""; display:block; height:4px; width:44px; border-radius:4px; background:var(--ac,var(--eld)); margin-bottom:10px; }
+    .card.master{ --ac:var(--void);} .card.mercs{ --ac:var(--eld);} .card.att{ --ac:var(--flesh);} .card.shop{ --ac:var(--gold);}
+    .card h3{ font-size:.66em; margin:.1em 0 .1em; color:var(--ac,var(--eld)); }
+    .card .who{ font-size:.4em; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .card p{ font-size:.44em; color:var(--soft); line-height:1.35; margin:.3em 0 0; }
+
+    .bank{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:.3em; font-size:.46em; }
+    .bcol{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
+    .bcol .l{ font-weight:800; text-transform:uppercase; letter-spacing:.04em; font-size:.8em; margin-bottom:.3em; }
+    .bcol.hit .l{color:var(--flesh);} .bcol.win .l{color:var(--eld);} .bcol.lose .l{color:var(--void);} .bcol.crit .l{color:var(--gold);}
+    .bcol p{ color:var(--soft); margin:.2em 0; line-height:1.25; }
+
+    .dirs{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:.3em; }
+    .dcard{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; }
+    .dcard .n{ font-weight:800; font-size:.6em; } .dcard.a .n{color:var(--flesh);} .dcard.b .n{color:var(--void);} .dcard.c .n{color:var(--eld);}
+    .dcard p{ font-size:.44em; color:var(--soft); margin:.3em 0 0; line-height:1.3; }
+
+    .reveal ul{ margin:0; } .reveal li{ margin:.26em 0; line-height:1.35; }
+    .pill{ display:inline-block; margin-top:.5em; font-size:.5em; padding:8px 16px; border:1px solid var(--eld-soft); border-radius:999px; color:var(--eld); letter-spacing:.04em; }
+  </style>
+</head>
+<body>
+  <div class="logo-badge">Troll<b>Byte</b></div>
+  <div class="foot">MUTATED HENCHMAN · LLM-driven pitch</div>
+
+  <div class="reveal"><div class="slides">
+
+    <!-- 1 TITLE -->
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/mutant-master.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">LLM-driven pitch · co-op survival · body horror</span>
+      <h1>MUTATED HENCHMAN</h1>
+      <p class="lead">You defend a horror you'll never see. Every death brings you back more mutated — and less yourself.</p>
+    </section>
+
+    <!-- 2 HOOK -->
+    <section>
+      <span class="kick">The hook</span>
+      <p class="big maxw">Death isn't game over. It's a <em>promotion.</em></p>
+      <p class="soft" style="max-width:28ch; margin-top:.4em;">A voice in your skull pays you to keep its coffin sealed. Each time you fall it drags you back with +10% mutation — power you buy by handing your body to something that isn't you.</p>
+    </section>
+
+    <!-- 3 LOOP -->
+    <section>
+      <span class="kick">The shape of a run</span>
+      <h2>Get paid to keep the lid shut</h2>
+      <div class="loop">
+        <div class="s"><div class="n">Phase A</div><h3>Defend</h3><p>Waves come for the coffin. Every kill pays.</p></div>
+        <div class="s"><div class="n">Phase B</div><h3>Spend</h3><p>Guns, gear, and surgery — on yourself.</p></div>
+        <div class="s"><div class="n">Loop</div><h3>Escalate</h3><p>Harder waves, deeper upgrades, the whispering.</p></div>
+        <div class="s"><div class="n">Fail</div><h3>Breach</h3><p>Coffin cracked = you lose, and finally see the boss.</p></div>
+      </div>
+    </section>
+
+    <!-- 4 DIAL -->
+    <section>
+      <span class="kick">The mechanic it's all built on</span>
+      <h2 class="maxw">Every death is a promotion you didn't want.</h2>
+      <div class="track"><span class="tick" style="left:10%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:90%"></span></div>
+      <div class="scale"><span class="you">◄ you at the controls</span><span class="it">the Thing at the controls ►</span></div>
+      <div class="stops">
+        <div class="stopc a"><span class="pct">10% mutated</span><p>Aim drifts — cursor's yours 90% of the time.</p></div>
+        <div class="stopc b"><span class="pct">50% mutated</span><p>Half you, half it. Whose move was that?</p></div>
+        <div class="stopc c"><span class="pct">90% mutated</span><p>You steer 10%. The rest is a hungrier thing in your skin.</p></div>
+      </div>
+      <p class="soft" style="font-size:.46em; margin-top:.5em;">Power and control sit on opposite ends of the same slider.</p>
+    </section>
+
+    <!-- 5 MASTER VOICE -->
+    <section>
+      <span class="kick">Your employer, who is also the horror</span>
+      <h2>A voice you obey and never meet</h2>
+      <div class="voice">
+        <p class="said fragment">"Carry me to the house with the small chairs. Set me in the middle of the room. You need not stay."</p>
+        <p class="after fragment"><span class="soft">You get paid. You buy an upgrade. It was a good day.</span></p>
+        <p class="after fragment">Next morning: the small chairs are gone. The walls are <span class="q">not white anymore.</span> Nobody made you look.</p>
+      </div>
+    </section>
+
+    <!-- 6 INDIRECT HORROR -->
+    <section>
+      <span class="kick">The horror is never in your face</span>
+      <h2 class="maxw">You're not scared — until you understand.</h2>
+      <p class="soft maxw" style="font-size:.68em;">No jump-scares. The master is polite, the jobs simple, the pay good. The horror is the arithmetic of what you've done — assembled in your own head, one contract too late. You chose every step. You'd probably take the next one too.</p>
+      <p class="soft" style="font-size:.44em; margin-top:.5em;">(From the two students who stayed late — bring it back to the whole team.)</p>
+    </section>
+
+    <!-- 7 LLM CAST -->
+    <section>
+      <span class="kick">Where the AI lives</span>
+      <h2>An eldritch employer &amp; a chatty payroll</h2>
+      <div class="cards">
+        <div class="card master"><div class="who">The voice</div><h3>The Master</h3><p>LLM employer — briefs, judges, narrates the slow horror. Never seen, always heard.</p></div>
+        <div class="card mercs"><div class="who">Your payroll</div><h3>The Other Mercs</h3><p>Disposable co-workers with personality — on a clever budget (see next).</p></div>
+        <div class="card att"><div class="who">The waves</div><h3>The Attackers</h3><p>Zealots, rivals, heroes who think they're the good guys. Varied goals &amp; taunts.</p></div>
+        <div class="card shop"><div class="who">The between</div><h3>Shopkeepers &amp; Surgeons</h3><p>Who sells flesh-grafts to a horror's henchmen? Strange people, stranger stock.</p></div>
+      </div>
+    </section>
+
+    <!-- 8 BARK BANK -->
+    <section>
+      <span class="kick">Your smartest production idea — kept</span>
+      <h2>LLM teammates, alive but cheap</h2>
+      <p class="soft" style="font-size:.6em; max-width:34ch;">Don't call the model mid-firefight. Generate each merc's lines <em>up front</em> as banks; pick one at runtime. Same character, no latency.</p>
+      <div class="bank">
+        <div class="bcol hit"><div class="l">When hit</div><p>"That's coming out of your half!"</p></div>
+        <div class="bcol win"><div class="l">Winning</div><p>"Easiest coffin I ever guarded."</p></div>
+        <div class="bcol lose"><div class="l">Losing</div><p>"I did NOT mutate this much to die at 40%."</p></div>
+        <div class="bcol crit"><div class="l">Critical</div><p>"Ha! Twenty percent of that was me!"</p></div>
+      </div>
+      <p class="soft" style="font-size:.46em; margin-top:.5em;">The lesson: <strong>author-time generation, run-time selection.</strong> Build content once, cheaply — not every frame.</p>
+    </section>
+
+    <!-- 9 THREE DIRECTIONS -->
+    <section>
+      <span class="kick">The thing we genuinely didn't settle</span>
+      <h2>What world is this? Take your pick.</h2>
+      <div class="dirs">
+        <div class="dcard a"><div class="n">A · Gothic Horde</div><p>Besieged bazaar of the dead; blades, bone, grim &amp; grand.</p></div>
+        <div class="dcard b"><div class="n">B · Sunless Temple</div><p>Ritual, fog, firelight. The most overtly eldritch.</p></div>
+        <div class="dcard c"><div class="n">C · Gun-Mercs</div><p>Grimy near-future; rifles, cybersurgery, "cheap mercs."</p></div>
+      </div>
+      <p class="soft" style="font-size:.5em; margin-top:.6em;">The systems don't care which. My lean: C with A's grimness — and a perfect thing to hand to a playtest.</p>
+    </section>
+
+    <!-- 10 ASK -->
+    <section data-background-color="#0c0e12">
+      <span class="kick">The ask</span>
+      <p class="big maxw">A new mechanic: buy power with your own control.</p>
+      <span class="pill">Plus two techniques worth stealing: bark banks &amp; horror-by-realisation.</span>
+    </section>
+
+  </div></div>
+
+  <script src="../assets/vendor/reveal/reveal.js"></script>
+  <script>
+    Reveal.initialize({ hash:true, controls:true, progress:true, slideNumber:'c/t',
+      transition:'slide', width:1280, height:720, margin:0.06 });
+  </script>
+</body>
+</html>

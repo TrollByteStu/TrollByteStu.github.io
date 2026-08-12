@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch: MUTATED HENCHMAN — TrollByte</title>
+  <meta name="description" content="You're a cheap merc defending an eldritch master you'll never see — a voice in your mind. Every death resurrects you with more mutation: more power, less control of your own body. Fail to keep the coffin sealed and you lose.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ---- MUTATED HENCHMAN pitch — page-local styling on the site's CSS vars ---- */
+    :root{ --eld:#57b39a; --eld-soft:#3d8f79; --void:#a774e6; --flesh:#c8483c; }
+    .mh-hero{ position:relative; border-bottom:1px solid var(--border); }
+    .mh-hero .art{ position:relative; aspect-ratio:16/8; min-height:340px; overflow:hidden; }
+    .mh-hero .art img{ width:100%; height:100%; object-fit:cover; object-position:50% 40%; }
+    .mh-hero .scrim{ position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(6,8,10,.25) 0%, rgba(6,8,10,.55) 50%, rgba(6,8,10,.97) 100%),
+                 linear-gradient(90deg, rgba(6,8,10,.82) 0%, rgba(6,8,10,0) 62%); }
+    .mh-hero .hwrap{ position:absolute; inset:auto 0 0 0; }
+    .mh-hero .htext{ max-width:var(--maxw); margin-inline:auto; padding:0 20px 30px; }
+    .mh-kicker{ display:inline-flex; gap:10px; align-items:center; font-size:.82rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase; color:var(--eld); }
+    .mh-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--eld); }
+    .mh-hero h1{ margin:.26em 0 .16em; font-size:clamp(2.2rem,5.6vw,4rem); line-height:.98; letter-spacing:.03em; font-weight:800; }
+    .mh-hero .logline{ max-width:64ch; font-size:clamp(1.02rem,2.1vw,1.28rem); margin:0 0 18px; }
+    .mh-hero .logline b{ color:var(--eld); font-weight:700; }
+    .mh-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-present{ background:linear-gradient(180deg,var(--eld),var(--eld-soft)); color:#04120e;
+      font-weight:700; border:none; padding:12px 20px; border-radius:var(--radius-sm);
+      display:inline-flex; gap:9px; align-items:center; box-shadow:var(--shadow); }
+    .btn-present:hover{ text-decoration:none; filter:brightness(1.06); }
+
+    .mh-body{ max-width:var(--maxw); margin-inline:auto; padding:8px 20px 40px; }
+    .mh-body section{ padding-block:34px; border-top:1px solid var(--border); }
+    .mh-body section:first-of-type{ border-top:none; }
+    .mh-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-soft); margin:0 0 10px; }
+    .mh-body h2{ font-size:clamp(1.5rem,3vw,2rem); margin:.1em 0 .5em; letter-spacing:-.01em; }
+    .mh-body h3{ font-size:1.12rem; margin:0 0 6px; }
+    .mh-body p{ max-width:72ch; }
+    .lede{ font-size:1.14rem; }
+
+    .flip{ border:1px solid var(--eld-soft); background:linear-gradient(180deg, rgba(87,179,154,.10), rgba(87,179,154,.03));
+      border-radius:var(--radius); padding:22px 24px; display:flex; gap:18px; align-items:flex-start; }
+    .flip .mark{ font-size:2rem; line-height:1; } .flip p{ margin:0; font-size:1.16rem; } .flip b{ color:var(--eld); }
+
+    .loop{ display:flex; flex-wrap:wrap; gap:10px; }
+    .loop .step{ flex:1 1 150px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px; }
+    .loop .step .n{ font-family:var(--mono); font-size:.74rem; color:var(--eld); }
+    .loop .step h3{ font-size:.98rem; margin:.2em 0 .2em; } .loop .step p{ font-size:.86rem; color:var(--text-soft); margin:0; }
+
+    /* mutation dial — the signature */
+    .dial{ border:1px solid var(--void); border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(167,116,230,.10), rgba(87,179,154,.04)); padding:24px; }
+    .dial .track{ position:relative; height:26px; border-radius:99px; overflow:hidden; border:1px solid var(--border);
+      background:linear-gradient(90deg, var(--eld) 0%, #6f9bbd 45%, var(--void) 100%); }
+    .dial .track .tick{ position:absolute; top:0; bottom:0; width:2px; background:rgba(6,8,10,.55); }
+    .dial .scale{ display:flex; justify-content:space-between; margin-top:8px; font-size:.8rem; color:var(--text-soft); }
+    .dial .scale .you{ color:var(--eld); } .dial .scale .it{ color:var(--void); }
+    .dial .stops{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:20px; }
+    @media (max-width:640px){ .dial .stops{ grid-template-columns:1fr; } }
+    .stop{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px 16px; }
+    .stop .pct{ font-family:var(--mono); font-weight:700; } .stop.a .pct{ color:var(--eld);} .stop.b .pct{ color:#8f9bbf;} .stop.c .pct{ color:var(--void);}
+    .stop p{ font-size:.88rem; color:var(--text-soft); margin:.35em 0 0; }
+    .dial .kicker-line{ margin:20px 0 0; font-size:1.12rem; } .dial .kicker-line b{ color:var(--void); }
+
+    .split{ display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:center; }
+    @media (max-width:760px){ .split{ grid-template-columns:1fr; } }
+    .split.rev > *:first-child{ order:2; } @media (max-width:760px){ .split.rev > *:first-child{ order:0; } }
+    .split img, .figure img{ border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); width:100%; }
+    .figure figcaption{ font-size:.86rem; color:var(--text-soft); margin-top:8px; }
+
+    /* master voice demo */
+    .voice{ border:1px solid var(--void); border-radius:var(--radius); background:rgba(167,116,230,.06); padding:20px 24px; }
+    .voice .said{ font-size:1.2rem; line-height:1.5; color:var(--void); font-style:italic; margin:0 0 4px; }
+    .voice .you{ color:var(--text-soft); font-size:.98rem; margin:.5em 0 0; }
+    .voice .after{ margin-top:16px; padding-top:14px; border-top:1px solid var(--border); color:var(--text); font-size:1.02rem; }
+    .voice .after .q{ color:var(--flesh); }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .chip{ font-size:.8rem; padding:6px 11px; border-radius:999px; border:1px solid var(--border); background:var(--surface-2); }
+    .chip.up{ color:var(--eld);} .chip.warn{ color:var(--flesh);}
+
+    .roles{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    @media (max-width:720px){ .roles{ grid-template-columns:1fr; } }
+    .role{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .role::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--accent,var(--eld)); }
+    .role.master{ --accent:var(--void); } .role.mercs{ --accent:var(--eld); } .role.att{ --accent:var(--flesh); } .role.shop{ --accent:var(--byte); }
+    .role .ic{ font-size:1.6rem; } .role .who{ font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); margin-top:6px; }
+    .role h3{ color:var(--accent,var(--eld)); margin-top:2px; } .role p{ font-size:.95rem; color:var(--text-soft); margin:.4em 0 0; }
+
+    /* bark bank */
+    .bank{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .bank .h{ padding:14px 20px; border-bottom:1px solid var(--border); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); }
+    .bank .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:0; }
+    @media (max-width:640px){ .bank .grid{ grid-template-columns:1fr; } }
+    .bank .col{ padding:14px 20px; border-top:1px solid var(--border); }
+    .bank .col:nth-child(-n+2){ border-top:none; } @media (max-width:640px){ .bank .col:nth-child(2){ border-top:1px solid var(--border);} }
+    .bank .lbl{ font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; font-weight:700; margin-bottom:6px; }
+    .bank .col.hit .lbl{ color:var(--flesh);} .bank .col.win .lbl{ color:var(--eld);} .bank .col.lose .lbl{ color:var(--void);} .bank .col.crit .lbl{ color:var(--gold,#d9a441);}
+    .bank .col p{ font-size:.9rem; color:var(--text-soft); margin:.2em 0; } .bank .col p .em{ color:var(--text); }
+
+    .dirs{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    @media (max-width:760px){ .dirs{ grid-template-columns:1fr; } }
+    .dir figure{ margin:0; } .dir img{ width:100%; border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); }
+    .dir .name{ font-weight:700; margin-top:8px; } .dir p{ font-size:.86rem; color:var(--text-soft); margin:.2em 0 0; }
+
+    ul.clean{ list-style:none; padding:0; margin:0; } ul.clean li{ padding:7px 0 7px 26px; position:relative; color:var(--text-soft); }
+    ul.clean li::before{ content:"▸"; position:absolute; left:4px; color:var(--eld); }
+    ul.open li::before{ content:"?"; color:var(--void); font-weight:700; left:5px; }
+    .cols2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; } @media (max-width:760px){ .cols2{ grid-template-columns:1fr; } }
+
+    .teacher-note{ border:1px dashed var(--void); border-radius:var(--radius); background:rgba(167,116,230,.06); padding:20px 22px; }
+    .teacher-note h2{ margin-top:0; } .kv dt{ font-weight:700; margin-top:12px; } .kv dt.a{ color:var(--byte); } .kv dt.b{ color:var(--void); } .kv dd{ margin:2px 0 0; color:var(--text-soft); }
+    .endbar{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html" aria-current="page">Pitchdeck</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="mh-hero">
+      <div class="art">
+        <img src="../assets/pitchdeck/LLMDriven/mutant-master.webp" alt="A glowing golden coffin raised on a plinth in a misty, cavernous temple, ringed by ragged armoured guards with spears as fire burns below.">
+        <div class="scrim"></div>
+      </div>
+      <div class="hwrap"><div class="htext">
+        <span class="mh-kicker"><span class="dot"></span> LLM-Driven pitch · Co-op survival · body horror</span>
+        <h1>MUTATED HENCHMAN</h1>
+        <p class="logline">You work for something you will <b>never see</b> — a voice in your skull that pays you to keep its coffin sealed. Every time you die, it drags you back <b>more mutated</b>: stronger, stranger, and a little less in control of your own hands. Let the master be breached, and you lose.</p>
+        <div class="mh-actions">
+          <a class="btn-present" href="pitch-llm-mutated-henchman-slides.html">▶ Present the pitch</a>
+          <a class="btn btn-ghost" href="#read">↓ Read it</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="mh-body" id="read">
+
+      <!-- HOOK -->
+      <section>
+        <p class="mh-eyebrow">The one-line hook</p>
+        <div class="flip">
+          <span class="mark">🧠</span>
+          <p>You are a cheap mercenary hired by a horror you'll never lay eyes on. It speaks straight into your mind, points you at the things trying to reach it, and pays per kill. <b>The catch is the resurrection:</b> death isn't game over — it's a mutation, and mutation is power you buy by handing your body, piece by piece, to something that isn't you.</p>
+        </div>
+      </section>
+
+      <!-- CORE LOOP -->
+      <section>
+        <p class="mh-eyebrow">The shape of a run</p>
+        <h2>Get paid to keep the lid shut</h2>
+        <p class="lede">Two phases, on a loop, until the master falls or the waves run out.</p>
+        <div class="loop">
+          <div class="step"><div class="n">Phase A</div><h3>Defend</h3><p>Waves come for the coffin. Every attacker you drop pays out in cash.</p></div>
+          <div class="step"><div class="n">Phase B</div><h3>Spend</h3><p>Between waves: weapons, gear, and <em>surgery</em> — spend the blood-money on yourself.</p></div>
+          <div class="step"><div class="n">Loop</div><h3>Escalate</h3><p>Harder waves, richer bounties, deeper upgrades. The master whispers the whole time.</p></div>
+          <div class="step"><div class="n">Fail</div><h3>Breach</h3><p>If the coffin is cracked open, the run is over — and you finally see your employer.</p></div>
+        </div>
+      </section>
+
+      <!-- THE MUTATION DIAL -->
+      <section>
+        <p class="mh-eyebrow">The mechanic the whole game is built on</p>
+        <h2>Every death is a promotion you didn't want</h2>
+        <p class="lede">Die, and the master resurrects you with roughly <b>+10% mutation</b>. You can <em>see</em> the new power grafted on. What's harder to notice is that the mutation is quietly taking the controls.</p>
+        <div class="dial">
+          <div class="track">
+            <span class="tick" style="left:10%"></span><span class="tick" style="left:50%"></span><span class="tick" style="left:90%"></span>
+          </div>
+          <div class="scale"><span class="you">◄ you, at the controls</span><span class="it">the Thing, at the controls ►</span></div>
+          <div class="stops">
+            <div class="stop a"><span class="pct">10% mutated</span><p>Your aim drifts. The cursor goes where you want 90% of the time — and somewhere else the other 10%.</p></div>
+            <div class="stop b"><span class="pct">50% mutated</span><p>Half of you, half of it. Powerful, unpredictable, and no longer sure whose idea that last move was.</p></div>
+            <div class="stop c"><span class="pct">90% mutated</span><p>You steer 10%. The rest is a simpler, hungrier thing wearing your body — monstrous, mighty, barely yours.</p></div>
+          </div>
+          <p class="kicker-line">Power and control sit on <b>opposite ends of the same slider.</b> The strongest henchman in the room is the one least able to promise where the next shot lands.</p>
+        </div>
+      </section>
+
+      <!-- THE MASTER -->
+      <section>
+        <p class="mh-eyebrow">Your employer, who is also the horror</p>
+        <div class="split">
+          <div>
+            <h2>A voice you obey and never meet</h2>
+            <p class="lede">The master is an LLM that lives in your ear — patient, courteous, and utterly wrong. It gives orders, praises good work, and never once explains itself.</p>
+            <p>You're loyal because it pays and because it brings you back. You keep the coffin sealed because the one time you'll ever <em>see</em> what's inside is the moment you've already lost.</p>
+          </div>
+          <div class="voice">
+            <p class="said">"Carry me to the house with the small chairs. Set me in the middle of the room. You need not stay."</p>
+            <p class="you">— the master, Contract 12. You get paid. You buy an upgrade. It was a good day.</p>
+            <p class="after">The next morning you pass the house with the small chairs. The chairs are gone. The walls are <span class="q">not white anymore.</span> Nobody made you look.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INDIRECT HORROR -->
+      <section>
+        <p class="mh-eyebrow">The horror is never in your face</p>
+        <h2>You're not scared — until you understand</h2>
+        <p class="lede">The scary part isn't a monster jumping out. It's the slow arithmetic of what you've been doing for money — assembled off-screen, in your own head, one contract too late.</p>
+        <p>Nothing is forced on the player. The master is polite, the jobs are simple, the pay is good. The horror is the realisation — and it lands harder because you chose every step, and you'd probably do the next one too. It also, quietly, mirrors the mutation: you gave yourself away for power, and you gave the world away for a wage, and both felt reasonable at the time.</p>
+        <p style="color:var(--text-soft); font-size:.92rem; border-left:2px solid var(--void); padding-left:14px; margin-top:16px;">Note: this "implied, complicit" horror direction came from the two students who stayed late — not the whole team yet. It's the most striking angle we have, but treat it as a proposal to bring back to the others.</p>
+      </section>
+
+      <!-- LLM CAST -->
+      <section>
+        <p class="mh-eyebrow">Where the AI actually lives</p>
+        <h2>An eldritch employer and a very chatty payroll</h2>
+        <div class="roles">
+          <article class="role master">
+            <div class="ic">🕯️</div><div class="who">Role 1 · The voice</div>
+            <h3>The Master</h3>
+            <p>The eldritch employer — an LLM that briefs you, judges you, and narrates the slow horror without ever raising its voice. Never seen, always heard.</p>
+          </article>
+          <article class="role mercs">
+            <div class="ic">🔫</div><div class="who">Role 2 · Your payroll</div>
+            <h3>The Other Mercs</h3>
+            <p>Your equally-disposable co-workers, each with a personality. They banter, panic, and gloat — but on a clever budget (see the bark-bank below).</p>
+          </article>
+          <article class="role att">
+            <div class="ic">⚔️</div><div class="who">Role 3 · The waves</div>
+            <h3>The Attackers</h3>
+            <p>Whoever wants the master dead this week — zealots, rivals, heroes who think they're the good guys. LLM-flavoured so their goals and taunts vary.</p>
+          </article>
+          <article class="role shop">
+            <div class="ic">🧪</div><div class="who">Role 4 · The between</div>
+            <h3>The Shopkeepers &amp; Surgeons</h3>
+            <p>Who sells guns and grafts flesh to a horror's henchmen? Strange people, with strange bedside manner and stranger inventory.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- BARK BANK -->
+      <section>
+        <p class="mh-eyebrow">Your smartest production idea — kept</p>
+        <h2>Make LLM teammates feel alive, cheaply</h2>
+        <p class="lede">Instead of calling a language model in real time mid-firefight, generate each merc's personality <em>up front</em> as banks of reaction lines — then just pick one at runtime. Same character, none of the latency or cost.</p>
+        <div class="bank">
+          <div class="h">"Grix", mercenary · reaction bank (≈5 lines each, one picked at random on the event)</div>
+          <div class="grid">
+            <div class="col hit"><div class="lbl">When hit</div><p>"That's coming out of <span class="em">your</span> half!"</p><p>"Still cheaper than the surgery."</p></div>
+            <div class="col win"><div class="lbl">When winning</div><p>"Easiest coffin I ever guarded."</p><p>"Boss, you seeing this? …you're always seeing this."</p></div>
+            <div class="col lose"><div class="lbl">When losing</div><p>"I did NOT mutate this much to die at 40%."</p><p>"Who forgot to reload the reliquary?!"</p></div>
+            <div class="col crit"><div class="lbl">On a critical</div><p>"Ha! Twenty percent of that was me!"</p><p>"For the boss. Ugh. For the <em>pay.</em>"</p></div>
+          </div>
+        </div>
+        <p style="margin-top:14px; color:var(--text-soft); font-size:.95rem;">A tidy, transferable lesson: <b>author-time generation, run-time selection.</b> Students learn to use an LLM to build content once, cheaply, instead of paying for it every frame — and how a fixed "fight pattern" of lines can read as character.</p>
+      </section>
+
+      <!-- SETTING: THREE DIRECTIONS -->
+      <section>
+        <p class="mh-eyebrow">The thing we genuinely didn't settle</p>
+        <h2>What world is this? Take your pick.</h2>
+        <p class="lede">Tone and era went back and forth and never landed — silly or grim, blades or guns, ancient or far-future. The good news: the systems above don't care. Here's the moodboard, still arguing with itself.</p>
+        <div class="dirs">
+          <div class="dir">
+            <figure><img src="../assets/pitchdeck/LLMDriven/mutant-horde.webp" alt="An isometric painting of a stone coffin on a raised platform surrounded by a crowded square of ragged, skeletal soldiers."></figure>
+            <div class="name">A · The Gothic Horde</div>
+            <p>A besieged bazaar of the dead; low fantasy, blades and bone, grim and grand.</p>
+          </div>
+          <div class="dir">
+            <figure><img src="../assets/pitchdeck/LLMDriven/mutant-master.webp" alt="A glowing coffin on a plinth in a misty temple ringed by spear-carrying guards."></figure>
+            <div class="name">B · The Sunless Temple</div>
+            <p>Atmospheric dark-fantasy; ritual, fog, and firelight. The most overtly "eldritch."</p>
+          </div>
+          <div class="dir">
+            <figure><img src="../assets/pitchdeck/LLMDriven/mutant-mercs.webp" alt="Armoured mercenaries with rifles standing atop a coffin on a hill of bloodied skulls."></figure>
+            <div class="name">C · The Gun-Mercs</div>
+            <p>Grimy near-future; armour, rifles, cybersurgery. Leans harder into "cheap mercenaries."</p>
+          </div>
+        </div>
+        <p style="margin-top:14px; color:var(--text-soft); font-size:.95rem;">My honest lean: <b>C, with A's grimness</b> — guns and surgery make the upgrade/mutation loop legible, and the eldritch master stays creepier in a world that looks like ours. But this is exactly the kind of call to hand to a playtest (à la <a href="pitch-llm-silly-empires.html">Silly Empires</a>).</p>
+      </section>
+
+      <!-- OPEN QUESTIONS -->
+      <section>
+        <p class="mh-eyebrow">Still on the table</p>
+        <h2>What we haven't figured out</h2>
+        <ul class="clean open">
+          <li>Is the master truly eldritch, or an ancient vampire in a coffin? "Vampire" may be too knowable — the less you can name it, the scarier.</li>
+          <li>What happens at 100% mutation — permadeath, a monstrous boss-you the others must put down, or a role-flip to the horde?</li>
+          <li>Solo or co-op first? The bark-bank mercs can fill a squad, so how many humans do we need?</li>
+          <li>How silly vs. how grim — the tone that setting C vs A implies changes the whole feel.</li>
+        </ul>
+      </section>
+
+      <!-- WHY TEACH -->
+      <section>
+        <p class="mh-eyebrow">For the staff room</p>
+        <h2>Why it earns its place</h2>
+        <div class="cols2">
+          <div>
+            <h3>A genuinely new mechanic</h3>
+            <ul class="clean">
+              <li>Progression that <em>costs you control</em> is rare — a memorable design lesson on risk, reward, and player agency.</li>
+              <li>Corrupting the player's own input is a bold, teachable idea about what a game is allowed to do.</li>
+              <li>The eldritch employer makes "narrative via an LLM you never see" concrete.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>And two techniques worth stealing</h3>
+            <ul class="clean">
+              <li><b>Bark banks</b> — author-time LLM generation, run-time selection. Cheap, shippable, transferable.</li>
+              <li><b>Indirect horror</b> — implication over gore; students learn restraint is scarier.</li>
+              <li>Fits the same "put the player somewhere uncomfortable" thread as our other pitches.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEACHER NOTE -->
+      <section>
+        <div class="teacher-note">
+          <p class="mh-eyebrow">Erik — read before you approve</p>
+          <h2>What came from the notes vs. what I invented</h2>
+          <p>Flag anything that drifts from what the team (and the two who stayed) meant:</p>
+          <dl class="kv">
+            <dt class="a">Straight from your notes</dt>
+            <dd>An eldritch-horror master who speaks in your mind and whom you never see unless you lose; you're a cheap merc hired to defend it; pay per attacker killed; money → upgrades &amp; surgery; each death → resurrection with ~10% more mutation; mutations are visible but slowly take control (10% = cursor 90% yours; 90% = you steer 10%, the rest a simpler monstrous being); if the master/coffin is breached you lose; LLM master, LLM mercs, LLM attackers/shopkeepers; fight/defend phase + shopping/upgrade phase; the <b>bark-bank idea</b> (≈5 lines each for hit / winning / losing / critical, a fixed fight-pattern instead of real-time control); starting from an ancient-vampire-in-a-coffin and wondering if it's "eldritch enough"; the setting/era/tone left unsettled (mercs-with-guns floated); and the two-who-stayed's <b>indirect, complicity-based horror</b> (the "house with the small chairs" example).</dd>
+            <dt class="b">My elaborations (all yours to change)</dt>
+            <dd>The <b>control-vs-mutation slider</b> as the framing device and "every death is a promotion you didn't want" line; the two-phase loop labels; the four named LLM roles and the merc "Grix" sample lines; the "<b>author-time generation, run-time selection</b>" teaching frame for the bark bank; presenting the unsettled setting as <b>three concrete directions</b> (Gothic Horde / Sunless Temple / Gun-Mercs) with my lean toward C+A; the open-question list; and the eldritch teal/void-violet/blood palette. Title kept as your working <b>MUTATED HENCHMAN</b>. I kept the "small chairs" beat implied and off-screen on purpose — dial it up or down as you see fit.</dd>
+          </dl>
+        </div>
+      </section>
+
+      <div class="endbar">
+        <a class="btn btn-ghost" href="../pitchdeck.html">← Back to all pitches</a>
+        <a class="btn-present" href="pitch-llm-mutated-henchman-slides.html">▶ Present the pitch</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
