@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch: FANTASY STALKER — TrollByte</title>
+  <meta name="description" content="A penny-dreadful fantasy city where you run legit businesses by day and stalk the fog by night. Every kill feeds you and buffs your shops — but seeds the clues the LLM constabulary print in tomorrow's paper. A noose you tighten yourself.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ---- FANTASY STALKER pitch — page-local styling on the site's CSS vars ---- */
+    :root{ --gas:#dcac4c; --gas-soft:#b9852c; --blood:#c1443a; --fog:#93a6bd; --plum:#9a86c4; }
+    .fs-hero{ position:relative; border-bottom:1px solid var(--border); }
+    .fs-hero .art{ position:relative; aspect-ratio:2/1; min-height:320px; overflow:hidden; }
+    .fs-hero .art img{ width:100%; height:100%; object-fit:cover; object-position:50% 42%; }
+    .fs-hero .scrim{ position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(6,8,11,.18) 0%, rgba(6,8,11,.5) 52%, rgba(6,8,11,.97) 100%),
+                 linear-gradient(90deg, rgba(6,8,11,.82) 0%, rgba(6,8,11,0) 60%); }
+    .fs-hero .hwrap{ position:absolute; inset:auto 0 0 0; }
+    .fs-hero .htext{ max-width:var(--maxw); margin-inline:auto; padding:0 20px 30px; }
+    .fs-kicker{ display:inline-flex; gap:10px; align-items:center; font-size:.82rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase; color:var(--gas); }
+    .fs-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--gas); }
+    .fs-hero h1{ margin:.26em 0 .16em; font-size:clamp(2.2rem,5.6vw,4rem); line-height:.98; letter-spacing:.03em; font-weight:800; }
+    .fs-hero .logline{ max-width:64ch; font-size:clamp(1.02rem,2.1vw,1.28rem); margin:0 0 18px; }
+    .fs-hero .logline b{ color:var(--gas); font-weight:700; }
+    .fs-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-present{ background:linear-gradient(180deg,var(--gas),var(--gas-soft)); color:#171003;
+      font-weight:700; border:none; padding:12px 20px; border-radius:var(--radius-sm);
+      display:inline-flex; gap:9px; align-items:center; box-shadow:var(--shadow); }
+    .btn-present:hover{ text-decoration:none; filter:brightness(1.06); }
+
+    .fs-body{ max-width:var(--maxw); margin-inline:auto; padding:8px 20px 40px; }
+    .fs-body section{ padding-block:34px; border-top:1px solid var(--border); }
+    .fs-body section:first-of-type{ border-top:none; }
+    .fs-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-soft); margin:0 0 10px; }
+    .fs-body h2{ font-size:clamp(1.5rem,3vw,2rem); margin:.1em 0 .5em; letter-spacing:-.01em; }
+    .fs-body h3{ font-size:1.12rem; margin:0 0 6px; }
+    .fs-body p{ max-width:72ch; }
+    .lede{ font-size:1.14rem; }
+
+    .flip{ border:1px solid var(--gas-soft); background:linear-gradient(180deg, rgba(220,172,76,.10), rgba(220,172,76,.03));
+      border-radius:var(--radius); padding:22px 24px; display:flex; gap:18px; align-items:flex-start; }
+    .flip .mark{ font-size:2rem; line-height:1; } .flip p{ margin:0; font-size:1.16rem; } .flip b{ color:var(--gas); }
+    .flip i{ color:var(--blood); font-style:italic; font-weight:600; }
+
+    /* the noose loop */
+    .noose{ border:1px solid var(--blood); border-radius:var(--radius); background:linear-gradient(180deg, rgba(193,68,58,.09), rgba(193,68,58,.02)); padding:22px 22px 18px; }
+    .noose .ring{ display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; }
+    .noose .node{ flex:1 1 150px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:13px 14px; position:relative; }
+    .noose .node .n{ font-family:var(--mono); font-size:.72rem; color:var(--blood); }
+    .noose .node b{ display:block; font-size:.98rem; margin:.15em 0 .15em; }
+    .noose .node p{ font-size:.83rem; color:var(--text-soft); margin:0; }
+    .noose .node:not(:last-child)::after{ content:"→"; position:absolute; right:-13px; top:50%; transform:translateY(-50%); color:var(--blood); font-weight:700; z-index:2; }
+    @media (max-width:760px){ .noose .node:not(:last-child)::after{ content:"↓"; right:50%; top:auto; bottom:-14px; transform:translateX(50%);} }
+    .noose .wrap-note{ margin:16px 0 0; font-size:1.06rem; } .noose .wrap-note b{ color:var(--blood); }
+
+    /* two cameras */
+    .cams{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    @media (max-width:800px){ .cams{ grid-template-columns:1fr; } }
+    .cam{ border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .cam img{ width:100%; aspect-ratio:16/10; object-fit:cover; display:block; }
+    .cam .cap{ padding:14px 18px 18px; }
+    .cam .badge{ font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .cam.day .badge{ color:var(--fog); } .cam.night .badge{ color:var(--blood); }
+    .cam .t{ font-size:1.2rem; font-weight:800; margin:.1em 0 .2em; }
+    .cam p{ font-size:.92rem; color:var(--text-soft); margin:0; }
+
+    /* two meters */
+    .meters{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:6px; }
+    @media (max-width:640px){ .meters{ grid-template-columns:1fr; } }
+    .meter{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px 20px; }
+    .meter .top{ display:flex; justify-content:space-between; align-items:baseline; }
+    .meter .name{ font-weight:800; } .meter.energy .name{ color:var(--gas);} .meter.heat .name{ color:var(--blood);}
+    .meter .bar{ height:12px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); overflow:hidden; margin:12px 0 8px; }
+    .meter.energy .bar i{ display:block; height:100%; width:62%; background:linear-gradient(90deg,var(--gas-soft),var(--gas)); }
+    .meter.heat .bar i{ display:block; height:100%; width:74%; background:linear-gradient(90deg,#7a6f4a,var(--blood)); }
+    .meter p{ font-size:.9rem; color:var(--text-soft); margin:0; }
+    .verdict{ margin-top:16px; border-left:3px solid var(--gas); padding:6px 0 6px 14px; font-size:1.06rem; }
+    .verdict b{ color:var(--gas); }
+
+    /* charts */
+    .chart{ width:100%; border-collapse:collapse; font-size:.93rem; overflow:hidden; border-radius:var(--radius-sm); }
+    .chart th, .chart td{ text-align:left; padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+    .chart thead th{ font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:var(--text-soft); background:var(--surface-2); }
+    .chart tbody tr:nth-child(even){ background:rgba(255,255,255,.015); }
+    .chart td .b{ font-weight:700; } .chart .stat{ color:var(--gas); font-weight:700; } .chart .util{ color:var(--plum); font-weight:700; }
+    .chart .sig-hi{ color:var(--blood); } .chart .sig-lo{ color:var(--fog); }
+    .scroll-x{ overflow-x:auto; }
+
+    /* manhunt ladder */
+    .ladder{ display:flex; flex-direction:column; gap:0; }
+    .rung{ display:flex; gap:16px; padding:14px 0; border-top:1px dashed var(--border); align-items:flex-start; }
+    .rung:first-child{ border-top:none; }
+    .rung .night{ flex:0 0 auto; width:64px; }
+    .rung .night .d{ font-family:var(--mono); font-size:.72rem; color:var(--text-soft); }
+    .rung .night .heat{ height:5px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); overflow:hidden; margin-top:5px; }
+    .rung .night .heat i{ display:block; height:100%; background:linear-gradient(90deg,#7a6f4a,var(--blood)); }
+    .rung .clip{ flex:1; }
+    .rung .head{ font-weight:800; color:var(--gas); }
+    .rung .body{ font-size:.92rem; color:var(--text-soft); margin:.2em 0 0; }
+    .rung .lock{ font-size:.8rem; color:var(--blood); margin-top:4px; }
+
+    .roles{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    @media (max-width:720px){ .roles{ grid-template-columns:1fr; } }
+    .role{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .role::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--accent,var(--gas)); }
+    .role.det{ --accent:var(--blood); } .role.press{ --accent:var(--gas); } .role.wit{ --accent:var(--plum); } .role.beat{ --accent:var(--fog); }
+    .role .ic{ font-size:1.6rem; } .role .who{ font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); margin-top:6px; }
+    .role h3{ color:var(--accent,var(--gas)); margin-top:2px; } .role p{ font-size:.95rem; color:var(--text-soft); margin:.4em 0 0; }
+
+    .split{ display:grid; grid-template-columns:1.15fr .85fr; gap:26px; align-items:center; }
+    @media (max-width:760px){ .split{ grid-template-columns:1fr; } }
+    .split img, .figure img{ border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); width:100%; }
+    .figure figcaption{ font-size:.86rem; color:var(--text-soft); margin-top:8px; }
+
+    .doom{ border:1px solid var(--plum); border-radius:var(--radius); background:rgba(154,134,196,.07); padding:22px 24px; }
+    .doom .big{ font-size:1.3rem; font-weight:800; } .doom .big b{ color:var(--plum); }
+    .doom .legend{ margin-top:10px; font-style:italic; color:var(--text-soft); }
+
+    ul.clean{ list-style:none; padding:0; margin:0; } ul.clean li{ padding:7px 0 7px 26px; position:relative; color:var(--text-soft); }
+    ul.clean li::before{ content:"▸"; position:absolute; left:4px; color:var(--gas); }
+    .cols2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; } @media (max-width:760px){ .cols2{ grid-template-columns:1fr; } }
+    .endbar{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:10px; }
+    .tag-note{ color:var(--text-soft); font-size:.92rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html" aria-current="page">Pitchdeck</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="fs-hero">
+      <div class="art">
+        <img src="../assets/pitchdeck/LLMDriven/fantasystalker-night.webp" alt="A first-person view down a foggy gaslit alley: a gloved hand raises a knife toward a top-hatted gentleman, blood on the cobbles, health and heat bars in the corners of the screen.">
+        <div class="scrim"></div>
+      </div>
+      <div class="hwrap"><div class="htext">
+        <span class="fs-kicker"><span class="dot"></span> LLM-Driven pitch · Day-manager + night-stalker · penny-dreadful horror</span>
+        <h1>FANTASY STALKER</h1>
+        <p class="logline">A foggy fantasy city of top-hatted dwarves and alley-lurking orcs, where by day you're a respectable shopkeeper and by night you're the thing in the fog. You <i>desperately need to do wrong to get the energy to do right</i> — and every murder feeds the LLM constabulary the clue that hangs you. <b>A noose you tighten yourself.</b></p>
+        <div class="fs-actions">
+          <a class="btn-present" href="pitch-llm-fantasy-stalker-slides.html">▶ Present the pitch</a>
+          <a class="btn btn-ghost" href="#read">↓ Read it</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="fs-body" id="read">
+
+      <!-- HOOK -->
+      <section>
+        <p class="fs-eyebrow">The one-line hook</p>
+        <div class="flip">
+          <span class="mark">🎩</span>
+          <p>Jack the Ripper, but everyone's a dwarf in a top hat. You play a <b>legitimate business owner</b> who only feels alive when he kills — a dapper little monster who <i>needs to do wrong to get the energy to do right.</i> It's a comedy of manners with a body count, and the joke curdles the moment you notice you're the punchline.</p>
+        </div>
+      </section>
+
+      <!-- THE NOOSE -->
+      <section>
+        <p class="fs-eyebrow">The spine of the whole game</p>
+        <h2>You tighten your own noose, one kill at a time</h2>
+        <p class="lede">This is the loop everything hangs off. It looks like a power fantasy for exactly one cycle, and then it turns on you.</p>
+        <div class="noose">
+          <div class="ring">
+            <div class="node"><div class="n">01</div><b>Kill</b><p>A murder in the fog — fuel, and a thrill you can't do without.</p></div>
+            <div class="node"><div class="n">02</div><b>Grow strong</b><p>Energy restored; your shops and your body get sharper.</p></div>
+            <div class="node"><div class="n">03</div><b>Leave a trace</b><p>A weapon's mark, a dropped scissor, a witness who saw your coat.</p></div>
+            <div class="node"><div class="n">04</div><b>They deduce</b><p>The LLM cops print tomorrow's clue and seal streets near your shops.</p></div>
+            <div class="node"><div class="n">05</div><b>Grow weak</b><p>Locked districts starve your business — so your night is weaker too.</p></div>
+          </div>
+          <p class="wrap-note">…and a weaker night means you must kill <b>more</b> to keep up — which leaves more traces, which seals more streets. <b>Every murder is both your fuel and your rope.</b></p>
+        </div>
+      </section>
+
+      <!-- TWO CAMERAS -->
+      <section>
+        <p class="fs-eyebrow">Two phases — and the camera is the horror</p>
+        <h2>Safe and distant by day. Blind and hunted by night.</h2>
+        <p class="lede">The perspective does the emotional work. Day is a calm overhead board where you feel in control. Night drops you into the fog, first-person, where you might be the hunter — or the hunted.</p>
+        <div class="cams">
+          <div class="cam day">
+            <img src="../assets/pitchdeck/LLMDriven/fantasystalker-day.webp" alt="A foggy blue isometric view of a Victorian city block at dusk, warm-lit shopfronts and carriages seen from above.">
+            <div class="cap">
+              <div class="badge">Phase 1 · Day · RTS overhead</div>
+              <div class="t">The respectable shopkeeper</div>
+              <p>Run a small empire of 2-to-8 businesses from a safe god's-eye view. Light, legible management. You are calm, in control… and complicit.</p>
+            </div>
+          </div>
+          <div class="cam night">
+            <img src="../assets/pitchdeck/LLMDriven/fantasystalker-night.webp" alt="First-person in a foggy alley, knife raised at a fleeing figure.">
+            <div class="cap">
+              <div class="badge">Phase 2 · Night · first person</div>
+              <div class="t">Two hours in the fog</div>
+              <p>Down in the street, up close and personal. You get roughly two game-hours to hunt. You can be hurt here. Later, only mob-bosses and cops are a worthy kill — so each becomes a boss fight.</p>
+            </div>
+          </div>
+        </div>
+        <p class="tag-note" style="margin-top:16px">And here's the quiet gut-punch: as the cops close in and seal districts, your safe daytime board <b style="color:var(--blood)">literally shrinks</b>. You watch your world of control contract, night by night, until there's almost nowhere left to stand.</p>
+      </section>
+
+      <!-- COMPULSION: TWO METERS -->
+      <section>
+        <p class="fs-eyebrow">Why you can't just stop</p>
+        <h2>Two meters, pulling opposite ways</h2>
+        <p class="lede">The compulsion isn't scripted — it falls out of two numbers arguing with each other every single night.</p>
+        <div class="meters">
+          <div class="meter energy">
+            <div class="top"><span class="name">Energy</span><span class="tag-note">drains if you abstain</span></div>
+            <div class="bar"><i></i></div>
+            <p>Lose a point each night you <em>don't</em> kill; gain a few when you do. Skip too long and you wither into a shopkeeper who can't lift the cleaver.</p>
+          </div>
+          <div class="meter heat">
+            <div class="top"><span class="name">Heat</span><span class="tag-note">cools over ~3 nights</span></div>
+            <div class="bar"><i></i></div>
+            <p>Rises with every kill; drifts down if you lie low. High Heat means closer cops, sealed streets, and coppers who look twice.</p>
+          </div>
+        </div>
+        <div class="verdict">The smart play is to <b>lie low</b> and let Heat cool — but Energy won't let you afford it. So every night is one squirming decision: <b>"I should skip tonight… I can't skip tonight."</b> You don't kill because it's optimal. You kill because you're out of road.</div>
+      </section>
+
+      <!-- BUSINESSES -> STATS -->
+      <section>
+        <p class="fs-eyebrow">The day feeds the night</p>
+        <h2>Every legit trade secretly sharpens a murder skill</h2>
+        <p class="lede">Your night body is built by your day job. A thriving shop buffs the stat its trade would sharpen — the butcher's arms, the cobbler's boots, the hatter's silent scissors. Six shops feed a stat; two are pressure valves.</p>
+        <div class="scroll-x">
+          <table class="chart">
+            <thead><tr><th>Business (day)</th><th>Feeds (night)</th><th>Struggling</th><th>Steady</th><th>Thriving</th><th>Why it fits</th></tr></thead>
+            <tbody>
+              <tr><td class="b">Butcher</td><td class="stat">Damage</td><td>+0%</td><td>+5%</td><td>+10%</td><td>All day cleaving meat — strong arms, sharp blades.</td></tr>
+              <tr><td class="b">Apothecary</td><td class="stat">Max HP</td><td>+0%</td><td>+5%</td><td>+10%</td><td>Tonics and restoratives… and other tinctures.</td></tr>
+              <tr><td class="b">Cobbler</td><td class="stat">Move speed</td><td>+0%</td><td>+5%</td><td>+10%</td><td>The best boots in the city — fast on wet cobbles.</td></tr>
+              <tr><td class="b">Clockmaker</td><td class="stat">Attack speed</td><td>+0%</td><td>+5%</td><td>+10%</td><td>Fine, fast, precise hands. Perfect timing.</td></tr>
+              <tr><td class="b">Hatter / Tailor</td><td class="stat">Stealth &amp; dodge</td><td>+0%</td><td>+5%</td><td>+10%</td><td>Blend into the crowd — but your scissors are <em>evidence</em>.</td></tr>
+              <tr><td class="b">Gin Palace</td><td class="stat">Stamina</td><td>+0%</td><td>+5%</td><td>+10%</td><td>Liquid courage — a longer, steadier night.</td></tr>
+              <tr><td class="b">Undertaker</td><td class="util">−Heat</td><td>−0</td><td>−1</td><td>−2 / night</td><td>A licensed body-disposer. Cools the manhunt.</td></tr>
+              <tr><td class="b">Print House</td><td class="util">+Intel</td><td>—</td><td>see a clue early</td><td>+ tomorrow's patrols</td><td>You print the news — so you know what they know.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tag-note" style="margin-top:12px">Tiers are placeholders — start stingy and scale in testing. The point is the shape: run your shops well, and you're a better killer; run them badly, and the fog gets dangerous.</p>
+      </section>
+
+      <!-- WEAPONS & MO -->
+      <section>
+        <p class="fs-eyebrow">How you kill is a clue too</p>
+        <h2>Weapons, and the fingerprint they leave</h2>
+        <p class="lede">By day, a glint in an alley lets you grab or stash a tool for the night. Each weapon feels different — and each leaves an MO the morning paper will happily print.</p>
+        <div class="scroll-x">
+          <table class="chart">
+            <thead><tr><th>Weapon</th><th>Where you get it</th><th>Feel</th><th>MO signature (clue risk)</th></tr></thead>
+            <tbody>
+              <tr><td class="b">Cleaver</td><td>Butcher</td><td>Big, loud, messy</td><td class="sig-hi">Loud — screams "the butcher again"</td></tr>
+              <tr><td class="b">Scissors / hatpin</td><td>Hatter</td><td>Silent, elegant, low damage</td><td class="sig-hi">Ties the clues straight to your shop</td></tr>
+              <tr><td class="b">Corkscrew</td><td>Gin Palace</td><td>Quick, quirky</td><td>Distinctive — "just like las' time!"</td></tr>
+              <tr><td class="b">Awl / boot-knife</td><td>Cobbler</td><td>Fast, close</td><td>Moderate</td></tr>
+              <tr><td class="b">Lead pipe</td><td>A street glint</td><td>Blunt, cheap</td><td class="sig-lo">Quietest signature — the "lay-low" weapon</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tag-note" style="margin-top:12px">Reuse your favourite and the paper fingerprints your MO — Heat and clues spike. Switch it up for a muddier trail, but you lose the weapon you're good with. Even <em>how</em> you kill pulls on the noose.</p>
+      </section>
+
+      <!-- THE MANHUNT (LLM DEMO) -->
+      <section>
+        <p class="fs-eyebrow">The signature feature — and the LLM heart</p>
+        <h2>The morning paper is the cops thinking out loud</h2>
+        <p class="lede">Every dawn, the LLM constabulary turn last night's evidence — your weapon's mark, your dropped scissors, a witness's glimpse — into the next clue, and print it in the city's gleefully awful tabloid. Watch them close in over five nights:</p>
+        <div class="split" style="margin-bottom:22px">
+          <div class="ladder">
+            <div class="rung"><div class="night"><div class="d">Night 1</div><div class="heat"><i style="width:15%"></i></div></div><div class="clip"><div class="head">'ORRIBLE MURDER!</div><div class="body">"Witnesses say only that the Fiend was <em>ever so tall.</em>" Rules out roughly nobody.</div></div></div>
+            <div class="rung"><div class="night"><div class="d">Night 2</div><div class="heat"><i style="width:33%"></i></div></div><div class="clip"><div class="head">STILL AT LARGE</div><div class="body">"A proper toff — fine coat an' all." Now they want the well-dressed.</div></div></div>
+            <div class="rung"><div class="night"><div class="d">Night 3</div><div class="heat"><i style="width:55%"></i></div></div><div class="clip"><div class="head">BLOODY SCISSORS!</div><div class="body">A dropped pair of tailor's shears at the scene. "The Constabulary eye Hatters' Row."<div class="lock">🚧 Hatters' Row — trading restricted</div></div></div></div>
+            <div class="rung"><div class="night"><div class="d">Night 4</div><div class="heat"><i style="width:76%"></i></div></div><div class="clip"><div class="head">THE RED FIEND</div><div class="body">"A red coat, fleein' toward Cobblestone Cross!"<div class="lock">🚧 Cobblestone Cross — sealed after dark</div></div></div></div>
+            <div class="rung"><div class="night"><div class="d">Night 5</div><div class="heat"><i style="width:95%"></i></div></div><div class="clip"><div class="head">NAMED AT LAST?</div><div class="body">"A tall elf, red coat, keeps a shop on Hatters' Row. <em>'We're closin' in,'</em> says Inspector Grumbly." …That's you. That's your whole address.</div></div></div>
+          </div>
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/fantasystalker-news.webp" alt="A satirical Victorian tabloid front page, 'The Gaslamp Gazette', headline 'ORRIBLE MURDER WOT WOS DONE LAS NIGHT', with absurd fantasy side-columns.">
+            <figcaption>The Gaslamp Gazette — the manhunt's UI. Real in-engine mock, silly filler and all.</figcaption>
+          </figure>
+        </div>
+        <p class="tag-note">Every clue is sourced from something you actually did — your MO, your shop, your coat — so the net feels <em>earned</em>, never random. And each headline seals another district, shrinking your safe daytime board. The newspaper is the horror, the tutorial, and the score all at once.</p>
+      </section>
+
+      <!-- LLM CAST -->
+      <section>
+        <p class="fs-eyebrow">Where the AI actually lives</p>
+        <h2>The whole city is trying to catch you</h2>
+        <div class="roles">
+          <article class="role det">
+            <div class="ic">🔎</div><div class="who">Role 1 · The deduction engine</div>
+            <h3>The Constabulary</h3>
+            <p>LLM detectives that reason over your evidence — weapon, MO, dropped items, testimony — and decide what they now "know," what to print, and which streets to seal. The manhunt's brain.</p>
+          </article>
+          <article class="role press">
+            <div class="ic">📰</div><div class="who">Role 2 · The diegetic UI</div>
+            <h3>The Gaslamp Gazette</h3>
+            <p>Turns the cops' deductions into a gleeful penny-dreadful front page each morning — the clue, buried in banshee scares and lettuce prices. Your feedback comes as satire.</p>
+          </article>
+          <article class="role wit">
+            <div class="ic">👀</div><div class="who">Role 3 · The clue source</div>
+            <h3>Witnesses &amp; Victims</h3>
+            <p>LLM townsfolk who saw something — accurately, or not. Their testimony (a coat colour, a height, a limp) is what the detectives reason from. Silence them, or let them talk.</p>
+          </article>
+          <article class="role beat">
+            <div class="ic">🚨</div><div class="who">Role 4 · The street</div>
+            <h3>The Beat Cops</h3>
+            <p>Escalating encounters in the fog. Night one it's "Top o' the evenin', guv!"; a few kills later it's "Oi — tall fellar in a red coat? Come 'ere!" They get harder to shake as they learn.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- DOOM -->
+      <section>
+        <p class="fs-eyebrow">There is no winning — and that's the point</p>
+        <div class="doom">
+          <p class="big">You <b>will</b> be caught. The only question is: <b>how far did you get?</b></p>
+          <p>No unlocks, no power-ups for next time, no clean getaway — that would betray the fantasy. Each run is a doomed little life that ends on the gallows. Keep it simple; keep it inevitable.</p>
+          <p class="legend">Your only trophy is the last headline you earn: <em>"THE FOGWICK FIEND TAKEN AT LAST — 14 souls afore the noose. 'E kept a lovely hat shop, apparently."</em></p>
+        </div>
+      </section>
+
+      <!-- WHY TEACH -->
+      <section>
+        <p class="fs-eyebrow">For the staff room</p>
+        <h2>Why it earns its place</h2>
+        <div class="cols2">
+          <div>
+            <h3>The AI is a detective</h3>
+            <ul class="clean">
+              <li>An LLM that <em>reasons from evidence to a named suspect</em> is a rich, modern lesson — deduction, not chit-chat.</li>
+              <li>The newspaper is diegetic UI: students learn to surface an AI's "thinking" as part of the fiction.</li>
+              <li>Witnesses → detective → press → street is a clean multi-agent pipeline to teach.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>And the design teaches restraint</h3>
+            <ul class="clean">
+              <li>The self-tightening noose is a masterclass in systems that turn a power fantasy into dread — with almost no content.</li>
+              <li>Camera-as-emotion (safe overhead vs. blind first-person) is a cheap, powerful trick.</li>
+              <li>Horror through implication and complicity, kept classroom-safe by leaning fully into penny-dreadful camp.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="endbar">
+        <a class="btn btn-ghost" href="../pitchdeck.html">← Back to all pitches</a>
+        <a class="btn-present" href="pitch-llm-fantasy-stalker-slides.html">▶ Present the pitch</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

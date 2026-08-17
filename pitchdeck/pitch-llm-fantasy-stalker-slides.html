@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FANTASY STALKER — pitch deck</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <!-- reveal.js 5.1.0, vendored locally under assets/vendor/reveal/ — no CDN, works offline -->
+  <link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+  <link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+  <style>
+    :root{
+      --bg:#08090c; --surface:#13151b; --surface-2:#1a1d24; --border:#2a2f39;
+      --text:#e9ecf2; --soft:#9aa6b4; --gas:#e2b455; --gas-soft:#b9852c;
+      --blood:#d1544a; --fog:#a3b3c6; --plum:#b09ce0;
+      --font: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --mono:"Cascadia Code","SFMono-Regular",Consolas,Menlo,monospace;
+    }
+    html, body{ background:var(--bg); }
+    .reveal-viewport{ background:var(--bg); }
+    .reveal{ font-family:var(--font); color:var(--text); font-size:34px; background:var(--bg); }
+    .reveal .slides{ text-align:left; }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--text); font-weight:800; letter-spacing:-.01em; line-height:1.05; margin:0 0 .35em; text-transform:none; }
+    .reveal h1{ font-size:2.0em; letter-spacing:.03em; }
+    .reveal em{ color:var(--gas); font-style:normal; }
+    .reveal strong{ color:var(--gas); }
+    .reveal p{ line-height:1.4; }
+    .reveal .controls{ color:var(--gas); }
+    .reveal .progress{ color:var(--gas); height:4px; }
+    .reveal ::selection{ background:var(--gas); color:#171003; }
+
+    .kick{ display:inline-block; font-size:.5em; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gas); margin-bottom:.4em; }
+    .soft{ color:var(--soft); }
+    .logo-badge{ position:fixed; top:20px; left:24px; font-size:20px; font-weight:700; color:var(--text); opacity:.85; z-index:30; }
+    .logo-badge b{ color:var(--gas); }
+    .foot{ position:fixed; bottom:16px; left:24px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); opacity:.55; z-index:30; }
+    .scrim::after{ content:""; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(90deg, rgba(6,8,11,.95) 0%, rgba(6,8,11,.7) 45%, rgba(6,8,11,.32) 100%); }
+
+    .big{ font-size:1.5em; line-height:1.06; font-weight:800; }
+    .lead{ font-size:1.05em; max-width:20ch; }
+    .maxw{ max-width:24ch; }
+    .blood{ color:var(--blood); }
+
+    .noose{ display:flex; gap:10px; margin-top:.3em; }
+    .noose .node{ flex:1; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 12px; position:relative; }
+    .noose .node .n{ font-family:var(--mono); font-size:.42em; color:var(--blood); }
+    .noose .node b{ display:block; font-size:.56em; margin:.15em 0 .15em; } .noose .node p{ font-size:.4em; color:var(--soft); margin:0; line-height:1.3; }
+    .noose .node:not(:last-child)::after{ content:"→"; position:absolute; right:-11px; top:50%; transform:translateY(-50%); color:var(--blood); font-weight:800; z-index:2; }
+
+    .two{ display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:.2em; }
+    .panel{ border:1px solid var(--border); border-radius:14px; padding:18px 22px; }
+    .panel.day{ background:linear-gradient(180deg, rgba(163,179,198,.10), rgba(11,12,17,.3)); }
+    .panel.night{ background:linear-gradient(180deg, rgba(209,84,74,.13), rgba(11,12,17,.3)); }
+    .panel .b{ font-size:.44em; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .panel .h{ font-size:.66em; font-weight:800; margin:.15em 0 .3em; } .panel.day .h{ color:var(--fog);} .panel.night .h{ color:var(--blood);}
+    .panel p{ margin:0; font-size:.5em; color:var(--soft); line-height:1.35; }
+
+    .meters{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:.3em; }
+    .m{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px 18px; }
+    .m .nm{ font-weight:800; font-size:.6em; } .m.e .nm{color:var(--gas);} .m.h .nm{color:var(--blood);}
+    .m .bar{ height:12px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); overflow:hidden; margin:.4em 0 .3em; }
+    .m.e .bar i{ display:block; height:100%; width:60%; background:linear-gradient(90deg,var(--gas-soft),var(--gas)); }
+    .m.h .bar i{ display:block; height:100%; width:75%; background:linear-gradient(90deg,#7a6f4a,var(--blood)); }
+    .m p{ font-size:.42em; color:var(--soft); margin:0; line-height:1.3; }
+
+    table.chart{ width:100%; border-collapse:collapse; font-size:.44em; margin-top:.3em; }
+    table.chart th, table.chart td{ text-align:left; padding:7px 10px; border-bottom:1px solid var(--border); }
+    table.chart thead th{ text-transform:uppercase; letter-spacing:.04em; color:var(--soft); background:var(--surface-2); font-size:.9em; }
+    table.chart .st{ color:var(--gas); font-weight:700; } table.chart .ut{ color:var(--plum); font-weight:700; }
+
+    .ladder{ display:flex; flex-direction:column; gap:10px; font-size:.5em; margin-top:.2em; }
+    .rung{ display:flex; gap:14px; align-items:flex-start; }
+    .rung .nt{ flex:0 0 5.5em; color:var(--soft); font-family:var(--mono); font-size:.8em; }
+    .rung .hd{ font-weight:800; color:var(--gas); } .rung .bd{ color:var(--soft); }
+    .rung .lk{ color:var(--blood); }
+
+    .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:.2em; }
+    .card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px; }
+    .card::before{ content:""; display:block; height:4px; width:44px; border-radius:4px; background:var(--ac,var(--gas)); margin-bottom:10px; }
+    .card.det{ --ac:var(--blood);} .card.press{ --ac:var(--gas);} .card.wit{ --ac:var(--plum);} .card.beat{ --ac:var(--fog);}
+    .card h3{ font-size:.62em; margin:.1em 0 .1em; color:var(--ac,var(--gas)); }
+    .card .who{ font-size:.38em; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .card p{ font-size:.42em; color:var(--soft); line-height:1.35; margin:.3em 0 0; }
+
+    .reveal ul{ margin:0; } .reveal li{ margin:.26em 0; line-height:1.35; }
+    .pill{ display:inline-block; margin-top:.5em; font-size:.5em; padding:8px 16px; border:1px solid var(--gas-soft); border-radius:999px; color:var(--gas); letter-spacing:.04em; }
+    .legend{ font-style:italic; color:var(--soft); font-size:.6em; max-width:30ch; margin-top:.5em; }
+  </style>
+</head>
+<body>
+  <div class="logo-badge">Troll<b>Byte</b></div>
+  <div class="foot">FANTASY STALKER · LLM-driven pitch</div>
+
+  <div class="reveal"><div class="slides">
+
+    <!-- 1 TITLE -->
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/fantasystalker-night.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">LLM-driven pitch · day-manager + night-stalker · penny-dreadful horror</span>
+      <h1>FANTASY STALKER</h1>
+      <p class="lead">Respectable shopkeeper by day. The thing in the fog by night. And the paper knows more each morning.</p>
+    </section>
+
+    <!-- 2 HOOK -->
+    <section>
+      <span class="kick">The hook</span>
+      <p class="big maxw">Jack the Ripper — but everyone's a dwarf in a top hat.</p>
+      <p class="soft" style="max-width:30ch; margin-top:.4em;">You're a legitimate business owner who only feels alive when he kills. You <span class="blood">need to do wrong to get the energy to do right.</span> A comedy of manners with a body count.</p>
+    </section>
+
+    <!-- 3 NOOSE -->
+    <section>
+      <span class="kick">The spine of the whole game</span>
+      <h2>You tighten your own noose</h2>
+      <div class="noose">
+        <div class="node"><div class="n">01</div><b>Kill</b><p>Fuel, and a thrill you can't skip.</p></div>
+        <div class="node"><div class="n">02</div><b>Grow strong</b><p>Energy back; shops &amp; body sharpen.</p></div>
+        <div class="node"><div class="n">03</div><b>Leave a trace</b><p>A weapon's mark, a dropped scissor.</p></div>
+        <div class="node"><div class="n">04</div><b>They deduce</b><p>Cops print the clue, seal your streets.</p></div>
+        <div class="node"><div class="n">05</div><b>Grow weak</b><p>Locked districts starve your night.</p></div>
+      </div>
+      <p class="soft" style="font-size:.6em; margin-top:.6em; max-width:40ch;">…so you must kill <em>more</em> — more traces, more sealed streets. <span class="blood">Every murder is your fuel and your rope.</span></p>
+    </section>
+
+    <!-- 4 TWO CAMERAS -->
+    <section>
+      <span class="kick">Two phases — the camera is the horror</span>
+      <h2>Safe by day. Hunted by night.</h2>
+      <div class="two">
+        <div class="panel day"><div class="b">Phase 1 · RTS overhead</div><div class="h">🏙️ The shopkeeper</div><p>2-to-8 businesses from a calm god's-eye view. In control… and complicit.</p></div>
+        <div class="panel night"><div class="b">Phase 2 · first person</div><div class="h">🌫️ Two hours in the fog</div><p>Up close, you can be hurt. Later, only bosses &amp; cops are worth a kill.</p></div>
+      </div>
+      <p class="soft" style="font-size:.5em; margin-top:.5em;">As the cops seal districts, your safe daytime board <span class="blood">literally shrinks</span>, night by night.</p>
+    </section>
+
+    <!-- 5 TWO METERS -->
+    <section>
+      <span class="kick">Why you can't just stop</span>
+      <h2>Two meters, pulling opposite ways</h2>
+      <div class="meters">
+        <div class="m e"><div class="nm">Energy</div><div class="bar"><i></i></div><p>Drains if you abstain. Skip too long and you wither.</p></div>
+        <div class="m h"><div class="nm">Heat</div><div class="bar"><i></i></div><p>Rises with each kill; cools over ~3 nights of lying low.</p></div>
+      </div>
+      <p class="soft" style="font-size:.6em; margin-top:.5em; max-width:34ch;">The smart play is to lie low — but Energy won't let you. <strong>"I should skip tonight… I can't skip tonight."</strong> You kill because you're out of road.</p>
+    </section>
+
+    <!-- 6 BUSINESSES -->
+    <section>
+      <span class="kick">The day feeds the night</span>
+      <h2>Every trade sharpens a murder skill</h2>
+      <table class="chart">
+        <thead><tr><th>Business</th><th>Feeds (night)</th><th>Why it fits</th></tr></thead>
+        <tbody>
+          <tr><td>Butcher</td><td class="st">Damage</td><td>Strong arms, sharp blades.</td></tr>
+          <tr><td>Cobbler</td><td class="st">Move speed</td><td>Best boots on wet cobbles.</td></tr>
+          <tr><td>Clockmaker</td><td class="st">Attack speed</td><td>Fine, fast, precise hands.</td></tr>
+          <tr><td>Hatter</td><td class="st">Stealth</td><td>Blend in — but scissors are evidence.</td></tr>
+          <tr><td>Undertaker</td><td class="ut">−Heat</td><td>A licensed body-disposer.</td></tr>
+          <tr><td>Print House</td><td class="ut">+Intel</td><td>You print the news — you know what they know.</td></tr>
+        </tbody>
+      </table>
+      <p class="soft" style="font-size:.44em; margin-top:.4em;">(+Apothecary→HP, Gin Palace→Stamina.) Thriving shop = bigger buff. Numbers TBD in testing.</p>
+    </section>
+
+    <!-- 7 THE MANHUNT LADDER -->
+    <section>
+      <span class="kick">The signature feature — the LLM heart</span>
+      <h2>The morning paper is the cops thinking out loud</h2>
+      <div class="ladder">
+        <div class="rung fragment"><div class="nt">Night 1</div><div><span class="hd">'ORRIBLE MURDER!</span> <span class="bd">— "the Fiend was ever so tall." Rules out nobody.</span></div></div>
+        <div class="rung fragment"><div class="nt">Night 2</div><div><span class="hd">STILL AT LARGE</span> <span class="bd">— "a proper toff, fine coat an' all."</span></div></div>
+        <div class="rung fragment"><div class="nt">Night 3</div><div><span class="hd">BLOODY SCISSORS!</span> <span class="bd">— shears dropped at the scene.</span> <span class="lk">🚧 Hatters' Row restricted</span></div></div>
+        <div class="rung fragment"><div class="nt">Night 4</div><div><span class="hd">THE RED FIEND</span> <span class="bd">— "a red coat, fleein' toward Cobblestone Cross!"</span> <span class="lk">🚧 sealed</span></div></div>
+        <div class="rung fragment"><div class="nt">Night 5</div><div><span class="hd">NAMED AT LAST?</span> <span class="bd">— "a tall elf, red coat, shop on Hatters' Row." That's your whole address.</span></div></div>
+      </div>
+      <p class="soft fragment" style="font-size:.46em; margin-top:.5em;">Every clue sourced from what you actually did — MO, shop, coat. The net feels <em>earned</em>, never random.</p>
+    </section>
+
+    <!-- 8 LLM CAST -->
+    <section>
+      <span class="kick">Where the AI lives</span>
+      <h2>The whole city is trying to catch you</h2>
+      <div class="cards">
+        <div class="card det"><div class="who">Deduction engine</div><h3>The Constabulary</h3><p>LLM detectives reason over your evidence, decide what they "know," and seal streets.</p></div>
+        <div class="card press"><div class="who">Diegetic UI</div><h3>The Gaslamp Gazette</h3><p>Prints the deduction as a penny-dreadful front page — the clue, buried in banshee scares.</p></div>
+        <div class="card wit"><div class="who">Clue source</div><h3>Witnesses &amp; Victims</h3><p>Saw a coat, a height, a limp — accurately or not. What the detectives reason from.</p></div>
+        <div class="card beat"><div class="who">The street</div><h3>The Beat Cops</h3><p>"Top o' the evenin', guv!" → "Oi, red coat — come 'ere!" Harder to shake as they learn.</p></div>
+      </div>
+    </section>
+
+    <!-- 9 DOOM -->
+    <section data-background-color="#0c0a0e">
+      <span class="kick">There is no winning — that's the point</span>
+      <p class="big maxw">You <span class="blood">will</span> be caught. How far did you get?</p>
+      <p class="legend">"THE FOGWICK FIEND TAKEN AT LAST — 14 souls afore the noose. 'E kept a lovely hat shop, apparently."</p>
+    </section>
+
+    <!-- 10 ASK -->
+    <section>
+      <span class="kick">The ask</span>
+      <p class="big maxw">An AI detective that reasons its way to your front door.</p>
+      <span class="pill">A power fantasy that turns, by design, into dread.</span>
+    </section>
+
+  </div></div>
+
+  <script src="../assets/vendor/reveal/reveal.js"></script>
+  <script>
+    Reveal.initialize({ hash:true, controls:true, progress:true, slideNumber:'c/t',
+      transition:'slide', width:1280, height:720, margin:0.06 });
+  </script>
+</body>
+</html>
