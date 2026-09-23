@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch: GUESTS? — TrollByte</title>
+  <meta name="description" content="A co-op horror game you need neurodivergent people to survive. An endless house that reads your mind, where the monsters were explorers once — and your friends can see you turning into one before you can.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ---- GUESTS? pitch — page-local styling on the site's CSS vars ---- */
+    :root{ --candle:#d9a95e; --candle-soft:#b3843c; --verd:#5fb3a2; --bruise:#a58ad0; --blood:#bf4d42; }
+    .g-hero{ position:relative; border-bottom:1px solid var(--border); }
+    .g-hero .art{ position:relative; aspect-ratio:16/8; min-height:340px; overflow:hidden; }
+    .g-hero .art img{ width:100%; height:100%; object-fit:cover; object-position:55% 40%; }
+    .g-hero .scrim{ position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(6,8,10,.1) 0%, rgba(6,8,10,.5) 52%, rgba(6,8,10,.97) 100%),
+                 linear-gradient(90deg, rgba(6,8,10,.85) 0%, rgba(6,8,10,0) 60%); }
+    .g-hero .hwrap{ position:absolute; inset:auto 0 0 0; }
+    .g-hero .htext{ max-width:var(--maxw); margin-inline:auto; padding:0 20px 30px; }
+    .g-kicker{ display:inline-flex; gap:10px; align-items:center; font-size:.82rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--candle); }
+    .g-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--candle); }
+    .g-hero h1{ margin:.22em 0 .14em; font-size:clamp(2.8rem,8vw,5.4rem); line-height:.95; letter-spacing:.06em; font-weight:800; }
+    .g-hero h1 .q{ color:var(--candle); }
+    .g-hero .logline{ max-width:62ch; font-size:clamp(1.02rem,2.1vw,1.28rem); margin:0 0 18px; }
+    .g-hero .logline b{ color:var(--candle); }
+    .g-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-present{ background:linear-gradient(180deg,var(--candle),var(--candle-soft)); color:#160f04; font-weight:700; border:none; padding:12px 20px; border-radius:var(--radius-sm); display:inline-flex; gap:9px; align-items:center; box-shadow:var(--shadow); }
+    .btn-present:hover{ text-decoration:none; filter:brightness(1.06); }
+
+    .g-body{ max-width:var(--maxw); margin-inline:auto; padding:8px 20px 40px; }
+    .g-body section{ padding-block:34px; border-top:1px solid var(--border); }
+    .g-body section:first-of-type{ border-top:none; }
+    .g-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-soft); margin:0 0 10px; }
+    .g-body h2{ font-size:clamp(1.5rem,3vw,2rem); margin:.1em 0 .5em; letter-spacing:-.01em; }
+    .g-body h3{ font-size:1.1rem; margin:0 0 6px; }
+    .g-body p{ max-width:72ch; }
+    .lede{ font-size:1.14rem; }
+    .note{ color:var(--text-soft); font-size:.92rem; }
+
+    .flip{ border:1px solid var(--candle-soft); background:linear-gradient(180deg, rgba(217,169,94,.10), rgba(217,169,94,.03)); border-radius:var(--radius); padding:22px 24px; display:flex; gap:18px; align-items:flex-start; }
+    .flip .mark{ font-size:2rem; line-height:1; } .flip p{ margin:0; font-size:1.16rem; } .flip b{ color:var(--candle); }
+
+    .split{ display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:center; }
+    .split.rev > :first-child{ order:2; }
+    @media (max-width:760px){ .split{ grid-template-columns:1fr; } .split.rev > :first-child{ order:0; } }
+    .figure{ margin:0; } .figure img{ border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); width:100%; display:block; }
+    .figure figcaption{ font-size:.86rem; color:var(--text-soft); margin-top:8px; }
+    .engine{ display:inline-block; font-size:.66rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--verd); border:1px solid var(--verd); border-radius:99px; padding:2px 8px; margin-right:6px; vertical-align:1px; }
+
+    /* archetypes */
+    .minds{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+    .mind{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .mind::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--ac,var(--candle)); }
+    .mind .ic{ font-size:1.5rem; } .mind h3{ color:var(--ac,var(--candle)); margin:.3em 0 .2em; }
+    .mind p{ font-size:.9rem; color:var(--text-soft); margin:0; }
+    .mind .from{ font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:var(--text-soft); margin-top:10px; }
+    .weak{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .weak span{ font-size:.84rem; padding:6px 11px; border-radius:99px; border:1px solid var(--border); background:var(--surface-2); color:var(--text-soft); }
+    .weak span.cut{ text-decoration:line-through; color:var(--verd); border-color:var(--verd); }
+
+    /* tiers */
+    .tiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    @media (max-width:800px){ .tiers{ grid-template-columns:1fr; } }
+    .tier{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .tier img{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+    .tier .c{ padding:14px 16px 16px; }
+    .tier .lvl{ font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .tier.t1 .lvl{ color:var(--candle);} .tier.t2 .lvl{ color:var(--verd);} .tier.t3 .lvl{ color:var(--bruise);}
+    .tier h3{ margin:.2em 0; } .tier p{ font-size:.88rem; color:var(--text-soft); margin:0; }
+    .sanity{ margin-top:18px; }
+    .sanity .bar{ height:12px; border-radius:99px; border:1px solid var(--border); background:linear-gradient(90deg,var(--candle),var(--verd) 50%,var(--bruise)); }
+    .sanity .ends{ display:flex; justify-content:space-between; font-size:.8rem; color:var(--text-soft); margin-top:6px; }
+
+    /* mirror demo */
+    .demo{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .demo .head{ padding:12px 20px; border-bottom:1px solid var(--border); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .chat{ padding:16px 20px; display:flex; flex-direction:column; gap:11px; }
+    .line{ display:flex; gap:12px; align-items:flex-start; }
+    .line .tag{ flex:0 0 auto; font-size:.66rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:4px 8px; border-radius:6px; margin-top:2px; }
+    .line.a .tag{ background:rgba(95,179,162,.16); color:var(--verd); }
+    .line.b .tag{ background:rgba(165,138,208,.18); color:var(--bruise); }
+    .line.sys .tag{ background:rgba(191,77,66,.16); color:var(--blood); }
+    .line p{ margin:0; } .line .em{ color:var(--text-soft); font-style:italic; }
+
+    .roles{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    @media (max-width:720px){ .roles{ grid-template-columns:1fr; } }
+    .role{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .role::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--ac,var(--candle)); }
+    .role .ic{ font-size:1.5rem; } .role .who{ font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-soft); margin-top:6px; }
+    .role h3{ color:var(--ac,var(--candle)); margin-top:2px; } .role p{ font-size:.94rem; color:var(--text-soft); margin:.4em 0 0; }
+    .role .q{ margin-top:12px; font-style:italic; color:var(--text); border-left:2px solid var(--ac,var(--candle)); padding:4px 0 4px 12px; font-size:.92rem; }
+
+    .items{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+    .item{ background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px; }
+    .item b{ display:block; } .item span{ font-size:.86rem; color:var(--text-soft); }
+
+    .board{ width:100%; border-collapse:collapse; font-size:.95rem; }
+    .board th,.board td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); }
+    .board thead th{ font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:var(--text-soft); background:var(--surface-2); }
+    .board td.n{ font-family:var(--mono); color:var(--candle); font-weight:700; }
+    .board td.r{ font-family:var(--mono); color:var(--text-soft); }
+
+    .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    @media (max-width:760px){ .gallery{ grid-template-columns:1fr 1fr; } }
+    .gallery figure{ margin:0; } .gallery img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius-sm); border:1px solid var(--border); display:block; }
+    .gallery figcaption{ font-size:.8rem; color:var(--text-soft); margin-top:5px; }
+    .works{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px; }
+    @media (max-width:760px){ .works{ grid-template-columns:1fr; } }
+    .box{ border-radius:var(--radius); padding:18px 20px; }
+    .box.ok{ border:1px solid var(--verd); background:rgba(95,179,162,.07); }
+    .box.lesson{ border:1px dashed var(--candle); background:rgba(217,169,94,.06); }
+    .box h3{ margin-top:0; } .box.ok h3{ color:var(--verd);} .box.lesson h3{ color:var(--candle); }
+    ul.clean{ list-style:none; padding:0; margin:0; } ul.clean li{ padding:6px 0 6px 24px; position:relative; color:var(--text-soft); }
+    ul.clean li::before{ content:"▸"; position:absolute; left:4px; color:var(--candle); }
+    .box.ok ul.clean li::before{ content:"✓"; color:var(--verd); }
+
+    .rooms{ display:flex; flex-wrap:wrap; gap:7px; margin:8px 0 14px; }
+    .rooms span{ font-size:.82rem; padding:5px 10px; border-radius:99px; border:1px solid var(--border); background:var(--surface); }
+    .rooms.t1 span{ border-color:rgba(217,169,94,.5);} .rooms.t2 span{ border-color:rgba(95,179,162,.5);} .rooms.t3 span{ border-color:rgba(165,138,208,.55);}
+    .sigils{ display:flex; gap:16px; align-items:center; }
+    .sigils img{ width:92px; height:92px; background:#0b0c10; border-radius:12px; border:1px solid var(--border); padding:8px; }
+    .cols2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; } @media (max-width:760px){ .cols2{ grid-template-columns:1fr; } }
+    .endbar{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:10px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html" aria-current="page">Pitchdeck</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="g-hero">
+      <div class="art">
+        <img src="../assets/pitchdeck/LLMDriven/guests-hero.webp" alt="In-engine screenshot: a marble bust on a pedestal beside a tapestry wall and a portrait of a burning-eyed man; a small owl sits on a stone plaque reading 0 · Calm.">
+        <div class="scrim"></div>
+      </div>
+      <div class="hwrap"><div class="htext">
+        <span class="g-kicker"><span class="dot"></span> LLM-Driven pitch · co-op first-person horror · endless house</span>
+        <h1>GUESTS<span class="q">?</span></h1>
+        <p class="logline">Four explorers step into a house that never ends. Every door opens onto a new room, and <b>the house reads your mind</b> to decide which. The monsters in the halls were explorers once. Your friends can already see you turning into one. You can't.</p>
+        <div class="g-actions">
+          <a class="btn-present" href="pitch-llm-guests-slides.html">▶ Present the pitch</a>
+          <a class="btn btn-ghost" href="#read">↓ Read it</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="g-body" id="read">
+
+      <!-- HOOK -->
+      <section>
+        <p class="g-eyebrow">Why this game, and why us</p>
+        <div class="flip">
+          <span class="mark">🦉</span>
+          <p>This is a horror game <b>you need neurodivergent people to survive.</b> The house was built for ordinary minds, and it hides its secrets where ordinary minds don't look. The one who spots the pattern, the one who can't stop focusing, the one who hears the step before anyone else: they're the reason the team gets out of the next room. It's a game about the strengths in the many ways people can be different. If anyone should make it, it's Specialisterne.</p>
+        </div>
+        <p class="note" style="margin-top:14px">And the name is a question on purpose. Are you the guests? Are they? Is the house still deciding?</p>
+      </section>
+
+      <!-- THE HOUSE -->
+      <section>
+        <p class="g-eyebrow">The house that never ends</p>
+        <div class="split">
+          <div>
+            <h2>Every door rolls the next room</h2>
+            <p class="lede">There's no map and no end. Open a door, and the house picks a room, checks that it fits, and builds it on the other side. Dining room, library, bathroom, the stairs down. Then another door.</p>
+            <p>The space itself is liminal. It looks like a house, but it isn't one. It's a pocket of somewhere else that <em>resembles</em> the world you came from, the way a dream resembles your bedroom. The people who end up here were looking for the unknown, and looked long enough for the unknown to look back.</p>
+            <p class="note"><span class="engine">In engine</span>This works. The door-by-door generator was built and running in our prototype.</p>
+          </div>
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/guests-doorway.webp" alt="In-engine screenshot looking through a wooden doorway from a tapestry room into a green-wallpapered bedroom with a desk and chairs.">
+            <figcaption>From the tapestry room, a door opens onto a bedroom that wasn't there a second ago.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- DIFFERENT MINDS -->
+      <section>
+        <p class="g-eyebrow">The heart of the design</p>
+        <h2>Your mind is your only strength</h2>
+        <p class="lede">Every explorer starts <em>weak</em>: jumpy, clumsy, afraid of the dark. The only real strengths anyone has come from how their mind works. And you don't customize by adding powers. You customize by <b>removing a weakness.</b></p>
+        <p>In a horror game, you should never feel powerful. But choosing <em>which</em> kind of vulnerable you are gives you just enough control to feel it's your run. The team needs a mix of minds, because every room hides something different.</p>
+        <div class="minds" style="margin-top:18px">
+          <div class="mind" style="--ac:var(--candle)"><div class="ic">🔣</div><h3>The Pattern-Seer</h3><p>Spots the sigils, the out-of-place details, the painting that changed since last time. Finds the clues everyone walks past.</p></div>
+          <div class="mind" style="--ac:var(--verd)"><div class="ic">🎯</div><h3>The Deep Focus</h3><p>Locks onto a puzzle and doesn't let go, even while the lights flicker and something scratches at the door.</p></div>
+          <div class="mind" style="--ac:var(--bruise)"><div class="ic">👂</div><h3>The Watcher</h3><p>Always on edge, which here is a gift. Hears the step before the others and knows when a room is wrong.</p></div>
+          <div class="mind" style="--ac:var(--blood)"><div class="ic">⚡</div><h3>The Wildcard</h3><p>Fast reflexes and routes nobody else would try. Chaotic, and often the one who finds the way through.</p></div>
+          <div class="mind" style="--ac:#7fa6d8"><div class="ic">🧭</div><h3>The Mapmaker</h3><p>Holds the house in their head. Knows the way back when the corridors start folding.</p></div>
+        </div>
+        <p class="g-eyebrow" style="margin-top:22px">Everyone starts with the same frailties. Cut one to make it yours:</p>
+        <div class="weak">
+          <span>Loud footsteps</span><span class="cut">Afraid of the dark</span><span>Shaky hands</span><span>Poor memory</span><span>Jumpy</span><span>Bad sense of direction</span><span>Slow reader</span>
+        </div>
+        <p class="note" style="margin-top:14px">The strengths are <em>inspired by</em> real neurodivergent traits, and the weaknesses are universal human ones, so no diagnosis carries the bad stuff. The archetypes get names, not labels, and players recognise themselves. We'd design them with the people who know best: our own students.</p>
+      </section>
+
+      <!-- THE HOUSE READS YOUR MIND -->
+      <section>
+        <p class="g-eyebrow">Sanity shapes the house</p>
+        <h2>Keep your head, and it stays a house</h2>
+        <p class="lede">Every door rolls from a pool of rooms, and your team's state of mind decides which pool. Stay calm and it's a creepy old mansion. Start slipping and you get the rooms <em>below</em> the house. Lose it, and doors open onto places that can't be here at all.</p>
+        <div class="tiers" style="margin-top:18px">
+          <div class="tier t1"><img src="../assets/pitchdeck/LLMDriven/guests-tapestry.webp" alt="In-engine: tapestry room with a bust, framed painting, and a lit fireplace."><div class="c"><div class="lvl">Calm · The House</div><h3>A mansion, mostly</h3><p>Hall, dining room, library, ballroom, gallery, bedrooms, attic. Wrong, but plausible.</p></div></div>
+          <div class="tier t2"><img src="../assets/pitchdeck/LLMDriven/guests-gargoyles.webp" alt="In-engine: a long hall lined with snarling winged gargoyle statues."><div class="c"><div class="lvl">Uneasy · Below Stairs</div><h3>Rooms you shouldn't be in</h3><p>Cellar, 1800s surgery, crypt, catacombs, asylum, a gargoyle gallery that wasn't on any floor plan.</p></div></div>
+          <div class="tier t3"><img src="../assets/pitchdeck/LLMDriven/guests-cave.webp" alt="In-engine: a dark wet cavern with a lit stone statue and a wooden door set into the rock."><div class="c"><div class="lvl">Lost · The Wrong Places</div><h3>Places that can't be here</h3><p>A cavern with a door in it. A backrooms office. A server room. A nursery where the chairs are three metres tall.</p></div></div>
+        </div>
+        <div class="sanity"><div class="bar"></div><div class="ends"><span>🦉 Calm</span><span>Uneasy</span><span>Lost</span></div></div>
+        <p class="note" style="margin-top:12px"><span class="engine">In engine</span>The owl on the stone plaque (see the top image) was our working sanity readout. It stays: a small owl keeping an eye on how you're holding up.</p>
+      </section>
+
+      <!-- THE MIRROR LIES -->
+      <section>
+        <p class="g-eyebrow">The signature idea</p>
+        <div class="split rev">
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/guests-becoming.webp" alt="Concept art: a lone figure in a long coat walks into a vast dark hall lined with hunched, twisted creatures.">
+            <figcaption>Concept art: the ones who went deeper.</figcaption>
+          </figure>
+          <div>
+            <h2>Everyone can see it but you</h2>
+            <p class="lede">The longer you stay, the more the house changes you: an arm, a jaw, the eyes. On your own screen, your hands look perfectly normal. On your friends' screens, they don't.</p>
+            <p>The one losing their mind is always the last to know. That's the Lovecraft rule, turned into co-op. And if your friends say you look wrong, who do you believe: them, or your own eyes?</p>
+          </div>
+        </div>
+        <div class="demo" style="margin-top:22px">
+          <div class="head"><span>Room 211 · a nursery with very tall chairs</span><span>Team sanity: Uneasy → Lost</span></div>
+          <div class="chat">
+            <div class="line a"><span class="tag">Maja</span><p>Wait. Stop. Your arm. Why is it <em>scaly</em>?</p></div>
+            <div class="line b"><span class="tag">Jonas</span><p>My arm's fine. <span class="em">(on his screen it is)</span> Are you seeing things again?</p></div>
+            <div class="line a"><span class="tag">Maja</span><p>And your eyes are yellow. Jonas, your eyes are <em>yellow.</em></p></div>
+            <div class="line sys"><span class="tag">The house</span><p><span class="em">Jonas's character lunges at Maja. Jonas didn't press anything.</span></p></div>
+            <div class="line a"><span class="tag">Maja</span><p>DID YOU JUST TRY TO BITE ME?</p></div>
+            <div class="line b"><span class="tag">Jonas</span><p>No! Of course not! …Why are you backing away?</p></div>
+          </div>
+        </div>
+        <p class="note" style="margin-top:14px">It's also what makes multiplayer affordable. Everyone walks the <em>same</em> rooms, but each player's screen adds their own layer: how the others look, the whispers, the figure in the doorway that only you can see. Local effects don't need syncing.</p>
+      </section>
+
+      <!-- THOSE WHO STAYED -->
+      <section>
+        <p class="g-eyebrow">The lore</p>
+        <div class="split">
+          <div>
+            <h2>The monsters were guests once</h2>
+            <p class="lede">Occultists, researchers, ghost-hunters. People who went looking for the unknown and found it. They wandered the house for too long, and the house kept them.</p>
+            <p>They left notes in drawers, sigils on the walls, half-finished theories about what the house <em>is</em>. You'll need those clues to solve the puzzles and set traps for the things that hunt you. And you'll start to wonder which of the things in the dark wrote the letter you're holding.</p>
+            <div class="sigils" style="margin-top:14px">
+              <img src="../assets/pitchdeck/LLMDriven/guests-sigil1.webp" alt="A white occult sigil.">
+              <img src="../assets/pitchdeck/LLMDriven/guests-sigil2.webp" alt="A white circular occult sigil with trident arms.">
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="../assets/pitchdeck/LLMDriven/guests-letter.webp" alt="In-engine: a letter held up over a desk, written by a previous explorer about a machine hidden beneath the old library, with a sigil on a second page.">
+            <figcaption><span class="engine">In engine</span>A letter from a previous guest: <em>"The machine's heart beats beneath the old library."</em></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- RUMMAGE -->
+      <section>
+        <p class="g-eyebrow">Why you open every drawer</p>
+        <h2>Nothing lasts, so you keep searching</h2>
+        <p class="lede">Items are one-use or timed. You never collect them all, so every cabinet, drawer, and chest is worth a look, which is exactly where the house wants your hands.</p>
+        <div class="items" style="margin-top:14px">
+          <div class="item"><b>🧦 Felt socks</b><span>Walk silently for a while.</span></div>
+          <div class="item"><b>🧤 Surgeon's gloves</b><span>Steady hands for delicate work.</span></div>
+          <div class="item"><b>👓 Smoked spectacles</b><span>See what's really standing in the corner.</span></div>
+          <div class="item"><b>🕯️ Blessed candle</b><span>Hold the dark back for one room.</span></div>
+        </div>
+      </section>
+
+      <!-- LLM HOUSE -->
+      <section>
+        <p class="g-eyebrow">Where the AI lives</p>
+        <h2>The house talks back</h2>
+        <p>Four kinds of voice, and no more. Any more and it's a chatbot museum.</p>
+        <div class="roles">
+          <article class="role" style="--ac:var(--candle)">
+            <div class="ic">🖼️</div><div class="who">Role 1 · The walls</div>
+            <h3>The Portraits</h3>
+            <p>The unsettling paintings watch, whisper, and lie. Sometimes they help. Sometimes they call you by name.</p>
+            <p class="q">"Your friend has been looking at you strangely. Have you noticed? Hm."</p>
+          </article>
+          <article class="role" style="--ac:var(--bruise)">
+            <div class="ic">🧍</div><div class="who">Role 2 · The halfway people</div>
+            <h3>The Lost Explorers</h3>
+            <p>Other guests, halfway through the change and unaware of it. Helpful, chatty, and a preview of your own future. Friendly until they aren't.</p>
+          </article>
+          <article class="role" style="--ac:var(--verd)">
+            <div class="ic">🏚️</div><div class="who">Role 3 · The narrator</div>
+            <h3>The House</h3>
+            <p>One quiet voice that remembers your team's run: who panicked, who left someone behind, what you took from the crypt three floors ago.</p>
+          </article>
+          <article class="role" style="--ac:var(--blood)">
+            <div class="ic">🗝️</div><div class="who">Role 4 · The puzzle engine</div>
+            <h3>The Riddler</h3>
+            <p>An endless house needs endless puzzles. A small language model running locally, on a school PC, writes fresh riddles and occult clues for every run.</p>
+          </article>
+        </div>
+        <figure class="figure" style="margin-top:18px; max-width:520px">
+          <img src="../assets/pitchdeck/LLMDriven/guests-riddles.webp" alt="Screenshot of a local phi-2 3B model generating riddles for the words umbrella, ethereal and understand.">
+          <figcaption>Already tested: a 3-billion-parameter model on a school machine, offline, writing riddles. Clunky, but that's what the rest of the project is for.</figcaption>
+        </figure>
+      </section>
+
+      <!-- HOW DEEP -->
+      <section>
+        <p class="g-eyebrow">There's no ending</p>
+        <h2>How deep did your four get?</h2>
+        <p class="lede">There's no escape and no final boss. The score is how many rooms your team got through before the house kept you. Post it, and try to beat it.</p>
+        <table class="board" style="margin-top:12px">
+          <thead><tr><th>#</th><th>Team of four</th><th>Rooms</th></tr></thead>
+          <tbody>
+            <tr><td class="r">1</td><td>Allan · Derpowich · @ssdemon · Lucy</td><td class="n">394</td></tr>
+            <tr><td class="r">2</td><td>Dennis · Toby · haxxorbaxxor · Casey</td><td class="n">265</td></tr>
+            <tr><td class="r">3</td><td>Owlwatch · Mira · Ben · "the Wildcard"</td><td class="n">188</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- WHAT WORKS + LESSONS -->
+      <section>
+        <p class="g-eyebrow">We've been here before</p>
+        <h2>This isn't just an idea. We built the hard part.</h2>
+        <p class="lede">An earlier class got a long way. Every image below is a real screenshot from that prototype.</p>
+        <div class="gallery" style="margin-top:14px">
+          <figure><img src="../assets/pitchdeck/LLMDriven/guests-hero.webp" alt="In-engine hall with bust and portrait."><figcaption>The gallery, with the owl readout</figcaption></figure>
+          <figure><img src="../assets/pitchdeck/LLMDriven/guests-gargoyles.webp" alt="In-engine gargoyle hall."><figcaption>The gargoyle hall</figcaption></figure>
+          <figure><img src="../assets/pitchdeck/LLMDriven/guests-forest.webp" alt="In-engine room opening onto a misty forest."><figcaption>A room that opens onto a forest</figcaption></figure>
+          <figure><img src="../assets/pitchdeck/LLMDriven/guests-doorway.webp" alt="In-engine doorway."><figcaption>The next room, freshly rolled</figcaption></figure>
+          <figure><img src="../assets/pitchdeck/LLMDriven/guests-letter.webp" alt="In-engine letter."><figcaption>Lore notes and sigils</figcaption></figure>
+          <figure><img src="../assets/pitchdeck/LLMDriven/guests-cave.webp" alt="In-engine cavern."><figcaption>A wrong place</figcaption></figure>
+        </div>
+        <div class="works">
+          <div class="box ok">
+            <h3>What already works</h3>
+            <ul class="clean">
+              <li>The endless maze: each door rolls, checks, and builds the next room.</li>
+              <li>A stack of finished rooms that look genuinely good.</li>
+              <li>Lighting, fog, and atmosphere that punch well above a school project.</li>
+              <li>The sanity readout (the owl) and the first UI pieces.</li>
+              <li>Readable lore notes, and a local riddle-writing model.</li>
+            </ul>
+          </div>
+          <div class="box lesson">
+            <h3>What we learned the hard way</h3>
+            <ul class="clean">
+              <li><b>Multiplayer first.</b> Get it working on day one and test it every few weeks. We left it for later, and later is the worst time.</li>
+              <li><b>Set a performance budget early.</b> It looked amazing and ran badly. Decide the frame rate you need, then measure every new room against it.</li>
+              <li><b>Name it early.</b> "UnnamedHorrorGame" lasted far too long.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANY HANDS -->
+      <section>
+        <p class="g-eyebrow">Built for a big team</p>
+        <h2>Forty rooms, forty chances to own something</h2>
+        <p class="lede">Every room type is a self-contained piece one student or pair can own start to finish. That makes this a natural fit for a multi-class project. Here's the list from our old planning thread:</p>
+        <p class="g-eyebrow" style="color:var(--candle); margin-top:16px">The House</p>
+        <div class="rooms t1"><span>Starting hall</span><span>Hallways</span><span>Dining room</span><span>Kitchen</span><span>Library</span><span>Ballroom</span><span>Gallery</span><span>Master bedroom</span><span>Guest room</span><span>Servant's room</span><span>Bathroom</span><span>Closet</span><span>Attic</span><span>Stairs up &amp; down</span><span>Spiral stair tower</span><span>Victorian greenhouse</span></div>
+        <p class="g-eyebrow" style="color:var(--verd)">Below Stairs</p>
+        <div class="rooms t2"><span>Cellar</span><span>Wine cellar</span><span>Leaky basement</span><span>Service stairs</span><span>Stable</span><span>Freezer room</span><span>1800s surgery</span><span>1800s lab</span><span>Crypt</span><span>Catacombs</span><span>Asylum</span><span>Hospital ward</span><span>Children's room</span><span>Former treasure room</span><span>Trapped hallways</span></div>
+        <p class="g-eyebrow" style="color:var(--bruise)">The Wrong Places</p>
+        <div class="rooms t3"><span>Backrooms office</span><span>Server room</span><span>Control room</span><span>Prepper bunker</span><span>Genetics lab</span><span>Sewers</span><span>Grotto</span><span>Arcane lab (wrong gravity)</span><span>Wrong-scale rooms</span><span>Spider storage</span><span>Spider breeding</span><span>Beast prison</span><span>Slaughter room</span></div>
+        <figure class="figure" style="margin-top:10px">
+          <img src="../assets/pitchdeck/LLMDriven/guests-temple.webp" alt="Concept art: a flooded underground temple with carved pillars and a glowing seated statue.">
+          <figcaption>Concept art for a Wrong Place: a flooded temple under the house.</figcaption>
+        </figure>
+      </section>
+
+      <!-- WHY TEACH -->
+      <section>
+        <p class="g-eyebrow">For the staff room</p>
+        <h2>Why it earns its place</h2>
+        <div class="cols2">
+          <div>
+            <h3>It says something</h3>
+            <ul class="clean">
+              <li>A game where different minds are the only way through. Made by the people who live it.</li>
+              <li>Horror that's about perception and trust, not jump-scares.</li>
+              <li>A natural conversation starter about strengths, not deficits.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>It teaches a lot</h3>
+            <ul class="clean">
+              <li>Procedural generation, networking, and per-player rendering in one project.</li>
+              <li>Local LLMs as content engines: riddles, voices, a narrator.</li>
+              <li>Performance and multiplayer discipline, learned from our own mistakes.</li>
+              <li>Forty room-sized deliverables for a big, mixed team.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="endbar">
+        <a class="btn btn-ghost" href="../pitchdeck.html">← Back to all pitches</a>
+        <a class="btn-present" href="pitch-llm-guests-slides.html">▶ Present the pitch</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

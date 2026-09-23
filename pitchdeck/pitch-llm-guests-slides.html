@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GUESTS? — pitch deck</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <!-- reveal.js 5.1.0, vendored locally under assets/vendor/reveal/ — no CDN, works offline -->
+  <link rel="stylesheet" href="../assets/vendor/reveal/reset.css">
+  <link rel="stylesheet" href="../assets/vendor/reveal/reveal.css">
+  <style>
+    :root{ --bg:#07090b; --surface:#12151b; --surface-2:#191d25; --border:#2a2f39; --text:#e9ecf2; --soft:#9aa6b4;
+      --candle:#e2b36a; --verd:#6cc2b0; --bruise:#b39be0; --blood:#d65e52;
+      --font: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; --mono:"Cascadia Code",Consolas,Menlo,monospace; }
+    html, body{ background:var(--bg); } .reveal-viewport{ background:var(--bg); }
+    .reveal{ font-family:var(--font); color:var(--text); font-size:34px; background:var(--bg); }
+    .reveal .slides{ text-align:left; }
+    .reveal h1,.reveal h2,.reveal h3{ color:var(--text); font-weight:800; letter-spacing:-.01em; line-height:1.05; margin:0 0 .35em; text-transform:none; }
+    .reveal h1{ font-size:2.4em; letter-spacing:.06em; } .reveal h1 .q{ color:var(--candle); }
+    .reveal em{ color:var(--candle); font-style:normal; } .reveal strong{ color:var(--candle); }
+    .reveal p{ line-height:1.4; } .reveal .controls{ color:var(--candle); } .reveal .progress{ color:var(--candle); height:4px; }
+    .kick{ display:inline-block; font-size:.5em; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--candle); margin-bottom:.4em; }
+    .soft{ color:var(--soft); }
+    .logo-badge{ position:fixed; top:20px; left:24px; font-size:20px; font-weight:700; color:var(--text); opacity:.85; z-index:30; } .logo-badge b{ color:var(--candle); }
+    .foot{ position:fixed; bottom:16px; left:24px; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--soft); opacity:.55; z-index:30; }
+    .scrim::after{ content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, rgba(6,8,10,.95) 0%, rgba(6,8,10,.72) 45%, rgba(6,8,10,.3) 100%); }
+    .big{ font-size:1.45em; line-height:1.06; font-weight:800; } .lead{ font-size:1em; max-width:22ch; } .maxw{ max-width:24ch; }
+    .engine{ display:inline-block; font-size:.36em; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--verd); border:1px solid var(--verd); border-radius:99px; padding:3px 10px; }
+
+    .minds{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:.3em; }
+    .mind{ background:var(--surface); border:1px solid var(--border); border-top:4px solid var(--ac); border-radius:12px; padding:14px 12px; }
+    .mind .ic{ font-size:1.1em; } .mind h3{ font-size:.5em; color:var(--ac); margin:.3em 0 .2em; } .mind p{ font-size:.36em; color:var(--soft); margin:0; line-height:1.3; }
+    .weak{ display:flex; flex-wrap:wrap; gap:8px; margin-top:.5em; font-size:.42em; }
+    .weak span{ padding:5px 11px; border-radius:99px; border:1px solid var(--border); background:var(--surface-2); color:var(--soft); }
+    .weak span.cut{ text-decoration:line-through; color:var(--verd); border-color:var(--verd); }
+
+    .tiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:.3em; }
+    .tier{ background:var(--surface); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+    .tier img{ width:100%; height:170px; object-fit:cover; display:block; margin:0; }
+    .tier .c{ padding:10px 14px 12px; } .tier .l{ font-size:.38em; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .tier.t1 .l{ color:var(--candle);} .tier.t2 .l{ color:var(--verd);} .tier.t3 .l{ color:var(--bruise);}
+    .tier p{ font-size:.4em; color:var(--soft); margin:.2em 0 0; line-height:1.3; }
+    .sbar{ height:12px; border-radius:99px; margin-top:.5em; background:linear-gradient(90deg,var(--candle),var(--verd) 50%,var(--bruise)); }
+
+    .chat{ display:flex; flex-direction:column; gap:10px; font-size:.54em; }
+    .row{ display:flex; gap:12px; align-items:flex-start; }
+    .row .tag{ flex:0 0 auto; font-size:.62em; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:4px 8px; border-radius:6px; margin-top:3px; }
+    .row.a .tag{ background:rgba(108,194,176,.16); color:var(--verd);} .row.b .tag{ background:rgba(179,155,224,.18); color:var(--bruise);} .row.s .tag{ background:rgba(214,94,82,.16); color:var(--blood);}
+    .row p{ margin:0; } .row .em{ color:var(--soft); font-style:italic; }
+
+    .cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:.2em; }
+    .card{ background:var(--surface); border:1px solid var(--border); border-top:4px solid var(--ac); border-radius:12px; padding:14px 16px; }
+    .card h3{ font-size:.58em; margin:.1em 0; color:var(--ac); } .card .who{ font-size:.36em; letter-spacing:.06em; text-transform:uppercase; color:var(--soft); }
+    .card p{ font-size:.4em; color:var(--soft); line-height:1.35; margin:.3em 0 0; }
+
+    table.board{ width:100%; border-collapse:collapse; font-size:.5em; margin-top:.4em; }
+    table.board th, table.board td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); }
+    table.board thead th{ text-transform:uppercase; letter-spacing:.04em; color:var(--soft); background:var(--surface-2); font-size:.8em; }
+    table.board .n{ font-family:var(--mono); color:var(--candle); font-weight:800; }
+
+    .two{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:.3em; }
+    .box{ border-radius:12px; padding:16px 20px; font-size:.44em; }
+    .box.ok{ border:1px solid var(--verd); background:rgba(108,194,176,.07);} .box.ls{ border:1px dashed var(--candle); background:rgba(226,179,106,.06);}
+    .box h3{ font-size:1.3em; margin:0 0 .4em; } .box.ok h3{ color:var(--verd);} .box.ls h3{ color:var(--candle);}
+    .box ul{ margin:0 0 0 1em; } .box li{ margin:.25em 0; color:var(--soft); line-height:1.3; } .box li b{ color:var(--text); }
+    .pill{ display:inline-block; margin-top:.5em; font-size:.48em; padding:8px 16px; border:1px solid var(--candle); border-radius:999px; color:var(--candle); letter-spacing:.04em; }
+  </style>
+</head>
+<body>
+  <div class="logo-badge">Troll<b>Byte</b></div>
+  <div class="foot">GUESTS? · LLM-driven pitch</div>
+
+  <div class="reveal"><div class="slides">
+
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/guests-hero.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">LLM-driven pitch · co-op first-person horror</span>
+      <h1>GUESTS<span class="q">?</span></h1>
+      <p class="lead">A house that never ends. A team that needs every kind of mind. And you're the last to see what you're becoming.</p>
+    </section>
+
+    <section>
+      <span class="kick">Why this game, and why us</span>
+      <p class="big maxw">A horror game you <em>need</em> neurodivergent people to survive.</p>
+      <p class="soft" style="max-width:32ch; margin-top:.4em; font-size:.7em;">The house was built for ordinary minds. It hides its secrets where ordinary minds don't look. If anyone should make this, it's Specialisterne.</p>
+    </section>
+
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/guests-doorway.webp" data-background-size="cover" data-background-position="center right">
+      <span class="kick">The house that never ends</span>
+      <h2 class="maxw">Every door rolls the next room.</h2>
+      <p class="soft maxw" style="font-size:.64em;">No map, no end. Open a door, and the house picks a room, checks it fits, and builds it on the other side.</p>
+      <span class="engine">Already built in our prototype</span>
+    </section>
+
+    <section>
+      <span class="kick">The heart of the design</span>
+      <h2>Your mind is your only strength</h2>
+      <div class="minds">
+        <div class="mind" style="--ac:var(--candle)"><div class="ic">🔣</div><h3>Pattern-Seer</h3><p>Spots the sigils everyone walks past.</p></div>
+        <div class="mind" style="--ac:var(--verd)"><div class="ic">🎯</div><h3>Deep Focus</h3><p>Solves it while the lights flicker.</p></div>
+        <div class="mind" style="--ac:var(--bruise)"><div class="ic">👂</div><h3>Watcher</h3><p>Hears the step before anyone.</p></div>
+        <div class="mind" style="--ac:var(--blood)"><div class="ic">⚡</div><h3>Wildcard</h3><p>Fast, chaotic, finds the way.</p></div>
+        <div class="mind" style="--ac:#8db3e2"><div class="ic">🧭</div><h3>Mapmaker</h3><p>Holds the house in their head.</p></div>
+      </div>
+      <p class="soft" style="font-size:.46em; margin-top:.6em;">Everyone starts weak. You customize by <strong>removing a weakness</strong>, not adding a power:</p>
+      <div class="weak"><span>Loud footsteps</span><span class="cut">Afraid of the dark</span><span>Shaky hands</span><span>Poor memory</span><span>Jumpy</span></div>
+    </section>
+
+    <section>
+      <span class="kick">Sanity shapes the house</span>
+      <h2>Keep your head, and it stays a house</h2>
+      <div class="tiers">
+        <div class="tier t1"><img src="../assets/pitchdeck/LLMDriven/guests-tapestry.webp" alt=""><div class="c"><div class="l">🦉 Calm · The House</div><p>Library, ballroom, bedrooms. Wrong, but plausible.</p></div></div>
+        <div class="tier t2"><img src="../assets/pitchdeck/LLMDriven/guests-gargoyles.webp" alt=""><div class="c"><div class="l">Uneasy · Below Stairs</div><p>Surgery, crypt, asylum. Rooms you shouldn't be in.</p></div></div>
+        <div class="tier t3"><img src="../assets/pitchdeck/LLMDriven/guests-cave.webp" alt=""><div class="c"><div class="l">Lost · Wrong Places</div><p>A cavern with a door. A backrooms office.</p></div></div>
+      </div>
+      <div class="sbar"></div>
+    </section>
+
+    <section>
+      <span class="kick">The signature idea</span>
+      <h2>Everyone can see it but you</h2>
+      <div class="chat">
+        <div class="row a fragment"><span class="tag">Maja</span><p>Wait. Your arm. Why is it <em>scaly</em>?</p></div>
+        <div class="row b fragment"><span class="tag">Jonas</span><p>My arm's fine. <span class="em">(on his screen it is)</span></p></div>
+        <div class="row a fragment"><span class="tag">Maja</span><p>Jonas, your eyes are <em>yellow.</em></p></div>
+        <div class="row s fragment"><span class="tag">The house</span><p><span class="em">Jonas lunges at Maja. Jonas didn't press anything.</span></p></div>
+        <div class="row a fragment"><span class="tag">Maja</span><p>DID YOU JUST TRY TO BITE ME?</p></div>
+        <div class="row b fragment"><span class="tag">Jonas</span><p>No! Of course not! …Why are you backing away?</p></div>
+      </div>
+    </section>
+
+    <section class="scrim" data-background-image="../assets/pitchdeck/LLMDriven/guests-becoming.webp" data-background-size="cover" data-background-position="center">
+      <span class="kick">The lore</span>
+      <h2 class="maxw">The monsters were guests once.</h2>
+      <p class="soft maxw" style="font-size:.64em;">Explorers who went looking for the unknown and stayed too long. Their notes and sigils are your clues. And you'll wonder which thing in the dark wrote the letter you're holding.</p>
+    </section>
+
+    <section>
+      <span class="kick">Where the AI lives</span>
+      <h2>The house talks back</h2>
+      <div class="cards">
+        <div class="card" style="--ac:var(--candle)"><div class="who">The walls</div><h3>🖼️ The Portraits</h3><p>Watch, whisper, lie. Sometimes they know your name.</p></div>
+        <div class="card" style="--ac:var(--bruise)"><div class="who">The halfway people</div><h3>🧍 Lost Explorers</h3><p>Friendly guests mid-change. A preview of your future.</p></div>
+        <div class="card" style="--ac:var(--verd)"><div class="who">The narrator</div><h3>🏚️ The House</h3><p>Remembers who panicked and who got left behind.</p></div>
+        <div class="card" style="--ac:var(--blood)"><div class="who">Puzzle engine</div><h3>🗝️ The Riddler</h3><p>A local model writing fresh riddles on a school PC. Already tested.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="kick">No ending</span>
+      <h2>How deep did your four get?</h2>
+      <table class="board">
+        <thead><tr><th>Team of four</th><th>Rooms</th></tr></thead>
+        <tbody>
+          <tr><td>Allan · Derpowich · @ssdemon · Lucy</td><td class="n">394</td></tr>
+          <tr><td>Dennis · Toby · haxxorbaxxor · Casey</td><td class="n">265</td></tr>
+          <tr><td>Owlwatch · Mira · Ben · "the Wildcard"</td><td class="n">188</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <span class="kick">We've been here before</span>
+      <h2>We built the hard part</h2>
+      <div class="two">
+        <div class="box ok"><h3>Already works</h3><ul><li>The endless door-by-door maze</li><li>Finished rooms that look genuinely good</li><li>Lighting, fog, atmosphere</li><li>The owl sanity readout, lore notes</li><li>A local riddle-writing model</li></ul></div>
+        <div class="box ls"><h3>Learned the hard way</h3><ul><li><b>Multiplayer first</b>, and test it every few weeks</li><li><b>Performance budget early</b>: it looked great and ran badly</li><li><b>Name it early</b></li></ul></div>
+      </div>
+      <p class="soft" style="font-size:.44em; margin-top:.6em;">Plus ~40 room types, each one a self-contained piece a student can own. Built for a big team.</p>
+    </section>
+
+    <section data-background-color="#0b0d10">
+      <span class="kick">The ask</span>
+      <p class="big maxw">A game about the strengths in the many ways people can be different.</p>
+      <span class="pill">Are you the guests? Are they? Let's find out.</span>
+    </section>
+
+  </div></div>
+
+  <script src="../assets/vendor/reveal/reveal.js"></script>
+  <script>
+    Reveal.initialize({ hash:true, controls:true, progress:true, slideNumber:'c/t', transition:'slide', width:1280, height:720, margin:0.06 });
+  </script>
+</body>
+</html>
