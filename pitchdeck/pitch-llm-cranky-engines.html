@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitch: BOILERHEART II — Cranky Engines — TrollByte</title>
+  <meta name="description" content="BOILERHEART grown up: an open-world multiplayer sandbox where crews of engineers keep a diva war-tank alive. Thinking engines raised on art, factions with their own art style, and a world our students keep building for years.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    :root{ --brass:#d9a14a; --brass-soft:#b07d33; --rust:#cf6a3f; --teal:#4fb3b0; --rose:#d77aa2; --leaf:#7cbf6a; --gold:#e3c25d; }
+    .c-hero{ position:relative; border-bottom:1px solid var(--border); }
+    .c-hero .art{ position:relative; aspect-ratio:16/8; min-height:340px; overflow:hidden; }
+    .c-hero .art img{ width:100%; height:100%; object-fit:cover; object-position:55% 45%; }
+    .c-hero .scrim{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,9,13,.1) 0%, rgba(8,9,13,.5) 52%, rgba(8,9,13,.97) 100%), linear-gradient(90deg, rgba(8,9,13,.85) 0%, rgba(8,9,13,0) 60%); }
+    .c-hero .hwrap{ position:absolute; inset:auto 0 0 0; } .c-hero .htext{ max-width:var(--maxw); margin-inline:auto; padding:0 20px 30px; }
+    .c-kicker{ display:inline-flex; gap:10px; align-items:center; font-size:.82rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--brass); }
+    .c-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--brass); }
+    .c-hero .pre{ font-size:clamp(1rem,2vw,1.3rem); font-weight:800; letter-spacing:.12em; color:var(--brass); margin:.5em 0 0; }
+    .c-hero h1{ margin:.05em 0 .15em; font-size:clamp(2.4rem,6.4vw,4.4rem); line-height:.98; letter-spacing:.03em; font-weight:800; }
+    .c-hero .logline{ max-width:64ch; font-size:clamp(1.02rem,2.1vw,1.26rem); margin:0 0 18px; } .c-hero .logline b{ color:var(--brass); }
+    .c-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+    .btn-present{ background:linear-gradient(180deg,var(--brass),var(--brass-soft)); color:#1a1206; font-weight:700; border:none; padding:12px 20px; border-radius:var(--radius-sm); display:inline-flex; gap:9px; align-items:center; box-shadow:var(--shadow); }
+    .btn-present:hover{ text-decoration:none; filter:brightness(1.06); }
+    .c-body{ max-width:var(--maxw); margin-inline:auto; padding:8px 20px 40px; }
+    .c-body section{ padding-block:34px; border-top:1px solid var(--border); } .c-body section:first-of-type{ border-top:none; }
+    .c-eyebrow{ font-size:.78rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-soft); margin:0 0 10px; }
+    .c-body h2{ font-size:clamp(1.5rem,3vw,2rem); margin:.1em 0 .5em; letter-spacing:-.01em; } .c-body h3{ font-size:1.1rem; margin:0 0 6px; }
+    .c-body p{ max-width:72ch; } .lede{ font-size:1.14rem; } .note{ color:var(--text-soft); font-size:.92rem; }
+    .flip{ border:1px solid var(--brass-soft); background:linear-gradient(180deg, rgba(217,161,74,.10), rgba(217,161,74,.03)); border-radius:var(--radius); padding:22px 24px; display:flex; gap:18px; align-items:flex-start; }
+    .flip .mark{ font-size:2rem; line-height:1; } .flip p{ margin:0; font-size:1.14rem; } .flip b{ color:var(--brass); }
+    .split{ display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:center; } .split.rev > :first-child{ order:2; }
+    @media (max-width:760px){ .split{ grid-template-columns:1fr; } .split.rev > :first-child{ order:0; } }
+    .figure{ margin:0; } .figure img{ border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow); width:100%; display:block; }
+    .figure figcaption{ font-size:.86rem; color:var(--text-soft); margin-top:8px; }
+    .carry{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .carry span{ font-size:.85rem; padding:6px 12px; border-radius:99px; border:1px solid var(--brass-soft); background:rgba(217,161,74,.07); }
+    .lore{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; } @media (max-width:800px){ .lore{ grid-template-columns:1fr; } }
+    .card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .card::before{ content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--ac,var(--brass)); }
+    .card .ic{ font-size:1.5rem; } .card h3{ color:var(--ac,var(--brass)); margin:.3em 0 .2em; } .card p{ font-size:.92rem; color:var(--text-soft); margin:0; }
+    .card .q{ margin-top:10px; font-style:italic; color:var(--text); border-left:2px solid var(--ac,var(--brass)); padding:3px 0 3px 10px; font-size:.9rem; }
+    .factions{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; } @media (max-width:760px){ .factions{ grid-template-columns:1fr; } }
+    .fac{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+    .fac img{ width:100%; aspect-ratio:3/2; object-fit:cover; display:block; }
+    .fac .c{ padding:14px 16px 16px; border-top:3px solid var(--ac); }
+    .fac .style{ font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ac); }
+    .fac h3{ margin:.2em 0; } .fac p{ font-size:.9rem; color:var(--text-soft); margin:0; }
+    .fac .gov{ font-size:.82rem; margin-top:8px; color:var(--text); }
+    .base{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; } @media (max-width:760px){ .base{ grid-template-columns:1fr 1fr; } }
+    .base .b{ background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:14px; }
+    .base .b b{ display:block; } .base .b span{ font-size:.86rem; color:var(--text-soft); }
+    .modules{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .modules span{ font-size:.85rem; padding:6px 12px; border-radius:var(--radius-sm); border:1px dashed var(--teal); background:rgba(79,179,176,.06); }
+    .grow{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; } @media (max-width:800px){ .grow{ grid-template-columns:1fr; } }
+    .stations{ display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:14px; } @media (max-width:760px){ .stations{ grid-template-columns:1fr 1fr; } }
+    .st{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px; text-align:center; }
+    .st .e{ font-size:1.4rem; } .st b{ display:block; font-size:.92rem; margin-top:4px; } .st span{ font-size:.8rem; color:var(--text-soft); }
+    .perf{ margin-top:14px; font-size:.95rem; } .perf b{ color:var(--brass); }
+    .road{ display:flex; flex-direction:column; }
+    .step{ display:flex; gap:16px; padding:14px 0; border-top:1px dashed var(--border); } .step:first-child{ border-top:none; }
+    .step .n{ flex:0 0 auto; width:84px; font-family:var(--mono); font-size:.8rem; color:var(--brass); padding-top:3px; }
+    .step h3{ margin:0 0 3px; } .step p{ margin:0; color:var(--text-soft); font-size:.94rem; }
+    .forks{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; } @media (max-width:760px){ .forks{ grid-template-columns:1fr; } }
+    .fork{ border:1px dashed var(--rose); border-radius:var(--radius); background:rgba(215,122,162,.05); padding:16px 18px; }
+    .fork h3{ color:var(--rose); } .fork .ab{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px; }
+    .fork .ab div{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px; font-size:.86rem; color:var(--text-soft); }
+    .fork .ab b{ display:block; color:var(--text); margin-bottom:3px; }
+    .fork .hint{ font-size:.84rem; color:var(--text-soft); margin-top:8px; }
+    ul.clean{ list-style:none; padding:0; margin:0; } ul.clean li{ padding:6px 0 6px 24px; position:relative; color:var(--text-soft); }
+    ul.clean li::before{ content:"▸"; position:absolute; left:4px; color:var(--brass); }
+    .cols2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; } @media (max-width:760px){ .cols2{ grid-template-columns:1fr; } }
+    .endbar{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:10px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a><a href="../lessons.html">Lessons</a><a href="../pitchdeck.html" aria-current="page">Pitchdeck</a><a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="c-hero">
+      <div class="art">
+        <img src="../assets/pitchdeck/LLMDriven/cranky-hero.webp" alt="A huge rust-blue steam tank covered in pipes and crew rolling through a sunlit square of an ornate old city.">
+        <div class="scrim"></div>
+      </div>
+      <div class="hwrap"><div class="htext">
+        <span class="c-kicker"><span class="dot"></span> LLM-Driven pitch · open-world multiplayer sandbox · the big one</span>
+        <p class="pre">BOILERHEART II</p>
+        <h1>Cranky Engines</h1>
+        <p class="logline">A post-apocalyptic open world where your crew lives inside a thinking war-tank that was <b>raised on poetry and opera</b>, and it's never going to let you forget it. Factions with their own politics <em>and</em> their own art style. A world our students keep building for years, and a game we'd actually go home and play.</p>
+        <div class="c-actions">
+          <a class="btn-present" href="pitch-llm-cranky-engines-slides.html">▶ Present the pitch</a>
+          <a class="btn btn-ghost" href="#read">↓ Read it</a>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="c-body" id="read">
+
+      <section>
+        <p class="c-eyebrow">What's changed</p>
+        <div class="flip">
+          <span class="mark">🚂</span>
+          <p>We've made five or six five-minute arcade games for expos. They're fun, and they're finished. This is the next step: <b>an open-world sandbox we'd play at home</b>, built to still be fun after six months of development and to keep growing for two or three years after that. It's much more ambitious than anything we've done, and that's the point.</p>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">Built on BOILERHEART</p>
+        <div class="split">
+          <div>
+            <h2>Everything from the first one comes along</h2>
+            <p class="lede">The core is still <a href="pitch-llm-boilerheart.html">BOILERHEART</a>: a crew keeps a huge thinking tank alive, and the survival stats live on the machine, not on you.</p>
+            <div class="carry">
+              <span>🫀 Survival stats on the tank</span><span>🧠 Sanity &amp; therapy</span><span>💅 The prima-donna engine</span><span>🛢️ Hooked on fancy oil</span><span>🎲 The GM weaves missions</span><span>🧑‍🔧 Crew with a possible traitor</span><span>🏘️ Trading in towns</span>
+            </div>
+            <p style="margin-top:14px">Cranky Engines adds the world around it: why the machines think, who's fighting whom, what it all looks like, and how your tank becomes your home.</p>
+          </div>
+          <figure class="figure"><img src="../assets/pitchdeck/LLMDriven/boilerheart-town.webp" alt="The original BOILERHEART concept: a steampunk tank in a rainy town square at night."><figcaption>Where it started: the original BOILERHEART.</figcaption></figure>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">The world</p>
+        <h2>After the machines, before the peace</h2>
+        <p class="lede">Long ago, AI got too powerful and humanity rose up against it. AI wasn't banned afterwards. It was put on a strict diet.</p>
+        <div class="lore" style="margin-top:16px">
+          <div class="card" style="--ac:var(--brass)"><div class="ic">🎭</div><h3>Raised on art</h3><p>Thinking engines may learn from anything except technical material: poetry, plays, novels, paintings, war stories. So they can't fix themselves and need human crews to keep them running. And every one of them is a drama queen.</p><div class="q">"I cannot possibly climb that hill. I am in mourning. For the hill."</div></div>
+          <div class="card" style="--ac:var(--leaf)"><div class="ic">🤧</div><h3>The plague generations</h3><p>The machines' last attack was viral. Four generations of pandemic taught everyone to fear outsiders, so arriving in a new town is tense, trade is careful, and a sneeze starts a riot. Most people have probably been immune for two generations. Nobody's checked.</p></div>
+          <div class="card" style="--ac:var(--rose)"><div class="ic">🧬</div><h3>Everyone's a mutant</h3><p>The war also made new kinds of people, and the science behind that is lost now. Skeletal dandies, green ogres, goggled kids, gentle giants. It gives us a cartoony cast with every body shape, and not one "default human."</p></div>
+        </div>
+        <figure class="figure" style="margin-top:20px"><img src="../assets/pitchdeck/LLMDriven/cranky-crew1.webp" alt="A lineup of cartoony mutant crew: goggled kid, a lady in a ball gown, a gas-masked giant, a tall top-hatted gent, a small mechanic, a huge armoured brute and a spiky grinning creature."><figcaption>Possible crew. Every body shape, every kind of person.</figcaption></figure>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">The big idea for a school</p>
+        <h2>Every faction has its own politics <em>and</em> its own style</h2>
+        <p class="lede">The war goes on between several major factions, each with its own subfactions squabbling inside it. What makes them special is that each one has its own look. If a student loves steampunk, they build the steampunk faction. If another hates steampunk and loves cyberpunk, there's a faction for that too. The world grows with the team.</p>
+        <div class="factions" style="margin-top:16px">
+          <div class="fac" style="--ac:var(--brass)"><img src="../assets/pitchdeck/LLMDriven/cranky-steam.webp" alt="A rust-orange steam tank with a tall smokestack in a narrow old street."><div class="c"><div class="style">Steampunk</div><h3>The Brass Parliament</h3><p>Boilers, rivets, top hats. They'll debate the attack for three hours, then vote on it.</p><div class="gov">Politics: noisy democracy</div></div></div>
+          <div class="fac" style="--ac:var(--rose)"><img src="../assets/pitchdeck/LLMDriven/cranky-cyber.webp" alt="A pink and black graffiti-covered cyberpunk tank among neon market stalls."><div class="c"><div class="style">Cyberpunk</div><h3>The Neon Collective</h3><p>Graffiti, screens, antennas. Everything is shared, including your tank's playlist.</p><div class="gov">Politics: collectivist commune</div></div></div>
+          <div class="fac" style="--ac:var(--gold)"><img src="../assets/pitchdeck/LLMDriven/cranky-church.webp" alt="A domed grey tank like a rolling cathedral in a sandy city with palm trees."><div class="c"><div class="style">Desert-gothic</div><h3>The Church of the Scroll</h3><p>A theocracy whose 3000-year-old holy scroll is the first two books of <em>The Lord of the Rings</em>. Everything your faction says is heresy.</p><div class="gov">Politics: monopoly on the truth</div></div></div>
+          <div class="fac" style="--ac:var(--leaf)"><img src="../assets/pitchdeck/LLMDriven/cranky-village.webp" alt="A huge tank with a whole house, balconies and plants stacked on top, rolling through a town."><div class="c"><div class="style">Solarpunk-ish</div><h3>The Rolling Villages</h3><p>Whole communities living on their tanks, with gardens, balconies and laundry lines. Heavy, slow, and very hard to evict.</p><div class="gov">Politics: family clans</div></div></div>
+        </div>
+        <p class="note" style="margin-top:14px">These four are examples. The faction list is deliberately open: a new student with a new favourite style can mean a new faction on the map. (If speech AI gets good enough before launch, every faction could even get its own accent.)</p>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">Your home</p>
+        <div class="split rev">
+          <figure class="figure"><img src="../assets/pitchdeck/LLMDriven/cranky-toon.webp" alt="A cartoony blue and lime-green tank piled with crew and gear in a colourful town."><figcaption>A tank, a home, a clubhouse.</figcaption></figure>
+          <div>
+            <h2>The tank is your crew's base</h2>
+            <p class="lede">A crew of engineers shares one big rolling machine, and it's everything a survival game's base is. It just happens to drive.</p>
+            <div class="base" style="margin-top:14px">
+              <div class="b"><b>🏰 Fortress</b><span>Where you hide when shells fly.</span></div>
+              <div class="b"><b>🛠️ Workshop</b><span>Crafting benches and repairs.</span></div>
+              <div class="b"><b>🔐 Vault</b><span>The guild's shared inventory.</span></div>
+              <div class="b"><b>🎨 Home</b><span>Decorate it. Name it. Love it.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">The star of the show</p>
+        <h2>What does a thinking engine look like?</h2>
+        <p class="lede">Every engine has the same soul: a mind raised on art that needs human hands to survive. Each faction dresses it in its own style, so whoever owns a faction also designs its engine.</p>
+        <div class="lore" style="grid-template-columns:repeat(4,1fr); margin-top:16px">
+          <div class="card" style="--ac:var(--brass)"><div class="ic">🎭</div><h3>Steampunk</h3><p>A brass opera mask set into the boiler door that sighs steam when it sulks.</p></div>
+          <div class="card" style="--ac:var(--rose)"><div class="ic">💎</div><h3>Cyberpunk</h3><p>A crystal cortex in a glass tank, flickering neon with every mood.</p></div>
+          <div class="card" style="--ac:var(--gold)"><div class="ic">📜</div><h3>The Church</h3><p>An illuminated-manuscript face that speaks only in quotes from the Scroll.</p><div class="q">"Not all who wander are lost. <em>You</em> are, Navigator."</div></div>
+          <div class="card" style="--ac:var(--leaf)"><div class="ic">🌳</div><h3>Villages</h3><p>A tree grown through the hull, talking through its leaves. When it wilts, Sanity is low.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">Something BOILERHEART never had</p>
+        <h2>An inside</h2>
+        <p class="lede">If you're hiding from enemy shells, there has to be somewhere to hide. So the tank gets a walkable interior, built from modules that plug into the same sockets on every faction's tank. Same gameplay rooms, different paint and props.</p>
+        <div class="modules"><span>⚙️ Engine room</span><span>💥 Gun deck</span><span>🗺️ Navigator's table</span><span>🛏️ Crew bunks</span><span>🛠️ Workshop</span><span>🔐 Vault</span><span>💗 The engine's heart chamber</span></div>
+        <p class="note" style="margin-top:12px">For the first version we build one faction's interior properly. Every other faction reskins the same modules.</p>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">A living world, and a teaching engine</p>
+        <h2>A world our school keeps building</h2>
+        <div class="grow" style="margin-top:8px">
+          <div class="card" style="--ac:var(--teal)"><div class="ic">🏙️</div><h3>A class builds a city</h3><p>"For the next three weeks, this class designs and builds a town." Next time it's a dungeon, then a fortress. Every project adds something permanent to one shared world.</p></div>
+          <div class="card" style="--ac:var(--rose)"><div class="ic">🧩</div><h3>Visitors leave a nook</h3><p>A visiting student builds a tiny corner of a town, goes home, and a few weeks later spots it in a Steam update. That's a memory, and a recruitment story.</p></div>
+          <div class="card" style="--ac:var(--brass)"><div class="ic">📈</div><h3>Fun at 20%</h3><p>One faction, one town, one tank and a few missions is already a game. Everything after that is growth, not required scope.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">The expo version</p>
+        <div class="split">
+          <div>
+            <h2>Convention arcade mode</h2>
+            <p class="lede">At our last convention, one headset meant a long line and five minutes each. Here, five people crew one tank for a short mission, sitting back to back on a bench with a big screen overhead.</p>
+            <p>Each seat is a station with its own small puzzle, and how well each person plays moves the tank's performance up or down by as much as 20%. One ButtKicker under the bench might be enough to feel the engine rumble and the hits land.</p>
+          </div>
+          <figure class="figure"><img src="../assets/pitchdeck/LLMDriven/cranky-cockpit.webp" alt="Concept art: five players in cockpit seats inside a tank-bridge booth at a game expo, laughing, big screen overhead."><figcaption>Concept art: the crew bench at an expo.</figcaption></figure>
+        </div>
+        <div class="stations">
+          <div class="st"><div class="e">🎯</div><b>Gunner</b><span>Aim &amp; fire</span></div>
+          <div class="st"><div class="e">⚙️</div><b>Engineer</b><span>Pressure &amp; repairs</span></div>
+          <div class="st"><div class="e">🗺️</div><b>Navigator</b><span>Route &amp; cover</span></div>
+          <div class="st"><div class="e">📡</div><b>Radio</b><span>Spot &amp; warn</span></div>
+          <div class="st"><div class="e">💅</div><b>Therapist</b><span>Keep the engine calm</span></div>
+        </div>
+        <p class="perf">And the queue becomes the tutorial: a <b>"loading dock"</b> of five more seats next to the bench, where the next crew learns their stations while they wait. When nobody's at a convention, the whole rig lives in the student lounge for break-time missions.</p>
+        <div class="split rev" style="margin-top:20px">
+          <figure class="figure"><img src="../assets/pitchdeck/LLMDriven/cranky-booth.webp" alt="Photo of the Specialisterne stand at a recent convention, with a long line of visitors around it."><figcaption>Our stand at the last convention. Great day, long line.</figcaption></figure>
+          <figure class="figure"><img src="../assets/pitchdeck/LLMDriven/cranky-controller.webp" alt="Concept: hands holding a chunky olive-green 3D-printed turret controller in front of a monitor showing a tank."><figcaption>Concept: a 3D-printed turret controller with an Arduino inside. Parts estimated under 200 DKK.</figcaption></figure>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">How we'd build it</p>
+        <h2>One faction first, then grow</h2>
+        <div class="road">
+          <div class="step"><div class="n">Step 1</div><div><h3>Multiplayer on day one</h3><p>Get two players into the same tank before anything else, and test it every few weeks. We learned that one the hard way on <a href="pitch-llm-guests.html">GUESTS?</a>, and one of our students lost months to it on his own project.</p></div></div>
+          <div class="step"><div class="n">Step 2</div><div><h3>One faction, one tank, one town</h3><p>The BOILERHEART loop in miniature: drive, trade, one mission, one fight, the diva engine, Sanity. Prove it's fun.</p></div></div>
+          <div class="step"><div class="n">Step 3</div><div><h3>The inside and the modules</h3><p>A walkable interior built from modules, ready for other factions to reskin.</p></div></div>
+          <div class="step"><div class="n">Step 4</div><div><h3>A second faction</h3><p>The real test of the whole idea: can a new team add a new style without breaking the first?</p></div></div>
+          <div class="step"><div class="n">Year 2–3</div><div><h3>Keep growing</h3><p>More factions, class-built cities, visitor nooks, the arcade rig, and whatever the students dream up next.</p></div></div>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">For the students to decide</p>
+        <h2>Forks for the vote</h2>
+        <p class="lede">These are big decisions that shape the whole project. They belong to the team, so here they are side by side.</p>
+        <div class="forks" style="margin-top:14px">
+          <div class="fork"><h3>1 · Who's on the crew?</h3><div class="ab"><div><b>Real multiplayer</b>Friends crewing one tank together. The dream, and the harder build.</div><div><b>Solo + AI crew</b>You and a crew of LLM-voiced NPCs. Simpler to build, and multiplayer can come later.</div></div><p class="hint">The pitch assumes multiplayer, but this is exactly the kind of fork to vote on.</p></div>
+          <div class="fork"><h3>2 · What kind of world?</h3><div class="ab"><div><b>Fixed map</b>A hand-built world like Skyrim or GTA. Factions fight, but the map stays put.</div><div><b>Dynamic map</b>Territory changes hands, and places load faction-specific versions. Much more modular work.</div></div></div>
+          <div class="fork"><h3>3 · Which faction first?</h3><p class="note" style="margin:6px 0 0">Steampunk, cyberpunk, the Church, the Villages, or something new. Whoever builds first sets the template for everyone else.</p></div>
+          <div class="fork"><h3>4 · The arcade rig: now or later?</h3><p class="note" style="margin:6px 0 0">A great side project for the hardware-minded (3D printing, Arduino, haptics), or a goal on the horizon once the game works.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <p class="c-eyebrow">For the staff room</p>
+        <h2>Why it earns its place</h2>
+        <div class="cols2">
+          <div><h3>It's a curriculum, not just a project</h3><ul class="clean"><li>Years of meaningful work that isn't thrown away when a term ends.</li><li>Every student can own a faction, a town, a room, or an engine's personality.</li><li>Level design, networking, crafting, AI, hardware, art direction: something for everyone.</li></ul></div>
+          <div><h3>And it's a game we'd actually play</h3><ul class="clean"><li>Diva AIs raised on poetry are funny, and a sharp comment on real AI too.</li><li>A crew game made by crews of every kind of mind.</li><li>The arcade mode turns the expo queue into part of the show.</li></ul></div>
+        </div>
+      </section>
+
+      <div class="endbar">
+        <a class="btn btn-ghost" href="../pitchdeck.html">← Back to all pitches</a>
+        <a class="btn-present" href="pitch-llm-cranky-engines-slides.html">▶ Present the pitch</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="wrap"><a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a><p>Made by teachers &amp; students at Specialisterne STU Denmark.</p></div></footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
