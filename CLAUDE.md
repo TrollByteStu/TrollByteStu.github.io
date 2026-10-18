@@ -14,6 +14,8 @@ A **static website** for a **Specialisterne STU** game-development class: a cura
 - All design lives in **`assets/css/style.css`**, with the colours as CSS variables at the top. Change them there once.
 - JavaScript: `assets/js/main.js` (theme toggle) on every page, and the vendored **reveal.js** in `assets/vendor/reveal/`, used only by the pitch slide pages. Nothing else.
 - `.nojekyll` is present so Pages serves the files exactly as they are.
+- Always write **"students and teachers"**, in that order, never "teachers and students". The projects get students jobs and internships, so they come first.
+- The stylesheet is linked as `style.css?v=<date>` on every page so browsers fetch the new version. When `style.css` changes, bump the date on every page.
 - Commit and push only when Erik asks.
 
 ## Structure
