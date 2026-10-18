@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decisions — TrollByte</title>
+  <meta name="description" content="What we decided on Cranky Engines, when, and why.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html">Pitchdeck</a>
+        <a href="../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../project.html">Overview</a><a href="../project/plan.html">The Plan</a><a href="../project/status.html">Where we are</a><a href="../project/log.html">Work log</a><a href="../project/ideas.html">Idea journal</a><a href="../project/decisions.html" aria-current="page">Decisions</a></nav>
+      <div class="wide">
+      <h1 style="margin:0 0 8px">Decisions</h1>
+      <p class="muted">What we chose, when, and why. Read this before changing something that looks strange: it may be strange on purpose. Student votes go here too, with the count ("6 for, 9 against"). Replaced decisions stay, marked as replaced, so the history is readable. The D-numbers point to the project's own <code>Docs/decisions.md</code>.</p>
+      <h2 style="margin:30px 0 16px">Waiting for a vote</h2>
+      <div class="entry"><h3>Real multiplayer, or solo with an AI crew?</h3><div class="when"><span class="pill idea">Waiting for a vote</span></div><p>Friends crewing one tank together, or you and a crew of AI characters. The pitch assumes multiplayer, and the work so far keeps multiplayer working.</p></div><div class="entry"><h3>A fixed map, or a dynamic map?</h3><div class="when"><span class="pill idea">Waiting for a vote</span></div><p>A hand-built world like Skyrim, or one where territory changes hands between factions.</p></div><div class="entry"><h3>Which faction first?</h3><div class="when"><span class="pill idea">Waiting for a vote</span></div><p>The Brass Parliament, the Neon Collective, the Church of the Scroll, the Rolling Villages, or a new one. Whoever builds first sets the template.</p></div><div class="entry"><h3>The arcade rig: now or later?</h3><div class="when"><span class="pill idea">Waiting for a vote</span></div><p>A side project for the hardware-minded now, or a goal for when the game works. <a href="ideas/arcade-rig.html">The idea</a>.</p></div><div class="entry"><h3>Simulated tank, or fake-physics tank?</h3><div class="when"><span class="pill idea">Waiting for a vote</span></div><p>Both stand side by side in the test level. Drive both, up and down the hills, and pick one. The fake one is ahead so far.</p></div><div class="entry"><h3>How should decor turn?</h3><div class="when"><span class="pill idea">Waiting for a vote</span></div><p>One turn key, two, or more snap points. <a href="ideas/decor-turning.html">The idea</a>.</p></div>
+      <h2 style="margin:30px 0 16px">Decided, newest first</h2>
+      <div class="entry"><h3>Hatches only if they really open and close</h3><div class="when"><span>2026 Oct 17</span><span class="pill">Design</span></div>
+<p><strong>Choice:</strong> No hatches that are just for show. They come later, and they must open and close.</p><p><strong>Why:</strong> Players notice static things that look like they should move, and it annoys them. A hatch should matter: "Battle stations, close all hatches!"</p></div><div class="entry"><h3>Tank designs are saved from the tank, while driving, in single player</h3><div class="when"><span>2026 Oct 17</span><span class="pill">Design</span></div>
+<p><strong>Choice:</strong> The design library opens with L in the control box only. The picture is taken from the driving camera.</p><p><strong>Why:</strong> You look at the tank from outside while driving, so that is the right view for its picture. Later it may only work in a Workshop level.</p></div><div class="entry"><h3>Grid lines every 75 cm on tank pieces</h3><div class="when"><span>2026 Oct 17</span><span class="pill">How we build</span></div>
+<p><strong>Choice:</strong> The greybox material on vehicle pieces draws a line every 75 cm and a thick line every 300 cm.</p><p><strong>Why:</strong> Half-size pieces showed grid lines in the wrong place. 75 cm fits both full and half pieces.</p></div><div class="entry"><h3>In multiplayer, the host builds</h3><div class="when"><span>2026 Oct 15</span><span class="pill">How we build</span></div>
+<p><strong>Choice:</strong> Only the host builds and drives the tank; the pieces and the tank's position are copied to the other players.</p><p><strong>Why:</strong> One version of the truth. When each machine built its own pieces, the pieces could not be named across the network.</p></div><div class="entry"><h3>A moving tank shoves you; it doesn't hurt you</h3><div class="when"><span>2026 Oct 15</span><span class="pill">Design</span></div>
+<p><strong>Choice:</strong> Standing in front of a moving tank pushes you out of the way. No damage, no animation.</p><p><strong>Why:</strong> "A wall hitting you just pushes." Simple, and it can be revisited when the real tank exists.</p></div><div class="entry"><h3>One welded body for the whole tank</h3><div class="when"><span>2026 Oct 15</span><span class="pill">How we build</span></div>
+<p><strong>Choice:</strong> Every piece is welded to one body as it is placed. No body per floor, no special tricks.</p><p><strong>Why:</strong> The stress test: 1183 welded pieces cost about 6 ms per frame, as long as each piece has overlap events switched off.</p></div><div class="entry"><h3>Play uses only the Mover character</h3><div class="when"><span>2026 Oct 13</span><span class="pill">How we build</span></div>
+<p><strong>Choice:</strong> The game spawns GASP's Mover character; the older CMC character stays in the project, unused.</p><p><strong>Why:</strong> Epic is moving towards Mover, it is said to suit multiplayer best, and there are many tutorials for adding movement to it.</p></div><div class="entry"><h3>A building grid of 3 × 3 × 3 metres</h3><div class="when"><span>2026 Oct 12</span><span class="pill">Design</span><span class="muted">D-18</span></div>
+<p><strong>Choice:</strong> Every piece fits a 3 m cube grid, placed in steps of 1.5 m and turned in 90° steps. A floor is 50 cm thick.</p><p><strong>Why:</strong> 3 m divides into halves, thirds, quarters, fifths and sixths in whole centimetres, matches the climb heights we tested, leaves room for thick armour beside a corridor, and is about one real storey.</p></div><div class="entry"><h3>Tanks drive on 6 to 8 wheels; the tracks are only for show</h3><div class="when"><span>2026 Oct 9</span><span class="pill">How we build</span><span class="muted">D-17</span></div>
+<p><strong>Choice:</strong> The tank is simulated on 6 to 8 wheels. The tracks you see are drawn over them.</p><p><strong>Why:</strong> Six to eight wheels drive smoothly and stand still. Twelve wheels crept and turned by themselves. Simulating every track link is far too expensive.</p></div><div class="entry"><h3>Physics prediction is on for the whole project</h3><div class="when"><span>2026 Oct 9</span><span class="pill">How we build</span><span class="muted">D-16</span></div>
+<p><strong>Choice:</strong> A project-wide physics setting is switched on.</p><p><strong>Why:</strong> Unreal's Chaos vehicles ignore all input without it.</p></div><div class="entry"><h3>The prototype uses one character size</h3><div class="when"><span>2026 Oct 9</span><span class="pill">Design</span><span class="muted">D-12, D-15</span></div>
+<p><strong>Choice:</strong> The prototype is built for the normal 172 cm character. Races of other sizes are parked; if they come, keep them close to 172 cm.</p><p><strong>Why:</strong> Climbing at other sizes works but the hands don't meet the edge. Fixing that properly is a week or more, and the focus is the tank. <a href="ideas/races.html">The idea</a>.</p></div><div class="entry"><h3>Shared test levels for tests worth repeating</h3><div class="when"><span>2026 Oct 9</span><span class="pill">How we build</span><span class="muted">D-14</span></div>
+<p><strong>Choice:</strong> Tests we want to run again get their own level in a shared test folder.</p><p><strong>Why:</strong> Changes to come, like a bigger character or a jump jet, must be checked against the same tests.</p></div><div class="entry"><h3>The classic camera is the default</h3><div class="when"><span>2026 Oct 9</span><span class="pill">Design</span><span class="muted">D-13</span></div>
+<p><strong>Choice:</strong> A spring arm behind the character, not GASP's new camera rig.</p><p><strong>Why:</strong> In tight corridors that move, the classic camera stayed calm and the new rig jumped around. Tight spaces that move are the core of a tank game.</p></div><div class="entry"><h3>Tests and temporary work stay in your developer folder</h3><div class="when"><span>2026 Oct 7</span><span class="pill">How we build</span><span class="muted">D-11</span></div>
+<p><strong>Choice:</strong> Test maps and throwaway assets go in your own developer folder, for people and AI tools alike.</p><p><strong>Why:</strong> Otherwise the shared folders fill up with test maps with random names.</p></div><div class="entry"><h3>One greybox material, with a switch for moving things</h3><div class="when"><span>2026 Oct 7</span><span class="pill">How we build</span><span class="muted">D-10</span></div>
+<p><strong>Choice:</strong> Moving things use the same material as the level, with a tick box that sticks the grid to the object.</p><p><strong>Why:</strong> One material to keep correct, and the colours come from the same settings.</p></div><div class="entry"><h3>Every mesh is climbable by default</h3><div class="when"><span>2026 Oct 6</span><span class="pill">How we build</span><span class="muted">D-06</span></div>
+<p><strong>Choice:</strong> Every mesh can be climbed or vaulted unless it is tagged NoTraverse.</p><p><strong>Why:</strong> Hiding a special climbable block inside every mesh is too much work and too easy to forget when a whole class is greyboxing.</p></div><div class="entry"><h3>One set of documents for people and AI tools</h3><div class="when"><span>2026 Oct 6</span><span class="pill">How we build</span><span class="muted">D-08</span></div>
+<p><strong>Choice:</strong> Plain documents in the project's Docs folder, written for people.</p><p><strong>Why:</strong> Students connect many different AI tools. Two versions of the same text drift apart.</p></div><div class="entry"><h3>AI tools work through Unreal's MCP, not by taking over the screen</h3><div class="when"><span>2026 Oct 5</span><span class="pill">How we build</span><span class="muted">D-07</span></div>
+<p><strong>Choice:</strong> An AI tool drives the editor through Unreal's MCP plugin, not the mouse and keyboard.</p><p><strong>Why:</strong> The computer must stay usable for the person while the AI works.</p></div><div class="entry"><h3>The greybox grid is a ruler, measured in the world</h3><div class="when"><span>2026 Oct 5</span><span class="pill">How we build</span><span class="muted">D-03</span></div>
+<p><strong>Choice:</strong> The greybox material draws its grid from world position: a line every metre.</p><p><strong>Why:</strong> The grid must show true size on any mesh at any scale, so jump heights and door widths can be read off the wall.</p></div><div class="entry"><h3>Diversion for version control, not GitHub</h3><div class="when"><span>Before 2026 Oct 5</span><span class="pill">How we build</span><span class="muted">D-09</span></div>
+<p><strong>Choice:</strong> The project lives in Diversion.</p><p><strong>Why:</strong> GitHub timed out eight times in a row pushing this project. An Unreal project is many gigabytes of files that Git handles poorly.</p></div><div class="entry"><h3>Built on GASP, in Blueprints</h3><div class="when"><span>Before 2026 Oct 5</span><span class="pill">How we build</span><span class="muted">D-01</span></div>
+<p><strong>Choice:</strong> The project starts from Epic's Game Animation Sample in Unreal Engine 5.8, with no C++.</p><p><strong>Why:</strong> A finished, good-looking character with movement and climbing from day one. C++ will come when students who learn it join.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

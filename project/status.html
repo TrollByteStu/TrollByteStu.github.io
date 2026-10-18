@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where we are — TrollByte</title>
+  <meta name="description" content="What is built and working on Cranky Engines today.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html">Pitchdeck</a>
+        <a href="../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../project.html">Overview</a><a href="../project/plan.html">The Plan</a><a href="../project/status.html" aria-current="page">Where we are</a><a href="../project/log.html">Work log</a><a href="../project/ideas.html">Idea journal</a><a href="../project/decisions.html">Decisions</a></nav>
+      <div class="wide">
+      <h1 style="margin:0 0 8px">Where we are</h1>
+      <p class="muted">What is built and working today, by milestone. Updated every week. Last updated: 2026 Oct 18.</p>
+
+      <div class="panel" style="margin-top:24px">
+        <h2>Milestone 1: a working prototype in greybox</h2>
+        <p>One test level: from one village to the next, getting attacked on the way. Everything is a placeholder. Nothing is pretty and nothing is polished; everything is there to test. The point is to get a sense of what it would be like to play this in a game world, and then to ask ourselves and others: <strong>is this game worthy of existing, or is our time better used elsewhere?</strong></p>
+        <div class="progress" role="img" aria-label="26% done"><span style="width:26%"></span></div>
+        <p class="progress-label"><span>4 of 17 parts working, 1 in progress</span><span>26%</span></p>
+      </div>
+      <table class="features"><thead><tr><th>Part</th><th>Status</th><th>Notes</th></tr></thead><tbody><tr><td>Players</td><td><span class="pill ok">Working</span></td><td>The GASP character: running, jumping, crouching, climbing. Play spawns the Mover character.</td></tr><tr><td>Parkour</td><td><span class="pill ok">Working</span></td><td>Climb and vault on any mesh, also onto a tank that is driving.</td></tr><tr><td>Tank controls</td><td><span class="pill ok">Working</span></td><td>Get in at the control box with E, drive with W/S, turn with A/D. Two versions to choose between (simulated and fake physics).</td></tr><tr><td>Tank building</td><td><span class="pill ok">Working</span></td><td>Build mode, build menu, floors, walls, sloped armour, corners, track housings, stairs, decor, and the design library.</td></tr><tr><td>Multiplayer</td><td><span class="pill doing">In progress</span></td><td>A second player sees the tank drive and can climb onto it. Not yet: driving or building as the second player, two real players at once.</td></tr><tr><td>Combat</td><td><span class="pill ">Not started</span></td><td>Next in line: a cannon on the tank and a second tank to shoot at.</td></tr><tr><td>Tank damage</td><td><span class="pill ">Not started</span></td><td>Planned: walls that take damage, three states per section. <a href="ideas/damage.html">The idea</a>.</td></tr><tr><td>Repair</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>Crafting</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>Inventory</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>Loot</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>NPC tanks</td><td><span class="pill ">Not started</span></td><td>One or two smaller enemy tanks.</td></tr><tr><td>NPC engineers</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>NPC civilians</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>NPC quest giver</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>NPC shopkeeper</td><td><span class="pill ">Not started</span></td><td></td></tr><tr><td>The test level</td><td><span class="pill ">Not started</span></td><td>One village, the road to the next village, and an attack on the way.</td></tr></tbody></table>
+
+      <h2 style="margin:40px 0 12px">Next up</h2>
+      <ol>
+        <li><strong>Students try the Tank Garage</strong> (from 2026 Oct 19): build a tank, save it, and tell us what is missing.</li>
+        <li><strong>Multiplayer:</strong> two players in the same tank, one builds while the other drives.</li>
+        <li><strong>Cannon and damage:</strong> a cannon a player mans, a second tank to shoot at, walls that take damage.</li>
+        <li><strong>The engine's brain:</strong> the tank's personality. <a href="ideas/engine-brain.html">The idea</a>.</li>
+      </ol>
+
+      <div class="panel" style="margin-top:40px">
+        <h2>Milestone 0: foundations</h2>
+        <div class="progress" role="img" aria-label="100% done"><span style="width:100%"></span></div>
+        <p class="progress-label"><span>Done 2026 Oct</span><span>100%</span></p>
+      </div>
+      <table class="features"><thead><tr><th>Part</th><th>Status</th><th>Notes</th></tr></thead><tbody><tr><td>Greybox material</td><td><span class="pill ok">Done</span></td><td>A measuring grid in the world, colour code, a switch for moving things.</td></tr><tr><td>Climb anywhere</td><td><span class="pill ok">Done</span></td><td>Every mesh is climbable unless tagged.</td></tr><tr><td>Size tests</td><td><span class="pill ok">Done</span></td><td>Corridors, height pads, rolling corridors. 150 cm wide corridors feel good.</td></tr><tr><td>AI tools in the editor</td><td><span class="pill ok">Done</span></td><td>Claude works in Unreal through MCP, at school and at home.</td></tr><tr><td>Documents</td><td><span class="pill ok">Done</span></td><td>One set of docs in the project, for people and AI tools.</td></tr><tr><td>Blender template</td><td><span class="pill ok">Done</span></td><td>Models arrive in Unreal at the right size, snap points included.</td></tr></tbody></table>
+
+      <div class="panel" style="margin-top:40px">
+        <h2>After the prototype</h2>
+        <p>Only if the prototype test says yes: real models and textures, the first faction, the tank's interior, a permanent map. See <a href="plan.html">The Plan</a>.</p>
+        <div class="progress" role="img" aria-label="Not started"><span style="width:0"></span></div>
+        <p class="progress-label"><span>Not started</span><span>0%</span></p>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

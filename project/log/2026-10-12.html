@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building on a driving tank (2026 Oct 12 – 2026 Oct 18) — TrollByte</title>
+  <meta name="description" content="A building system, a tank you can build on and drive, climbing onto it while it moves, the first multiplayer test, saved designs, and a level for the students to try it all.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../lessons.html">Lessons</a>
+        <a href="../../pitchdeck.html">Pitchdeck</a>
+        <a href="../../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../../project.html">Overview</a><a href="../../project/plan.html">The Plan</a><a href="../../project/status.html">Where we are</a><a href="../../project/log.html" aria-current="page">Work log</a><a href="../../project/ideas.html">Idea journal</a><a href="../../project/decisions.html">Decisions</a></nav>
+      <div class="article" style="max-width:820px">
+        <div class="crumbs"><a href="../../project.html">Cranky Engines</a> · <a href="../log.html">Work log</a></div>
+        <h1>Building on a driving tank</h1>
+        <div class="byline"><span>2026 Oct 12 – 2026 Oct 18</span></div>
+        <div class="article-body">
+          <p class="lede">A building system, a tank you can build on and drive, climbing onto it while it moves, the first multiplayer test, saved designs, and a level for the students to try it all.</p>
+          <h2>What we made</h2>
+<ul>
+<li><strong>The building grid.</strong> Every piece fits a 3 × 3 × 3 m cell and is placed in half-cell steps. 3 m splits evenly into halves, thirds, quarters and sixths, matches the climb heights we tested, and is about one real storey. <a href="../decisions.html">Decision</a>.</li>
+<li><strong>Build mode.</strong> B to build, left mouse to place, right mouse to remove, Q for the next spot or to turn. Floors, straight walls, armour that slopes in half a cell per storey, inner and outer corners, and a test core with a piston under it.</li>
+<li><strong>A build menu</strong> (Tab), sorted by category. Pieces are data, so a new piece shows up in the menu without new code.</li>
+<li><strong>Track housings</strong>, 6 m and 12 m long, hollow so wheels fit inside, with 1 m of ground clearance.</li>
+<li><strong>A tank you can build on and drive.</strong> Walk up, build on it, then get in at a control box (E) and drive. 15 × 15 m of floor on 2 m wheels to start with.</li>
+<li><strong>Two kinds of tank driving side by side:</strong> one fully simulated by the physics engine, and one with "fake" physics where springs and turning are set by code. The fake one feels much more like a heavy tank and is very stable.</li>
+<li><strong>A stress test:</strong> 1183 pieces on one tank, driving over hills, at about 6 ms per frame. One tank can be very big.</li>
+<li><strong>Climbing onto a moving tank</strong> and riding it. Jumping around on the deck keeps the tank's speed.</li>
+<li><strong>Pushing by weight.</strong> A light crate slides when you walk into it, a heavy one doesn't, and a moving tank shoves you out of its way.</li>
+<li><strong>First multiplayer test.</strong> A second player sees the tank drive smoothly and can climb onto it and ride along.</li>
+<li><strong>The design library.</strong> In the control box, L opens a library where you save your tank with a name, author, description and category, and a picture taken from the driving camera. Load it or delete it later.</li>
+<li><strong>Decor:</strong> rows of rivets and pipe runs with valves that snap to walls and floors.</li>
+<li><strong>Stairs</strong> with banisters, and a half-size floor tile to go next to them.</li>
+<li><strong>Help while building:</strong> a dot shows where you aim and a faint box shows the piece you aim at (green or red), the camera moves back and to the right, and a panel lists the keys.</li>
+<li><strong>The Tank Garage</strong>, an open level where students can try all of this.</li>
+</ul>
+<h2>What we found</h2>
+<ul>
+<li>A piece that is attached to the tank but not welded becomes its own body, pushes the tank, and the tank flies off.</li>
+<li>Anything climbable must be its own piece, with nothing of the same piece above its edge, or the climb finds the wrong ledge.</li>
+<li>The game character pushed physics objects as if it weighed infinitely much. That is why pushing by weight was needed.</li>
+<li>Compiling a Blueprint while the game is running in the editor can crash the editor. Stop Play first.</li>
+</ul>
+<h2>Decisions</h2>
+<ul><li>The 3 m building grid.</li><li>Play uses only the Mover character.</li><li>One welded body for the whole tank.</li><li>A moving tank shoves you; it doesn't hurt you.</li><li>In multiplayer, the host builds and the pieces are copied to the others.</li><li>Hatches only if they really open and close.</li></ul>
+<p>All of them with reasons: <a href="../decisions.html">Decisions</a>.</p>
+<h2>New ideas</h2>
+<p><a href="../ideas/designs.html">Saved designs and student tanks as enemies</a> · <a href="../ideas/between-floors.html">Getting between floors</a> · <a href="../ideas/decor-turning.html">How should decor turn?</a> · <a href="../ideas/skins.html">Skins and faction looks</a> · <a href="../ideas/workshop.html">A Workshop level</a> · <a href="../ideas/damage.html">Damage you can see and repair</a></p>
+          <h2>Pictures</h2><div class="shots"><figure><a href="../../assets/project/2026-10-12/track-housing.webp"><img loading="lazy" src="../../assets/project/2026-10-12/track-housing.webp" alt="A track housing: big enough to crouch, run around and climb one floor."></a><figcaption>A track housing: big enough to crouch, run around and climb one floor.</figcaption></figure><figure><a href="../../assets/project/2026-10-12/climbing-the-hull.webp"><img loading="lazy" src="../../assets/project/2026-10-12/climbing-the-hull.webp" alt="Climbing onto the tank."></a><figcaption>Climbing onto the tank.</figcaption></figure><figure><a href="../../assets/project/2026-10-12/stairs-and-half-floor.webp"><img loading="lazy" src="../../assets/project/2026-10-12/stairs-and-half-floor.webp" alt="Stairs with banisters, and half floor tiles."></a><figcaption>Stairs with banisters, and half floor tiles.</figcaption></figure><figure><a href="../../assets/project/2026-10-12/decor-rivets-pipes.webp"><img loading="lazy" src="../../assets/project/2026-10-12/decor-rivets-pipes.webp" alt="Rivets and pipes snapped to walls."></a><figcaption>Rivets and pipes snapped to walls.</figcaption></figure><figure><a href="../../assets/project/2026-10-12/build-help-and-aim.webp"><img loading="lazy" src="../../assets/project/2026-10-12/build-help-and-aim.webp" alt="The help panel, the aim dot and the highlight box."></a><figcaption>The help panel, the aim dot and the highlight box.</figcaption></figure><figure><a href="../../assets/project/2026-10-12/floor-on-stairs.webp"><img loading="lazy" src="../../assets/project/2026-10-12/floor-on-stairs.webp" alt="Building a floor next to the stairs."></a><figcaption>Building a floor next to the stairs.</figcaption></figure></div>
+        </div>
+        <p style="margin-top:32px"><a class="btn btn-ghost" href="../log.html">← All weeks</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

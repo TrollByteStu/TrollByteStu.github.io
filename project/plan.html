@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Plan — TrollByte</title>
+  <meta name="description" content="The whole of Cranky Engines as we see it today.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../lessons.html">Lessons</a>
+        <a href="../pitchdeck.html">Pitchdeck</a>
+        <a href="../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../project.html">Overview</a><a href="../project/plan.html" aria-current="page">The Plan</a><a href="../project/status.html">Where we are</a><a href="../project/log.html">Work log</a><a href="../project/ideas.html">Idea journal</a><a href="../project/decisions.html">Decisions</a></nav>
+      <div class="article" style="max-width:820px">
+        <div class="crumbs"><a href="../project.html">Cranky Engines</a> · The Plan</div>
+        <h1>The Plan</h1>
+        <div class="byline"><span>The whole game as we see it today</span><span class="dot"></span><span>As of 2026 Oct 18</span></div>
+        <div class="article-body">
+          <p class="lede"><strong>BOILERHEART II: Cranky Engines</strong> is an open-world sandbox. Your crew lives inside a thinking war-tank that was raised on poetry and opera, and it never lets you forget it. You drive through a post-apocalyptic world of factions, trade in towns, take missions, fight, repair, and keep your dramatic engine happy enough to carry on.</p>
+          <p>This page is the current plan. It changes as we build, test and vote. The original sales pitch stays as it was: <a href="../pitchdeck/pitch-llm-cranky-engines.html">read the pitch</a>. What is actually built: <a href="status.html">Where we are</a>.</p>
+          <img src="../assets/pitchdeck/LLMDriven/cranky-hero.webp" alt="Concept art: a huge patched-together tank in a ruined town">
+
+          <h2>Why we are making it</h2>
+          <ul>
+            <li><strong>A curriculum, not just a project.</strong> Our earlier games were five-minute arcade games for expos. This one should still be fun after six months of work and keep growing for two or three years. A three-week class project adds something permanent to the world.</li>
+            <li><strong>Something for every student to own:</strong> a faction, a town, a room in the tank, an engine's personality.</li>
+            <li><strong>A game we would go home and play</strong>, not a demo that is only fun on a stand.</li>
+            <li><strong>Something to say about AI.</strong> The engines are funny, flawed characters: a comment on real AI, made with real AI.</li>
+          </ul>
+
+          <h2>The world</h2>
+          <ul>
+            <li><strong>The machines lost.</strong> After a war against humanity, AI was put on a strict diet: a thinking engine may learn from anything except technical material. Poetry, plays, novels, paintings, war stories. So engines can't repair themselves, they need human crews, and every one of them is a drama queen. <em>"I cannot possibly climb that hill. I am in mourning. For the hill."</em></li>
+            <li><strong>The plague generations.</strong> The machines' last attack was viral. Four generations of pandemic taught everyone to fear outsiders, so arriving in a new town is tense and trade is careful.</li>
+            <li><strong>Everyone is a mutant.</strong> A cartoony cast with every body shape and no "default human".</li>
+          </ul>
+
+          <h2>Factions</h2>
+          <p>Each faction has its own politics <em>and</em> its own art style. If a student loves steampunk, they build the steampunk faction; if another loves cyberpunk, there's a faction for that too. The list is open on purpose. The first four:</p>
+          <ul>
+            <li><strong>The Brass Parliament</strong> (steampunk): a noisy democracy. Debates the attack for three hours, then votes.</li>
+            <li><strong>The Neon Collective</strong> (cyberpunk): everything is shared, even your tank's playlist.</li>
+            <li><strong>The Church of the Scroll</strong> (desert gothic): a theocracy whose holy scroll is the first two <em>Lord of the Rings</em> books.</li>
+            <li><strong>The Rolling Villages</strong> (solarpunk-ish): whole family clans living on their tanks.</li>
+          </ul>
+          <p>Factions come after the prototype. Their looks will be colour palettes and textures over the same building pieces (<a href="ideas/skins.html">skins and faction looks</a>).</p>
+
+          <h2>The tank</h2>
+          <ul>
+            <li><strong>It is your base:</strong> fortress, workshop, shared vault and home. It just happens to drive.</li>
+            <li><strong>It is huge</strong>, about four storeys: bigger than any real tank, more like mining machinery. You run beside it and climb onto it and into it.</li>
+            <li><strong>You build it yourself</strong> from floors, walls, sloped armour and other pieces on a 3 m grid, and you can walk around inside while it drives (<a href="ideas/buildable-tank.html">the idea</a>).</li>
+            <li><strong>It looks like fantasy, not a modern tank:</strong> turrets everywhere, and turrets you can swap (<a href="ideas/turrets.html">the idea</a>).</li>
+            <li><strong>It has an inside:</strong> engine room, gun deck, navigator's table, bunks, workshop, vault, and the engine's heart chamber.</li>
+            <li><strong>The engine has a face</strong> in each faction's style: a brass opera mask that sighs steam, a crystal cortex, an illuminated manuscript, a tree growing through the hull.</li>
+          </ul>
+
+          <h2>What you do</h2>
+          <p>Travel, arrive and trade, take a mission, fight or talk your way out, repair, push on. The survival stats live on the tank, not on you: hull, boiler pressure, coolant, fuel, oil, crew nerves, and the engine's Sanity. The engine is hooked on fancy oil and needs therapy, and one of the crew may be a traitor.</p>
+          <p>Because so much moved from the player to the tank, the player gets things the tank can't do: going into buildings, parkour, and maybe <a href="ideas/movement-mods.html">movement mods</a>.</p>
+
+          <h2>How AI is used in the game</h2>
+          <ul>
+            <li><strong>The Machine:</strong> the voice and character of your engine (<a href="ideas/engine-brain.html">the engine's brain</a>).</li>
+            <li><strong>The Crew:</strong> living characters with their own minds.</li>
+            <li><strong>The Game Master:</strong> weaves missions from fragments.</li>
+          </ul>
+
+          <h2>A world our school keeps building</h2>
+          <ul>
+            <li><strong>A class builds a city.</strong> Three weeks, one town. Next time a dungeon. It all stays in the world.</li>
+            <li><strong>Visitors leave a nook:</strong> build a corner, go home, find it in the next update.</li>
+            <li><strong>Fun at 20%:</strong> one faction, one town, one tank and a few missions is already a game. Everything after that is growth.</li>
+            <li><strong>Convention arcade mode:</strong> five people crew one tank on a bench at an expo (<a href="ideas/arcade-rig.html">the idea</a>).</li>
+          </ul>
+
+          <h2>The road there</h2>
+          <ol>
+            <li><strong>Foundations:</strong> greybox tools, climbing, documents. Done.</li>
+            <li><strong>A working prototype in greybox:</strong> one test level, from one village to the next, attacked on the way. Players, tank, combat, repair, crafting, inventory, parkour, loot, tank damage, NPC tanks, engineers, civilians, a quest giver and a shopkeeper. All placeholders. Then we ask: is this game worth making? <a href="status.html">Progress</a>.</li>
+            <li><strong>If yes:</strong> real models and textures, the first faction, the tank's interior, a permanent map.</li>
+            <li><strong>A second faction:</strong> the real test of the idea. Can a new team add a new style without breaking the first?</li>
+            <li><strong>Year 2 and 3:</strong> more factions, class-built cities, visitor nooks, the arcade rig.</li>
+          </ol>
+          <p>Multiplayer is built in from the start and tested every few weeks. We learned that the hard way on an earlier project.</p>
+
+          <h2>Not decided yet</h2>
+          <p>Some big choices belong to the students: multiplayer or solo with an AI crew, a fixed or a dynamic map, which faction first, and when to build the arcade rig. See <a href="decisions.html">Decisions</a>.</p>
+
+          <h2>What changed in this plan</h2>
+          <ul>
+            <li><strong>2026 Oct 18:</strong> first version, from the pitch, the project's own vision document, and what we've built and decided since.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

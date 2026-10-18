@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Greybox tools, climbing everywhere, and the first wheels (2026 Oct 5 – 2026 Oct 11) — TrollByte</title>
+  <meta name="description" content="A greybox material that works as a ruler, climbing on any mesh, size tests for corridors and characters, and the first vehicles with tank steering.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../lessons.html">Lessons</a>
+        <a href="../../pitchdeck.html">Pitchdeck</a>
+        <a href="../../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../../project.html">Overview</a><a href="../../project/plan.html">The Plan</a><a href="../../project/status.html">Where we are</a><a href="../../project/log.html" aria-current="page">Work log</a><a href="../../project/ideas.html">Idea journal</a><a href="../../project/decisions.html">Decisions</a></nav>
+      <div class="article" style="max-width:820px">
+        <div class="crumbs"><a href="../../project.html">Cranky Engines</a> · <a href="../log.html">Work log</a></div>
+        <h1>Greybox tools, climbing everywhere, and the first wheels</h1>
+        <div class="byline"><span>2026 Oct 5 – 2026 Oct 11</span></div>
+        <div class="article-body">
+          <p class="lede">A greybox material that works as a ruler, climbing on any mesh, size tests for corridors and characters, and the first vehicles with tank steering.</p>
+          <h2>What we made</h2>
+<ul>
+<li><strong>A greybox material that works as a ruler.</strong> Grid lines every metre, measured in the world, so you can read jump heights and door widths off any wall. Colours mean things. Later in the week it got a switch, so the grid sticks to things that move.</li>
+<li><strong>Greybox meshes you can walk on.</strong> New meshes made in Unreal had no collision; now they do by default.</li>
+<li><strong>Climb anywhere.</strong> Every mesh can be climbed or vaulted, unless it is tagged <code>NoTraverse</code>. Before, you had to hide special blocks inside every mesh.</li>
+<li><strong>AI tools connected to the Unreal editor</strong>, so Claude can build and test with us, on the school computer and at home.</li>
+<li><strong>One set of documents</strong> in the project, for people and AI tools together.</li>
+<li><strong>Size tests.</strong> Corridors from 100 to 300 cm wide and 150 to 400 cm high, and height pads. A 150 cm high corridor means crouching.</li>
+<li><strong>Corridors that roll like a ship</strong>, up to 25°. 100 cm wide traps you at the steepest angles; 150 cm never got stuck and feels good. The tank's corridors start at 150 cm.</li>
+<li><strong>Characters of other sizes</strong> (100 and 250 cm). Climbing works after three fixes; the hands don't quite meet the edge. Parked for now.</li>
+<li><strong>The classic camera</strong> is the default. It stays calm in tight, moving spaces; the new camera jumped around.</li>
+<li><strong>The first vehicles.</strong> Unreal's Chaos vehicles drive once physics prediction is switched on. Six to eight wheels are stable; twelve wheels creep and turn by themselves.</li>
+<li><strong>Tank steering</strong> that turns on the spot. "Looks and feels amazing."</li>
+<li><strong>A Blender template</strong> that exports models to Unreal at the right size, with guides for a 172 cm character and a 150 cm corridor.</li>
+<li><strong>Research on tank tracks</strong>, and a plan: real links up close, a moving belt far away.</li>
+</ul>
+<h2>Decisions</h2>
+<ul><li>The greybox grid is measured in the world, in centimetres.</li><li>Every mesh is climbable by default.</li><li>Tests and temporary work stay in your own developer folder; tests worth repeating get a shared test level.</li><li>Diversion for version control, not GitHub.</li><li>The prototype uses one character size.</li><li>The classic camera is the default.</li><li>Tanks drive on 6 to 8 wheels; the tracks are only for show.</li></ul>
+<p>All of them with reasons: <a href="../decisions.html">Decisions</a>.</p>
+<h2>New ideas</h2>
+<p><a href="../ideas/tracks.html">Tank tracks</a> · <a href="../ideas/movement-mods.html">Movement mods you equip</a> · <a href="../ideas/races.html">Characters of other sizes</a> · <a href="../ideas/buildable-tank.html">A tank you build yourself</a></p>
+          <h2>Pictures</h2><div class="shots"><figure><a href="../../assets/project/2026-10-05/size-test-height-pads.webp"><img loading="lazy" src="../../assets/project/2026-10-05/size-test-height-pads.webp" alt="Height pads at 100, 172 and 250 cm."></a><figcaption>Height pads at 100, 172 and 250 cm.</figcaption></figure><figure><a href="../../assets/project/2026-10-05/size-test-corridors.webp"><img loading="lazy" src="../../assets/project/2026-10-05/size-test-corridors.webp" alt="Corridors of different heights and widths."></a><figcaption>Corridors of different heights and widths.</figcaption></figure><figure><a href="../../assets/project/2026-10-05/climb-anywhere.webp"><img loading="lazy" src="../../assets/project/2026-10-05/climb-anywhere.webp" alt="Climbing a plain greybox wall."></a><figcaption>Climbing a plain greybox wall.</figcaption></figure><figure><a href="../../assets/project/2026-10-05/rolling-corridor.webp"><img loading="lazy" src="../../assets/project/2026-10-05/rolling-corridor.webp" alt="Inside a corridor that rolls like a ship."></a><figcaption>Inside a corridor that rolls like a ship.</figcaption></figure><figure><a href="../../assets/project/2026-10-05/eight-wheels.webp"><img loading="lazy" src="../../assets/project/2026-10-05/eight-wheels.webp" alt="The 8-wheel test vehicle."></a><figcaption>The 8-wheel test vehicle.</figcaption></figure></div>
+        </div>
+        <p style="margin-top:32px"><a class="btn btn-ghost" href="../log.html">← All weeks</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by teachers &amp; students at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

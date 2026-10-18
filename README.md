@@ -13,11 +13,13 @@ It is plain HTML and one CSS file. There is no build step: open any `.html` file
 | `lessons/<name>.html` | One page per lesson: the text plus the embedded video(s) or PDF links |
 | `pitchdeck.html` | All pitches, in two sections: LLM Driven and VR Arcade |
 | `pitchdeck/<name>.html` | One page per pitch. LLM pitches also have a `-slides.html` version to present |
+| `project.html` and `project/` | The Cranky Engines section: plan, status, weekly work log, idea journal, decisions |
 | `about.html` | About page (still placeholder text) |
 | `assets/css/style.css` | The whole design (colours, fonts, layout). Dark by default |
 | `assets/js/main.js` | The light/dark toggle |
 | `assets/vendor/reveal/` | reveal.js, used only by the `-slides.html` pitch pages |
 | `assets/lessons/` | PDFs and images used by lesson pages |
+| `assets/project/` | Screenshots for the Cranky Engines work log |
 | `assets/pitchdeck/` | Concept art and music used by pitch pages |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are |
 
