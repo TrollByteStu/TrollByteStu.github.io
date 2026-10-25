@@ -50,6 +50,7 @@
 <li><strong>Stairs</strong> with banisters, and a half-size floor tile to go next to them.</li>
 <li><strong>Help while building:</strong> a dot shows where you aim and a faint box shows the piece you aim at (green or red), the camera moves back and to the right, and a panel lists the keys.</li>
 <li><strong>The Tank Garage</strong>, an open level where students can try all of this.</li>
+<li><strong>A level to compare the two tanks</strong>, side by side, each with the same obstacle course: turning on the spot, rocks, speed bumps, steps and a hill. Both get stuck, but in different places.</li>
 </ul>
 <h2>What we found</h2>
 <ul>
@@ -57,6 +58,7 @@
 <li>Anything climbable must be its own piece, with nothing of the same piece above its edge, or the climb finds the wrong ledge.</li>
 <li>The game character pushed physics objects as if it weighed infinitely much. That is why pushing by weight was needed.</li>
 <li>Compiling a Blueprint while the game is running in the editor can crash the editor. Stop Play first.</li>
+<li>The simulated tank can get stuck on its belly on a rock: it can still turn, but not drive forwards or backwards. Real tanks do this too. Whether ours should is a <a href="../decisions.html">vote</a>.</li>
 </ul>
 <h2>Decisions</h2>
 <ul><li>The 3 m building grid.</li><li>Play uses only the Mover character.</li><li>One welded body for the whole tank.</li><li>A moving tank shoves you; it doesn't hurt you.</li><li>In multiplayer, the host builds and the pieces are copied to the others.</li><li>Hatches only if they really open and close.</li></ul>

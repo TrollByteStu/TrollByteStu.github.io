@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Damage, tracks and the first buildings (2026 Oct 19 – 2026 Oct 25) — TrollByte</title>
+  <meta name="description" content="Armour that dents, tears and gets real holes, turrets in C++, tracks and an engine you can see and hear, control panels that work over the network, and the same building system now making houses.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=2026-10-18">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../lessons.html">Lessons</a>
+        <a href="../../pitchdeck.html">Pitchdeck</a>
+        <a href="../../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../../project.html">Overview</a><a href="../../project/plan.html">The Plan</a><a href="../../project/status.html">Where we are</a><a href="../../project/log.html" aria-current="page">Work log</a><a href="../../project/ideas.html">Idea journal</a><a href="../../project/decisions.html">Decisions</a></nav>
+      <div class="article" style="max-width:820px">
+        <div class="crumbs"><a href="../../project.html">Cranky Engines</a> · <a href="../log.html">Work log</a></div>
+        <h1>Damage, tracks and the first buildings</h1>
+        <div class="byline"><span>2026 Oct 19 – 2026 Oct 25</span></div>
+        <div class="article-body">
+          <p class="lede">Armour that dents, tears and gets real holes, turrets in C++, tracks and an engine you can see and hear, control panels that work over the network, and the same building system now making houses.</p>
+          <h2>What we made</h2>
+<h3>Damage and combat</h3>
+<ul>
+<li><strong>Health for anything that can be hit.</strong> One shared health component: damage, healing, and events when health changes and when something is destroyed. Mikkel made it. Later in the week we found that healing never told anyone it had happened, and fixed it.</li>
+<li><strong>A test level for cannon and armour damage</strong>, with a test gun (a blunderbuss) you pick up with E and fire with the left mouse button. Bastian made the first real cannonball: one that explodes and blows pieces apart.</li>
+<li><strong>Four ways for armour to take damage</strong>, side by side so we can compare them:
+  <ul>
+  <li>A wall split into 8 panels that dent, fold and crumple, by a different amount on each piece.</li>
+  <li>Light armour: 8 triangular plates that hinge inwards and curl up, each at its own speed.</li>
+  <li>Real dents exactly where a shot hits. Hit the same spot again and it becomes a crater.</li>
+  <li><strong>Real holes</strong>, cut through the plate where it is hit. You can see and shoot through them.</li>
+  </ul></li>
+<li><strong>Ammo types</strong> decide the hole: armour-piercing makes a small round hole, high explosive a big torn one, and shrapnel seven small holes spread out. Press Q on the blunderbuss to change ammo.</li>
+<li><strong>The first combined armour piece.</strong> It starts as a solid wall (150 health), dents and warps when hurt, curls up when badly hurt, and is torn to bits by the last hit. The bits fly away from the explosion and disappear after ten seconds. To make testing easy, it repairs itself slowly, going back through the same looks. Bastian's exploding cannonball destroys it in four hits.</li>
+<li><strong>Soot marks</strong> where a shot or an explosion hits. They fade away after 40 seconds.</li>
+<li><strong>A blast test:</strong> an explosion can find each piece of a tank on its own, even while the tank drives with everything welded together. That is what we need to damage the pieces that were hit, and only those.</li>
+<li><strong>A stress-test setup</strong>: a wall of up to 1000 armour pieces and a row of test cannons that fire on command. A test runner fires every ammo type at every kind of armour and writes the frame times to a spreadsheet file, with a line saying which computer ran it.</li>
+<li><strong>Turrets, in C++.</strong> A turret turns towards where you aim, fires, heats up and overheats, runs out of ammo and reloads, with sounds, muzzle flash, recoil, a turret camera and its own on-screen display. A player or an AI can man it, also while someone else drives the tank, and it is built for multiplayer. Emil wrote it with Claude, and a student modelled the turret.</li>
+</ul>
+<h3>The tank</h3>
+<ul>
+<li><strong>Tracks you can see.</strong> Every track housing gets its own track: links, a drive sprocket, an idler and road wheels. The links move with the ground, also when the tank turns, and the bottom of the track follows bumps.</li>
+<li><strong>Weight and lift.</strong> Each track housing can carry so much weight. A heavy tank sits lower, and an overloaded tank is slower.</li>
+<li><strong>An engine piece</strong> (5 × 2 × 3 m) with a big gear on each side that turns with the throttle, an engine sound that rises with it, and track sounds: a jangling chain, a heavy rumble, and a different ground sound on sand and on asphalt.</li>
+<li><strong>Control panels.</strong> A screen with a game-pad in front. Press E at any panel to drive. Only one driver per tank, and it works over the network: a player who joined can drive too. If the driver leaves the game, the tank stays.</li>
+<li><strong>The tank rocks</strong> when it fires and when it is hit. Big and dramatic.</li>
+<li><strong>Corner pieces</strong> where a sloped wall meets a straight one, inside and outside, left and right.</li>
+<li><strong>A large test tank</strong>: a central column with four floors, stairs between them, six big track housings and a control panel on every floor. 125 pieces.</li>
+</ul>
+<h3>Building, and the first buildings</h3>
+<ul>
+<li><strong>Houses, with the same building system.</strong> A house starts from one floor tile and uses the tank's floors and walls, plus two new pieces: a checkpoint barricade (2.5 m wide, 75 cm tall, to duck behind and shoot from) and plain stairs 1.5 m wide and one storey high.</li>
+<li><strong>Two workshop levels</strong>, one for tanks and one for houses. Each has its own design library: the tank workshop only shows tanks, the house workshop only houses.</li>
+<li><strong>Sharing designs:</strong> Export copies a design into the project, so it can be committed and shared with everyone; Import brings in the designs others have shared. Each design is now its own file named after it, in a folder for tanks and one for buildings. Saving or exporting over a design that exists asks first, so you can update a design when new pieces arrive.</li>
+<li><strong>Middle mouse picks a piece:</strong> point at a piece in build mode and press the middle mouse button to build more of the same, without opening the menu.</li>
+<li><strong>Half floor tiles fill holes.</strong> Walls built on them now line up with the walls on the full floor next to them.</li>
+<li><strong>Three build bugs fixed</strong>, reported by a student on Discord with screenshots: a floor could be built on the bare ground away from the tank, the aim highlight stayed on a piece after looking away, and you could build a wall right inside your own character.</li>
+<li><strong>Desert plants</strong> for the test levels: two cacti and a Joshua tree, in greybox.</li>
+</ul>
+<h2>What we found</h2>
+<ul>
+<li>The first version of the build system placed pieces on a grid wherever you aimed. When snapping to pieces came, that old way was never switched off, and it caused most of the strange build bugs.</li>
+<li>Explosions from Unreal's destruction system don't count as damage. A cannonball has to deal damage itself, as well as blowing things apart. And an explosion only finds things that are set up as movable, so armour has to be set up that way.</li>
+<li>Cutting real holes is the most expensive of the four looks. A full volley landing at once causes a short stutter, so the holes are now cut a few at a time, a few milliseconds per frame.</li>
+<li>Stairs with a collision box per step made the character get stuck. One smooth ramp under the steps works.</li>
+<li>With two test guns in the level, only one could be picked up: the first gun "used up" the keys. Each gun now leaves the keys for the others.</li>
+</ul>
+<h2>Talked about: repairs</h2>
+<p>We had a long debate about repairing. When a piece is completely destroyed, can you repair it in the field? Or only in a workshop at some bases? If you drive in and the tank is lifted up, does it repair itself slowly while you rest, shop or find the next mission? And if your turrets are destroyed, could that stop you finishing a mission and leave you stuck? We don't know yet. These are good questions to test once there is gameplay to test them in. <a href="../ideas/repairs.html">The idea</a>.</p>
+<h2>Decisions</h2>
+<ul><li>C++ is part of the project. Blueprints are still the default for most things.</li><li>Three places for content: packs from outside, our own developer folders for testing, and the project folder for what works.</li><li>We call everything you build with a <em>piece</em>, not a block.</li><li>The building plan is 3 × 3 m. Half floor tiles only fill the holes that stairs, ladders and hatches leave.</li></ul>
+<p>With reasons: <a href="../decisions.html">Decisions</a>.</p>
+<h2>Votes</h2>
+<p><strong>Simulated tank or fake-physics tank?</strong> Still open. So far: fake physics 5, simulated 3. A teacher voted that we test both in a real fight first. <a href="../decisions.html">Decisions</a>.</p>
+<h2>New ideas</h2>
+<p><a href="../ideas/repairs.html">Repairs: in the field, in a workshop, or while you rest?</a> · <a href="../ideas/damage.html">Damage you can see and repair</a> (being built) · <a href="../ideas/turrets.html">Turrets everywhere</a> (being built) · <a href="../ideas/tracks.html">Tank tracks</a> (being built) · <a href="../ideas/workshop.html">Workshop levels</a> (being built) · <a href="../ideas/getting-unstuck.html">Stuck on a rock: winches and jacks</a></p>
+          <h2>Pictures</h2><div class="shots"><figure><a href="../../assets/project/2026-10-19/tank-tracks.webp"><img loading="lazy" src="../../assets/project/2026-10-19/tank-tracks.webp" alt="Tracks on the test tank: links, sprockets and road wheels, moving with the ground."></a><figcaption>Tracks on the test tank: links, sprockets and road wheels, moving with the ground.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/large-tank.webp"><img loading="lazy" src="../../assets/project/2026-10-19/large-tank.webp" alt="The large test tank: four floors around a central column."></a><figcaption>The large test tank: four floors around a central column.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/engine-piece.webp"><img loading="lazy" src="../../assets/project/2026-10-19/engine-piece.webp" alt="The engine piece, red while it is being placed, with a gear on each side."></a><figcaption>The engine piece, red while it is being placed, with a gear on each side.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/control-panel.webp"><img loading="lazy" src="../../assets/project/2026-10-19/control-panel.webp" alt="A control panel: press E to drive."></a><figcaption>A control panel: press E to drive.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/armour-holes.webp"><img loading="lazy" src="../../assets/project/2026-10-19/armour-holes.webp" alt="Real holes and soot marks in the armour test level."></a><figcaption>Real holes and soot marks in the armour test level.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/combined-armour.webp"><img loading="lazy" src="../../assets/project/2026-10-19/combined-armour.webp" alt="The combined armour piece, badly hurt: its plates curl inwards."></a><figcaption>The combined armour piece, badly hurt: its plates curl inwards.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/torn-to-bits.webp"><img loading="lazy" src="../../assets/project/2026-10-19/torn-to-bits.webp" alt="An exploding cannonball tears the combined armour to bits."></a><figcaption>An exploding cannonball tears the combined armour to bits.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/stress-test-wall.webp"><img loading="lazy" src="../../assets/project/2026-10-19/stress-test-wall.webp" alt="The stress-test wall: 100 armour pieces, each hit with shrapnel. The test writes how long every cut took."></a><figcaption>The stress-test wall: 100 armour pieces, each hit with shrapnel. The test writes how long every cut took.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/house-barricades.webp"><img loading="lazy" src="../../assets/project/2026-10-19/house-barricades.webp" alt="A two-storey house with barricades along the roof."></a><figcaption>A two-storey house with barricades along the roof.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/plain-stairs.webp"><img loading="lazy" src="../../assets/project/2026-10-19/plain-stairs.webp" alt="The plain stairs for houses: 1.5 m wide, one storey high."></a><figcaption>The plain stairs for houses: 1.5 m wide, one storey high.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/half-floor-walls.webp"><img loading="lazy" src="../../assets/project/2026-10-19/half-floor-walls.webp" alt="A wall on a half floor tile, lined up with the wall next to it."></a><figcaption>A wall on a half floor tile, lined up with the wall next to it.</figcaption></figure><figure><a href="../../assets/project/2026-10-19/design-library.webp"><img loading="lazy" src="../../assets/project/2026-10-19/design-library.webp" alt="The house design library, each design with its own picture."></a><figcaption>The house design library, each design with its own picture.</figcaption></figure></div>
+        </div>
+        <p style="margin-top:32px"><a class="btn btn-ghost" href="../log.html">← All weeks</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by students &amp; teachers at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

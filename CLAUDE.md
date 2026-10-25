@@ -56,7 +56,20 @@ A **static website** for a **Specialisterne STU** game-development class: a cura
 For current and future students, colleagues and interested outsiders. Claude updates it about once a week; Erik reviews and pushes.
 
 - **Dates are written `2026 Oct 18`** (year, short month, day), never American style. File names use ISO dates.
-- **Don't name students** unless Erik says so. Write "we made".
+- **Don't name students** unless they are on the list below. Everyone else is "we made" or "a student".
+
+### Students who may be named
+
+Only these students have said yes to their name in the weekly updates. Add a name only when Erik says that student gave permission, with the date. Never add a name because it appears in the game repo's docs (those use names for practical reasons).
+
+| Name | Permission given | Credited for (so far) |
+|---|---|---|
+| Mikkel | 2026 Oct 22 | The health component (`BPC_Health`) |
+| Emil | 2026 Oct 22 | The turrets in C++ |
+| Bastian | 2026 Oct 22 | The exploding cannonball |
+
+Not asked yet (keep anonymous until Erik says otherwise): the student who modelled the turret, and the students who reported two bugs on Discord (week of 2026 Oct 19).
+
 - Weekly update: read the game repo's `Docs/log.md`, `Docs/decisions.md`, `Docs/roadmap.md` and Erik's `Content/Developers/epe/Docs/next-steps.md` (the Unreal project folder), plus whatever Erik sends (screenshots, ideas, vote results). Then:
   1. add `project/log/<monday>.html` (copy the last week) and a card at the top of `project/log.html`;
   2. update the hub's "Latest week" panel and progress bar in `project.html`;
@@ -78,6 +91,8 @@ Edit, commit, `git push` to `origin/main`. GitHub Pages rebuilds and the site is
 - **Greyboxing & Level Design** and **Framework & Multiplayer** were added after the rebuild.
 - **LLM Driven pitches** (BOILERHEART, Meat Machines, Silly Empires, Mutated Henchman, Fantasy Stalker, GUESTS?, BOILERHEART II: Cranky Engines) were written new, each with a slide deck. Cranky Engines is the class's current project.
 - 2026-10-18: Cranky Engines section added (hub, plan, status, work log backfilled from the game repo, idea journal, decisions) and linked from every page's nav and the splash page.
+- 2026-10-22: week of 2026 Oct 19 added (damage, cannonballs, turrets); first named students, see "Students who may be named".
+- 2026-10-25: week of 2026 Oct 19 finished (tracks, engine, control panels, combined armour, houses, design sharing); new idea page `repairs.html`; tracks and workshop ideas moved to "Being built"; Repair counted as in progress on the status page.
 - 2026-10-18: typo pass on the lesson texts, duplicate light-theme block removed from `style.css`, README and this file brought up to date.
 
 ## To do / next
