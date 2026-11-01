@@ -67,11 +67,16 @@ Only these students have said yes to their name in the weekly updates. Add a nam
 | Mikkel | 2026 Oct 22 | The health component (`BPC_Health`) |
 | Emil | 2026 Oct 22 | The turrets in C++ |
 | Bastian | 2026 Oct 22 | The exploding cannonball |
+| Sebastian | 2026 Nov 1 | The antenna model (three levels) |
+| Tobias | 2026 Nov 1 | The bolt model, scrap metal |
+| Bjørn | 2026 Nov 1 | Bug hunting |
 
-Not asked yet (keep anonymous until Erik says otherwise): the student who modelled the turret, and the students who reported two bugs on Discord (week of 2026 Oct 19).
+Not asked yet (keep anonymous until Erik says otherwise): the student who modelled the turret.
 
-- Weekly update: read the game repo's `Docs/log.md`, `Docs/decisions.md`, `Docs/roadmap.md` and Erik's `Content/Developers/epe/Docs/next-steps.md` (the Unreal project folder), plus whatever Erik sends (screenshots, ideas, vote results). Then:
-  1. add `project/log/<monday>.html` (copy the last week) and a card at the top of `project/log.html`;
+Mikkel is also credited for the welding torch model and Emil for online play and the menus (week of 2026 Oct 26).
+
+- Weekly update: first, in the game repo, move this week's entries from the personal logs `Docs/logs/Log_<Name>.md` into `Docs/log.md` (sorted by date, newest first) and empty the personal logs, keeping the files (since 2026-10-28; see `Docs/logs/README.md`). Then read the game repo's `Docs/log.md`, `Docs/decisions.md`, `Docs/roadmap.md` and Erik's `Content/Developers/epe/Docs/next-steps.md` (the Unreal project folder), plus whatever Erik sends (screenshots, ideas, vote results). Then:
+  1. add `project/log/<monday>.html` (copy the last week) and a card at the top of `project/log.html`; start it with "The week in numbers" (Students / Everything: bugs crushed, new features, changes, new assets, students this week, students in total), using the counts and counting rules in the game repo's `Docs/log.md` week summary;
   2. update the hub's "Latest week" panel and progress bar in `project.html`;
   3. update `project/status.html` (feature statuses, percentage = working + half of in progress, divided by the number of parts; "Next up"; "Last updated");
   4. add or update idea pages and their status pills; move cards between groups in `project/ideas.html`;
@@ -93,6 +98,7 @@ Edit, commit, `git push` to `origin/main`. GitHub Pages rebuilds and the site is
 - 2026-10-18: Cranky Engines section added (hub, plan, status, work log backfilled from the game repo, idea journal, decisions) and linked from every page's nav and the splash page.
 - 2026-10-22: week of 2026 Oct 19 added (damage, cannonballs, turrets); first named students, see "Students who may be named".
 - 2026-10-25: week of 2026 Oct 19 finished (tracks, engine, control panels, combined armour, houses, design sharing); new idea page `repairs.html`; tracks and workshop ideas moved to "Being built"; Repair counted as in progress on the status page.
+- 2026-11-01: week of 2026 Oct 26 (turrets on the tank, enemy tank, money, shops, quests, online play and menus); first "week in numbers" table (students and everything: bugs crushed, features, changes, assets, students); new idea pages `quests.html` and `money.html`; Repairs moved to "Being built"; status 65 %. Sebastian, Tobias and Bjørn may now be named.
 - 2026-10-18: typo pass on the lesson texts, duplicate light-theme block removed from `style.css`, README and this file brought up to date.
 
 ## To do / next

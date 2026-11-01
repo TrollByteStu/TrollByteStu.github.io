@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Turrets, money, quests and the first enemy (2026 Oct 26 – 2026 Nov 1) — TrollByte</title>
+  <meta name="description" content="Turrets you build onto the tank and that fire by themselves, an enemy tank that hunts you, money, shops and quests, online play through Steam with a main menu, repairs with a welding torch, and buildings for the first village.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=2026-10-18">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../lessons.html">Lessons</a>
+        <a href="../../pitchdeck.html">Pitchdeck</a>
+        <a href="../../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../../project.html">Overview</a><a href="../../project/plan.html">The Plan</a><a href="../../project/status.html">Where we are</a><a href="../../project/log.html" aria-current="page">Work log</a><a href="../../project/ideas.html">Idea journal</a><a href="../../project/decisions.html">Decisions</a></nav>
+      <div class="article" style="max-width:820px">
+        <div class="crumbs"><a href="../../project.html">Cranky Engines</a> · <a href="../log.html">Work log</a></div>
+        <h1>Turrets, money, quests and the first enemy</h1>
+        <div class="byline"><span>2026 Oct 26 – 2026 Nov 1</span></div>
+        <div class="article-body">
+          <p class="lede">Turrets you build onto the tank and that fire by themselves, an enemy tank that hunts you, money, shops and quests, online play through Steam with a main menu, repairs with a welding torch, and buildings for the first village.</p>
+          <h2>The week in numbers</h2>
+<p>New this week: we count what happens, so we can follow it over the months. <em>Students</em> is what students made or found; <em>everything</em> is all the work in the project, by students and teachers (and our AI tools).</p>
+<table class="features"><thead><tr><th></th><th>Students</th><th>Everything</th></tr></thead><tbody>
+<tr><td>Bugs crushed</td><td>9 (all found by Bjørn)</td><td>12</td></tr>
+<tr><td>New features</td><td>4</td><td>24</td></tr>
+<tr><td>Changes</td><td>0</td><td>11</td></tr>
+<tr><td>New assets</td><td>7 models</td><td>34</td></tr>
+<tr><td>Students who helped this week</td><td colspan="2">6</td></tr>
+<tr><td>Students who have helped, in total</td><td colspan="2">6</td></tr>
+</tbody></table>
+<p style="margin-top:12px">Students this week: Sebastian, Mikkel, Tobias, Emil, Bjørn, and the student who modelled the turret.</p>
+          <h2>What we made</h2>
+<h3>Online play and menus</h3>
+<ul>
+<li><strong>Online play through Steam.</strong> Host a game, find games and join them. Emil set it up, with Claude.</li>
+<li><strong>A main menu, a loading screen and a settings menu</strong> (quality and window mode), with temporary sounds and music. Emil made them, and a server browser is on the way.</li>
+</ul>
+<h3>Items, crafting and repair</h3>
+<ul>
+<li><strong>An inventory:</strong> a backpack for you and storage for the tank, items to pick up, and crafting from raw materials into engineering supplies (armour plates, construction materials, mechanical and technical parts, structural prefabs).</li>
+<li><strong>A welding torch</strong> that repairs armour while you hold R, and wears out as you use it. Mikkel modelled it.</li>
+<li><strong>The bolt</strong> you pick up is now a real model, by Tobias. He also made scrap metal.</li>
+<li><strong>Upgrades:</strong> press E on a piece to upgrade it with supplies from the tank. The first is Sebastian's antenna, with three levels.</li>
+</ul>
+<h3>Turrets and combat</h3>
+<ul>
+<li><strong>Turrets on the tank.</strong> Build a floor tile with a turret hole, or a wall with a gun port, and put a turret on it. Its control panel is underneath: press E to man it.</li>
+<li><strong>Five kinds of ammo</strong> (standard, explosive, armour-piercing, shrapnel, incendiary). T switches.</li>
+<li><strong>Factions, and turrets that fire by themselves.</strong> Every few seconds the antenna looks for enemies (40, 60 or 80 m, by its level) and points the turrets at them. A player at the controls always wins.</li>
+<li><strong>Every piece you build has health.</strong> At 0 it breaks and stops working, and the welding torch brings it back.</li>
+<li><strong>A new kind of armour damage:</strong> any mesh can get real holes, shaped by the kind of shell, its size and the angle it hit at. Repaired holes glow hot and close slowly.</li>
+</ul>
+<h3>The first enemy</h3>
+<ul>
+<li><strong>A tank spawner:</strong> place a saved tank design in a level, as an enemy or as a player tank.</li>
+<li><strong>The first enemy brain:</strong> the enemy drives at your tank, circles it and shoots, backs off when it gets stuck, and drops loot when you break it.</li>
+</ul>
+<h3>Money, shops and quests</h3>
+<ul>
+<li><strong>Money is power crystals.</strong> The Empire's coins are the spark, the click (1 000 sparks), the mulah (a million) and the bingo (a billion). Nobody counts change: paying makes it by itself. Other factions get their own money later. <a href="../ideas/money.html">The idea</a>.</li>
+<li><strong>Shops:</strong> each shop has its own list of what it sells and buys, at its own prices, and some things run out. Multiplayer from the start.</li>
+<li><strong>Quests:</strong> someone in the world gives you a job made of steps: go to, find, talk to, bring, deliver, destroy. Crew quests are shared by everyone on the tank; personal quests are secret, which is perfect for a traitor. "Find" has no marker: you have to look. <a href="../ideas/quests.html">The idea</a>.</li>
+<li><strong>The Quest Maker,</strong> our own tool in the editor, so students can make quests from a form, with a preview and a checklist.</li>
+</ul>
+<h3>Building, and the first village</h3>
+<ul>
+<li><strong>Building costs materials</strong> outside the workshops. Removing a piece gives them back, destroyed pieces drop some of them as loot, and repairing a destroyed piece costs them again.</li>
+<li><strong>Faster building:</strong> walls on walls, stairs on stairs, a floor at the top of the stairs, and roofs on walls and on each other.</li>
+<li><strong>New pieces:</strong> doorways and doors that open with E, gun slits, windows, a gate, a bannister, platforms with a step up, a corner column and a roof.</li>
+<li><strong>A building spawner:</strong> place a saved building anywhere in a level, fitted to the ground. Now we can design desert buildings for villages and outposts.</li>
+<li><strong>Trees and cacti the tank can crush.</strong> Scattered over the desert by Unreal's PCG; whether the tank breaks through or gets stopped depends on its weight and speed.</li>
+</ul>
+<h3>Sound</h3>
+<ul>
+<li><strong>Footsteps that sound like the ground:</strong> metal, wood, rock, dirt, grass, tile and more, also for jumps, landings and climbing. Tanks sound like metal, houses like tile. A test level has a strip of every surface.</li>
+</ul>
+          <h2>Bugs crushed</h2>
+<p>Bjørn tested hard and reported eight bugs on Discord, with screenshots. Nine fixes came from them:</p>
+<ul>
+<li>The control panel was hard to aim at with E.</li>
+<li>Walls could overlap, and you couldn't build walls on walls.</li>
+<li>Tracks were left behind when a track housing was turned or replaced.</li>
+<li>No floor from the top of the stairs.</li>
+<li>Wrong or leftover tracks from the build preview.</li>
+<li>Track housings could go anywhere, even up in the air, where they gave extra lift and speed. Now only on the bottom floor, along the tank.</li>
+<li>Some turret shots went straight through armour walls.</li>
+<li>You could climb a giant invisible box around the turret.</li>
+<li>Rubble from destroyed things could throw players across the level.</li>
+</ul>
+<p>And three found while building: stacked walls came out lower than stairs, nothing could be built on top of doors, and a stream of error messages while building.</p>
+<p><strong>Still open:</strong> a crash with a very big tank (we need the log), and build mode needs a way to hover and pass through walls.</p>
+          <h2>What we found</h2>
+<ul>
+<li>Our shared log file was overwritten twice when two computers saved it at the same time. Now everyone writes their own log, and they are put together every Sunday.</li>
+<li>Rubble and players don't mix: standing on loose physics pieces could launch you. Players now walk through rubble, and rubble cleans itself up.</li>
+<li>The tank's crusher only looked at the hull, so the track housings got stuck on plants. It now checks everything on the tank.</li>
+<li>Real plants are big: Joshua trees are 5 to 9 m tall, saguaros up to 12 m. Ours were far too small.</li>
+</ul>
+          <h2>Decisions</h2>
+<ul><li>The compiled C++ is shared, so students without Visual Studio can open the project.</li><li>We don't edit packs from outside (like Epic's animation sample); we extend them or copy them into our own folder.</li><li>What a piece costs is in one table, so all prices can be compared and balanced side by side.</li></ul>
+<p>With reasons: <a href="../decisions.html">Decisions</a>.</p>
+          <h2>Votes</h2>
+<p>Two new votes on Discord: <strong>how serious should the game be</strong>, from 1 (very sombre) to 10 (full cartoon silly), and <strong>what kind of map</strong>: a fixed hand-built world, a dynamic one that changes, or a mix of hand-built towns with generated land between them. We also tried out a theme song idea. <a href="../decisions.html">Decisions</a>.</p>
+          <h2>For students</h2>
+<ul>
+<li><strong>Workshop guides:</strong> a new Discord forum with step-by-step guides to our tools and systems. The first five: make a quest, make a turret, make new ammo, report a bug, greybox a level. About five more every week.</li>
+<li><strong>Commissions:</strong> new 3D and audio tasks on Discord, from crates, barrels and bunks to track sounds and coins.</li>
+<li><strong>Next student tasks:</strong> build a proper player tank and a proper enemy tank in the workshop, and a loot spawner.</li>
+</ul>
+          <h2>New ideas</h2>
+<p><a href="../ideas/quests.html">Quests: shared and secret</a> (being built) · <a href="../ideas/money.html">Power crystals, a money for each faction</a> (being built) · <a href="../ideas/repairs.html">Repairs</a> (now partly built)</p>
+          <h2>Pictures</h2><div class="shots"><figure><a href="../../assets/project/2026-10-26/enemy-tank.webp"><img loading="lazy" src="../../assets/project/2026-10-26/enemy-tank.webp" alt="The first enemy tank (right) drives at the player tank and circles it, shooting."></a><figcaption>The first enemy tank (right) drives at the player tank and circles it, shooting.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/turret.webp"><img loading="lazy" src="../../assets/project/2026-10-26/turret.webp" alt="A turret built onto a floor tile. Its control panel is on the floor below."></a><figcaption>A turret built onto a floor tile. Its control panel is on the floor below.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/shop.webp"><img loading="lazy" src="../../assets/project/2026-10-26/shop.webp" alt="The test shop: buy and sell engineering supplies, paid in power crystals."></a><figcaption>The test shop: buy and sell engineering supplies, paid in power crystals.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/quest-giver.webp"><img loading="lazy" src="../../assets/project/2026-10-26/quest-giver.webp" alt="The mayor offers two quests: a secret one for you, and one for the whole crew."></a><figcaption>The mayor offers two quests: a secret one for you, and one for the whole crew.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/main-menu.webp"><img loading="lazy" src="../../assets/project/2026-10-26/main-menu.webp" alt="Emil's main menu: host, find and join games through Steam."></a><figcaption>Emil's main menu: host, find and join games through Steam.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/settings-menu.webp"><img loading="lazy" src="../../assets/project/2026-10-26/settings-menu.webp" alt="Emil's settings menu."></a><figcaption>Emil's settings menu.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/steam-multiplayer.webp"><img loading="lazy" src="../../assets/project/2026-10-26/steam-multiplayer.webp" alt="Two players in the same game over Steam."></a><figcaption>Two players in the same game over Steam.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/inventory.webp"><img loading="lazy" src="../../assets/project/2026-10-26/inventory.webp" alt="The inventory: backpack, tank storage and crafting."></a><figcaption>The inventory: backpack, tank storage and crafting.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/antenna.webp"><img loading="lazy" src="../../assets/project/2026-10-26/antenna.webp" alt="Sebastian's antenna, the first piece you can upgrade."></a><figcaption>Sebastian's antenna, the first piece you can upgrade.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/building-spawner.webp"><img loading="lazy" src="../../assets/project/2026-10-26/building-spawner.webp" alt="A saved building placed in a level with the building spawner, fitted to the ground."></a><figcaption>A saved building placed in a level with the building spawner, fitted to the ground.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/house-pieces.webp"><img loading="lazy" src="../../assets/project/2026-10-26/house-pieces.webp" alt="New house pieces: doorways, platforms and steps."></a><figcaption>New house pieces: doorways, platforms and steps.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/house-windows.webp"><img loading="lazy" src="../../assets/project/2026-10-26/house-windows.webp" alt="Inside a house with windows."></a><figcaption>Inside a house with windows.</figcaption></figure><figure><a href="../../assets/project/2026-10-26/footstep-level.webp"><img loading="lazy" src="../../assets/project/2026-10-26/footstep-level.webp" alt="The surface test level: every surface sounds different to walk, jump and climb on."></a><figcaption>The surface test level: every surface sounds different to walk, jump and climb on.</figcaption></figure></div>
+        </div>
+        <p style="margin-top:32px"><a class="btn btn-ghost" href="../log.html">← All weeks</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by students &amp; teachers at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
