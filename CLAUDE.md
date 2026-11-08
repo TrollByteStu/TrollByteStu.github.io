@@ -70,8 +70,11 @@ Only these students have said yes to their name in the weekly updates. Add a nam
 | Sebastian | 2026 Nov 1 | The antenna model (three levels) |
 | Tobias | 2026 Nov 1 | The bolt model, scrap metal |
 | Bjørn | 2026 Nov 1 | Bug hunting |
+| Mathias | 2026 Nov 4 | Mechanical parts and scrap metal models, with Tobias (posted on Discord by a teacher) |
 
 Not asked yet (keep anonymous until Erik says otherwise): the student who modelled the turret.
+
+The audio team (several students) asked not to be named: write "the audio team", never names, and don't guess how many students made a sound.
 
 Mikkel is also credited for the welding torch model and Emil for online play and the menus (week of 2026 Oct 26).
 

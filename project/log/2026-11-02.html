@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The open world, a talking tank and the first people (2026 Nov 2 – 2026 Nov 8) — TrollByte</title>
+  <meta name="description" content="The first open-world map with a village, a road and an ambush, a tank that talks back through a brass face, the first shopkeeper and walking townsfolk, a blunderbuss you hold in your hands, and loot spawners and tank stats made by students.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=2026-10-18">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <span class="spacer"></span>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../lessons.html">Lessons</a>
+        <a href="../../pitchdeck.html">Pitchdeck</a>
+        <a href="../../project.html" aria-current="page">Cranky Engines</a>
+        <a href="../../about.html">About</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main>
+    <section class="wrap section" style="padding-top:36px">
+      <nav class="subnav" aria-label="Cranky Engines"><a href="../../project.html">Overview</a><a href="../../project/plan.html">The Plan</a><a href="../../project/status.html">Where we are</a><a href="../../project/log.html" aria-current="page">Work log</a><a href="../../project/ideas.html">Idea journal</a><a href="../../project/decisions.html">Decisions</a></nav>
+      <div class="article" style="max-width:820px">
+        <div class="crumbs"><a href="../../project.html">Cranky Engines</a> · <a href="../log.html">Work log</a></div>
+        <h1><h1>The open world, a talking tank and the first people</h1>
+        <div class="byline"><span>2026 Nov 2 – 2026 Nov 8</span></div>
+        <div class="article-body">
+          <p class="lede">The first open-world map with a village, a road and an ambush, a tank that talks back through a brass face, the first shopkeeper and walking townsfolk, a blunderbuss you hold in your hands, and loot spawners and tank stats made by students.</p>
+          <h2>The week in numbers</h2>
+<p><em>Students</em> is what students made or found; <em>everything</em> is all the work in the project, by students and teachers (and our AI tools).</p>
+<table class="features"><thead><tr><th></th><th>Students</th><th>Everything</th></tr></thead><tbody>
+<tr><td>Bugs crushed</td><td>1 (found by Bjørn)</td><td>21</td></tr>
+<tr><td>New features</td><td>3</td><td>30</td></tr>
+<tr><td>Changes</td><td>1</td><td>9</td></tr>
+<tr><td>New assets</td><td>11 models, plus the audio team's sounds</td><td>29, plus the sounds</td></tr>
+<tr><td>Students who helped this week</td><td colspan="2">5, plus the audio team</td></tr>
+<tr><td>Students who have helped, in total</td><td colspan="2">8, plus the audio team</td></tr>
+</tbody></table>
+<p style="margin-top:12px">Students this week: Mikkel, Tobias, Mathias, Bastian, Bjørn, and the audio team.</p>
+          <h2>What we made</h2>
+<h3>The first open world</h3>
+<ul>
+<li><strong>A real map, at last:</strong> Newbie Town, Levelup Road and Highlevel Hill, on Unreal's new mesh terrain. Hosting a game from the main menu now opens it, and it is included when we make a build.</li>
+<li><strong>The Terrain Stamp Maker,</strong> our own tool in the editor: pick mountains, a ridge, a mesa, a butte, a canyon or a dune field, move the sliders, and save it to a library of desert stamps for sculpting the land.</li>
+<li><strong>A torn road with old telegraph poles,</strong> some standing, some broken or fallen. They tell a story and lead the eye.</li>
+<li><strong>Map markers</strong> in the editor: tall arrows with names, so you can find places on a big map.</li>
+</ul>
+<h3>Combat on the road</h3>
+<ul>
+<li><strong>Ambushes:</strong> when your tank drives into an ambush area, the enemy tanks waiting there appear and attack.</li>
+<li><strong>Loadouts and loot lists:</strong> a spawned tank carries what we give it, from a list with chances. Its turrets only fire shells it actually carries, so we can make a wounded tank limping home with no ammo, or a tank stuffed with loot.</li>
+<li><strong>Real holes in real fights:</strong> the hole-cutting armour now works on the tanks themselves. In the first ambush test our big tank was shot to pieces, hole by hole.</li>
+<li><strong>Explosive barrels:</strong> more than 10 damage in one hit and they blow up, set off the barrels next to them, and fly into the air. Mathias modelled the barrel, intact and in seven damaged versions.</li>
+<li><strong>Bastian's exploding cannonball,</strong> and explosion effects that look right at any size.</li>
+</ul>
+<h3>A tank you can talk to</h3>
+<ul>
+<li><strong>The brass officer:</strong> a giant face on the wall with eyes that follow you, a moving jaw, a cigar and red light in its eyes and mouth. It has moods (anger, fear, pride, sadness) that change its face.</li>
+<li><strong>It talks back.</strong> Press E at the face and type, or hold a key and speak. It answers in character, through the Player2 AI, with a deep metal voice that sounds like it comes from inside the hull. Everyone on the tank hears the answer.</li>
+<li><strong>Personality shards:</strong> punch cards with a crystal, each a fragment of someone's memory with a personality (Grump, Soldier, Diva, Coward...). Slot them into the rack next to the face and they become the tank's mind. Pull one out and the tank loses that part of itself. <a href="../ideas/engine-brain.html">The idea, with new concept art</a>.</li>
+<li>Stand too close and he snaps at you.</li>
+</ul>
+<h3>People</h3>
+<ul>
+<li><strong>Our first civilian</strong> walks around, looks at the mountains, and sits on a bench when he gets tired.</li>
+<li><strong>An NPC system:</strong> drag a person into a level. Named people (like Otto Kettleby, who runs the general store in Newbie Town) are saved as their own file, with a name, a role, a story, a personality, a look and a shop. Background people get a random name. One button turns a person you made in a level into a named person.</li>
+<li><strong>The first shopkeeper:</strong> Otto sells everything from bandages to a blunderbuss, and the shop works.</li>
+<li><strong>People who walk:</strong> the same NPCs can walk around and sit on benches.</li>
+</ul>
+<h3>In your hands</h3>
+<ul>
+<li><strong>A hotbar:</strong> ten slots at the bottom of the screen. Drag items from the inventory, press 1–0 or use the mouse wheel to hold one.</li>
+<li><strong>Grips:</strong> every item that can be held picks a grip: default, pistol, rifle or heavy. Our own character now holds things properly, also while climbing.</li>
+<li><strong>Encumbrance:</strong> heavy things in your hands make you slower and climb lower.</li>
+<li><strong>The blunderbuss</strong> (Heckler &amp; Brass Model 4 “Bellmouth”, 50 mm): one shot, ten seconds to reload. Hand weapons use the same parts as the turrets, so they work and look the same. Every item now has a maker, with a home town.</li>
+<li><strong>The crew headset:</strong> a monocle, an earpiece, a microphone and a head lamp that gets tighter and brighter when you aim. Crews light their own way instead of us putting lamps in every room. <a href="../ideas/crew-headset.html">The idea</a>.</li>
+</ul>
+<h3>Made by students</h3>
+<ul>
+<li><strong>Loot spawners</strong> (Mikkel, with Claude): crates and piles that fill with items and refill a while after they are looted.</li>
+<li><strong>Tank stats</strong> (Mikkel, with Claude): hull, power, coolant, fuel and sanity, with events so parts of the tank can react when a stat gets low or runs out.</li>
+<li><strong>Mechanical parts</strong> (gears, a shaft and a spring) by Tobias and Mathias, now in the game with an icon, and their scrap metal on the ground.</li>
+<li><strong>The audio team</strong> recorded dirt footsteps, and the crash of a tank running over trees and cacti.</li>
+</ul>
+<h3>Multiplayer</h3>
+<ul>
+<li>Loot, broken pieces, crushed plants and exploding barrels now look the same for every player.</li>
+<li>Plants scattered by Unreal's PCG come out the same on every computer: checked with two players, 297 plants each, in the same places.</li>
+</ul>
+          <h2>Bugs crushed</h2>
+<ul>
+<li>On a small screen the build menu's piece list ran off the bottom. It scrolls now.</li>
+<li>In multiplayer, loot spawners made every item twice, and the copies could not be picked up. Found by Bjørn in our multiplayer test.</li>
+<li>Broken tank pieces stayed visible for joined players.</li>
+<li>Trees and cacti only broke on the host's screen.</li>
+<li>Footstep test text was left on the screen.</li>
+<li>The tank spawner left half of its preview standing in the level.</li>
+<li>Spawned tanks were stopped by the smallest cactus (they had no crusher).</li>
+<li>The big tank got stuck on its belly on bumpy ground, and had too little engine power for its weight.</li>
+<li>Telegraph poles vanished in Play, or hung in the air.</li>
+<li>Light leaked out along the officer's wall, and his plaque showed his name twice.</li>
+<li>The officer's “too close” lines didn't fire; his text box was unreadable; a slotted shard still showed in the list.</li>
+<li>Held items pointed back up the arm, and the left hand dangled off the heavy gun.</li>
+<li>Clicking while the blunderbuss reloaded started a turret motor sound that never stopped.</li>
+<li>Hosting opened the old test level instead of the open world, and then the ground was missing (the terrain was not baked).</li>
+<li>A person given the civilian AI zoomed around without walking, and never sat down.</li>
+</ul>
+<p><strong>Still open:</strong> in multiplayer, a player who left the enemy tank fell through the ground (found by Bjørn); a crash in multiplayer (Bjørn sent the log); build mode needs a way to hover and pass through walls.</p>
+<p>Bjørn won this week: he found bugs faster than we fixed them. None of them break anything big for now, so we spent the week bringing all the parts together into a map we can play on together. His bugs are next.</p>
+          <h2>What we found</h2>
+<ul>
+<li>Big tanks need more than a bigger engine. Every tank stood on the same eight springs, whatever its size, so a long tank had nothing holding up its front and back. Now each track housing brings its own springs.</li>
+<li>When you host a game or make a build, only the <em>baked</em> terrain is there. Bake the terrain before you test.</li>
+<li>Unreal's PCG gives every computer the same plants, as long as the graph, the seed and the inputs are the same.</li>
+<li>The audio team's dirt footsteps sound a lot like the old ones, and that's fine: they are made by students, for this game. Surfaces with no sounds of their own (like sand) are the next job.</li>
+<li>Most school computers have no microphone, so talking to the tank always needs a text box too.</li>
+</ul>
+          <h2>Decisions</h2>
+<ul>
+<li>Armour gets real holes (students and teachers picked it).</li>
+<li>Every named person is their own file, so students never edit the same file at the same time.</li>
+<li>Crews carry their own light (the headset lamp) instead of lamps in every room of the tank.</li>
+<li>Our editor tools are written in C++, so they work on every school computer without extra installs.</li>
+</ul>
+          <h2>Votes</h2>
+<p><strong>Closed:</strong> we stay on this Discord server, and the <strong>fake-physics tank</strong> won over the simulated one. That was where we were heading anyway: the fake tank is the one we have been building on. <strong>Still open:</strong> how serious the game should be (1–10), and what kind of map, which leans towards the mix: hand-built towns with generated land between them. <a href="../decisions.html">Decisions</a>.</p>
+          <h2>For students</h2>
+<ul>
+<li><strong>Code commissions:</strong> a new Discord forum with short, fixed coding tasks. Two are done (Mikkel's loot spawner and tank stats). Ten new ones for multiplayer, from 15 minutes to 3 hours: doors for everyone, the welding torch online, name tags, text chat, a crew list, joining at your tank, player health and respawn, when the host leaves, a network info box and a ping marker. And bigger ones: faction flags, and levers and mini-games that change the tank's stats.</li>
+<li><strong>Audio:</strong> a new commission for the blunderbuss: click, boom, bonk, and a ten-second reload in six steps.</li>
+<li><strong>3D:</strong> the barrel and the mechanical parts are done; crates, counters, armour plates, coins and more are still open.</li>
+</ul>
+          <h2>New ideas</h2>
+<p><a href="../ideas/engine-brain.html">Talking to your tank</a> (now partly built) · <a href="../ideas/crew-headset.html">The crew headset</a> (partly built)</p>
+          <h2>Pictures</h2><div class="shots"><figure><a href="../../assets/project/2026-11-02/open-world-map.webp"><img loading="lazy" src="../../assets/project/2026-11-02/open-world-map.webp" alt="The first open-world map: Newbie Town, Levelup Road and Highlevel Hill."></a><figcaption>The first open-world map: Newbie Town, Levelup Road and Highlevel Hill.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/first-ambush.webp"><img loading="lazy" src="../../assets/project/2026-11-02/first-ambush.webp" alt="The first ambush: the enemy tank spawned at the ambush site and shot our big tank to pieces, with real holes in the armour."></a><figcaption>The first ambush: the enemy tank spawned at the ambush site and shot our big tank to pieces, with real holes in the armour.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/ambush-area.webp"><img loading="lazy" src="../../assets/project/2026-11-02/ambush-area.webp" alt="An ambush area: when a player tank drives into the box, its enemy tanks appear."></a><figcaption>An ambush area: when a player tank drives into the box, its enemy tanks appear.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/big-tank.webp"><img loading="lazy" src="../../assets/project/2026-11-02/big-tank.webp" alt="The big tank, which could not get over the terrain until its springs followed the track housings."></a><figcaption>The big tank, which could not get over the terrain until its springs followed the track housings.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/tank-loadout.webp"><img loading="lazy" src="../../assets/project/2026-11-02/tank-loadout.webp" alt="A loadout on the tank spawner: what the tank carries, so an enemy can run out of ammo."></a><figcaption>A loadout on the tank spawner: what the tank carries, so an enemy can run out of ammo.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/terrain-stamp-maker.webp"><img loading="lazy" src="../../assets/project/2026-11-02/terrain-stamp-maker.webp" alt="The Terrain Stamp Maker: mountains, mesas, canyons and dunes for students to sculpt the desert with."></a><figcaption>The Terrain Stamp Maker: mountains, mesas, canyons and dunes for students to sculpt the desert with.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/terrain-multiplayer.webp"><img loading="lazy" src="../../assets/project/2026-11-02/terrain-multiplayer.webp" alt="Two players on the new mesh terrain."></a><figcaption>Two players on the new mesh terrain.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/civilian-bench.webp"><img loading="lazy" src="../../assets/project/2026-11-02/civilian-bench.webp" alt="The first civilian looks at the mountains, and sits on a bench when he gets tired."></a><figcaption>The first civilian looks at the mountains, and sits on a bench when he gets tired.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/npcs.webp"><img loading="lazy" src="../../assets/project/2026-11-02/npcs.webp" alt="Named people and background people from the new NPC system."></a><figcaption>Named people and background people from the new NPC system.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/hotbar.webp"><img loading="lazy" src="../../assets/project/2026-11-02/hotbar.webp" alt="The hotbar: ten slots for what you carry in your hands."></a><figcaption>The hotbar: ten slots for what you carry in your hands.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/pistol-grip.webp"><img loading="lazy" src="../../assets/project/2026-11-02/pistol-grip.webp" alt="The pistol grip, here with the welding torch."></a><figcaption>The pistol grip, here with the welding torch.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/heavy-grip.webp"><img loading="lazy" src="../../assets/project/2026-11-02/heavy-grip.webp" alt="The heavy grip: the blunderbuss held across the body."></a><figcaption>The heavy grip: the blunderbuss held across the body.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/crew-headset.webp"><img loading="lazy" src="../../assets/project/2026-11-02/crew-headset.webp" alt="The crew headset and its head lamp, in a dark room."></a><figcaption>The crew headset and its head lamp, in a dark room.</figcaption></figure><figure><a href="../../assets/project/2026-11-02/big-boom.webp"><img loading="lazy" src="../../assets/project/2026-11-02/big-boom.webp" alt="Bastian's exploding cannonball: “Unlocked Big Boom”."></a><figcaption>Bastian's exploding cannonball: “Unlocked Big Boom”.</figcaption></figure></div>
+        </div>
+        <p style="margin-top:32px"><a class="btn btn-ghost" href="../log.html">← All weeks</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="../../index.html"><span class="logo">👾</span>Troll<b>Byte</b></a>
+      <p>Made by students &amp; teachers at Specialisterne STU Denmark.</p>
+    </div>
+  </footer>
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

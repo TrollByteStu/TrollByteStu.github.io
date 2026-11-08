@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The engine&#x27;s brain — TrollByte</title>
-  <meta name="description" content="Give the tank its personality with an LLM, using the Player2 plugin made over the summer. It reacts to being shot, to hills and to repairs.">
+  <title>Talking to your tank — TrollByte</title>
+  <meta name="description" content="The tank has a mind of its own: a giant brass face on the wall, with a personality you build from punch-card shards. You talk to it, and it talks back.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
   <link rel="stylesheet" href="../../assets/css/style.css?v=2026-10-18">
 </head>
@@ -29,13 +29,35 @@
       <nav class="subnav" aria-label="Cranky Engines"><a href="../../project.html">Overview</a><a href="../../project/plan.html">The Plan</a><a href="../../project/status.html">Where we are</a><a href="../../project/log.html">Work log</a><a href="../../project/ideas.html" aria-current="page">Idea journal</a><a href="../../project/decisions.html">Decisions</a></nav>
       <div class="article">
         <div class="crumbs"><a href="../../project.html">Cranky Engines</a> · <a href="../ideas.html">Idea journal</a></div>
-        <h1>The engine's brain</h1>
-        <div class="byline"><span class="pill doing">Planned</span> <span>First thought of: 2026 Oct 15</span></div>
+        <h1>Talking to your tank</h1>
+        <div class="byline"><span class="pill doing">Partly built</span> <span>First thought of: 2026 Oct 15</span></div>
         <div class="article-body">
-          <p class="lede">Give the tank its personality with an LLM, using the Player2 plugin made over the summer. It reacts to being shot, to hills and to repairs.</p>
-          <p>The heart of the game is a diva engine raised on poetry and opera. Its brain comes after damage, so it has something to react to: being shot, climbing hills, being repaired.</p>
+          <p class="lede">The tank has a mind of its own: a giant brass face on the wall, with a personality you build from punch-card shards. You talk to it, and it talks back.</p>
+          <div class="shots" style="grid-template-columns:1fr"><figure><a href="../../assets/project/2026-11-02/officer-concept.webp"><img loading="lazy" src="../../assets/project/2026-11-02/officer-concept.webp" alt="Concept art: a giant brass officer's face on the wall of a dark engine hall, above a glowing furnace door, with the crew standing in front of it."></a><figcaption>Concept art: the officer's face on the wall of the engine hall, with the crew in front of it. The furnace below is the tank's heart.</figcaption></figure></div>
+          <h2>The idea</h2>
+          <p>The heart of the game is a thinking war tank, raised on poetry and opera. You don't just drive it: you live inside it, and you talk to it. Somewhere in the hull is its face, a huge brass officer on the wall, with a red glow in its eyes and mouth. You walk up to it and talk. It answers in its own voice, with its own moods, and it has opinions about you, about the hills and about being shot at.</p>
+          <ul>
+            <li><strong>Its mind is made of personality shards:</strong> steampunk punch cards with a crystal in them, slotted into a rack next to the face. Each shard is a fragment of someone's memory (a merchant, a soldier, a machine) and carries a personality: Grump, Diva, Coward, Depressed... The tank's character is the mix of the shards you put in.</li>
+            <li><strong>Shards are loot.</strong> Pull one out and the tank loses that part of itself, and the skills it learned with it. Rare shards are worth fighting for.</li>
+            <li><strong>Talk by typing or by microphone.</strong> Most school computers have no microphone, and a game needs a typed way in anyway.</li>
+            <li><strong>It has feelings.</strong> Anger, fear, pride and sadness change its face, its eyes and its lights. Shoot it and it gets scared. Stand too close and it snaps at you.</li>
+            <li><strong>The dream:</strong> the face of authority breaking down in a battle and begging the crew to hide him from the enemy.</li>
+          </ul>
+          <h2>What is built (2026 Nov 6)</h2>
+          <ul>
+            <li>The brass officer face: eyes that follow you, blinking, a moving jaw, a cigar, red eye beams.</li>
+            <li>A metal voice: the AI's speech run through a filter, so it sounds like it comes from inside a hull.</li>
+            <li>Moods (anger, fear, pride, sadness) that change the face.</li>
+            <li>Personality shards with personalities and memories, a rack where you can see them in their slots, with the crystal in the personality's colour.</li>
+            <li>Talking: press E at the face to open a screen with the slots, your shards and a text box (or hold to talk). It answers in character, through the Player2 AI.</li>
+            <li>In multiplayer, everyone on the tank hears the same answer.</li>
+          </ul>
           <h2>History</h2>
-          <ul><li><strong>2026 Oct 15:</strong> Put in the work order, after multiplayer and damage.</li></ul>
+          <ul>
+            <li><strong>2026 Oct 15:</strong> Put in the work order, after multiplayer and damage.</li>
+            <li><strong>2026 Nov 6:</strong> The face, the voice, moods, personality shards and talking were built and tried in a test level. The officer said his first lines with the Player2 voice.</li>
+            <li><strong>2026 Nov 8:</strong> Concept art of the face in its engine hall, to show how it will look in the game.</li>
+          </ul>
         </div>
         <p style="margin-top:32px"><a class="btn btn-ghost" href="../ideas.html">← All ideas</a></p>
       </div>
